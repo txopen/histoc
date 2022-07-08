@@ -2,3 +2,66 @@ url: https://txopen.github.io/histoc/
 template:
   bootstrap: 5
 
+
+navbar:
+  structure:
+    left: [setup, reference, articles, news]
+    right: [search, github]
+  components:
+    setup:
+      text: Get Started
+      href: articles/starts.html
+
+reference:
+  - title: Compatibility
+    desc: >
+      Tests histocompatibility between donor and candidates
+    contents:
+    - abo
+    - mmHLa
+    - txscore
+    - xmatch
+  - title: Utilities
+    desc: >
+      Auxiliar functions for allocation algorithms
+    contents:
+    - age_diff
+    - hiper
+    - sp
+    - donor_recipient_pairs
+    - several
+  - title: Lima algorithm
+    desc: >
+      Used to compute candidates selection according to Lima's algorithm
+    contents:
+    - lima
+    - cp
+  - title: PT algorithm
+    desc: >
+      Used to compute candidates selection according to Portuguese algorithm
+    contents:
+    - pt
+    - pts_HLA
+    - pts_age
+  - title: ET algorithm
+    desc: >
+      Used to compute candidates selection according to EuroTransplant algorithm
+    contents:
+    - starts_with("et")
+  - title: UK algorithm
+    desc: >
+      Used to compute candidates selection according to United Kingdom algorithm
+    contents:
+    - uk
+    - abo_uk
+    - b_blood_penalization
+    - ric
+  - title: Data
+    desc: >
+      data frames availables from the pacakge
+    contents:
+    - starts_with("candidat")
+    - starts_with("donor")
+    - cabs
+    - starts_with("hla")
+    - ABOpt

@@ -2,7 +2,7 @@
 
 * first release version
 
-# histoc 0.0.9999
+# histoc 0.0.9
 
 * Added a `NEWS.md` file to track changes to the package.
 
