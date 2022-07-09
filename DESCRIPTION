@@ -29,3 +29,4 @@ Depends:
 LazyData: true
 Config/testthat/edition: 3
 URL: https://txopen.github.io/histoc/
+VignetteBuilder: knitr

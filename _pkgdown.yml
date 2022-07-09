@@ -2,13 +2,12 @@ url: https://txopen.github.io/histoc/
 template:
   bootstrap: 5
 
-
 navbar:
   structure:
-    left: [setup, reference, articles, news]
+    left: [start, reference, articles, news]
     right: [search, github]
   components:
-    setup:
+    start:
       text: Get Started
       href: articles/starts.html
 
@@ -18,7 +17,7 @@ reference:
       Tests histocompatibility between donor and candidates
     contents:
     - abo
-    - mmHLa
+    - mmHLA
     - txscore
     - xmatch
   - title: Utilities
@@ -43,6 +42,7 @@ reference:
     - pt
     - pts_HLA
     - pts_age
+    - pts_PRA
   - title: ET algorithm
     desc: >
       Used to compute candidates selection according to EuroTransplant algorithm
@@ -65,3 +65,4 @@ reference:
     - cabs
     - starts_with("hla")
     - ABOpt
+
