@@ -3,12 +3,12 @@
 \docType{package}
 \name{histoc}
 \alias{histoc}
-\title{histoc: A package for histocompatibility analysis performed on kidney allocation systems for transplantation}
+\title{histoc: Histocompatibility analysis performed in kidney allocation systems for transplantation.}
 \description{
-The histoc package provides functions for compatibility between organ donors and transplant candidates.
+The \code{histoc} package provides functions for compatibility between organ donors and transplant candidates.
 }
 \section{histoc functions}{
 
-The histoc main functions: lima, pts, uk, et, several
+The \code{histoc} main functions: \code{lima}, \code{pts}, \code{uk}, \code{et}, \code{several}
 }
 
