@@ -9,6 +9,6 @@ The histoc package provides functions for compatibility between organ donors and
 }
 \section{histoc functions}{
 
-The histoc functions: abo, abo.uk, age.diff, b.blood, cp, et, et_mmHLA, et-dialysis,
+The histoc main functions: lima, pts, uk, et, several
 }
 

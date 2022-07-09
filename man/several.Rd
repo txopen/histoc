@@ -27,7 +27,7 @@ for a group of waitlisted transplant candidates. For uk algorithm must have resp
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
-\item{algorithm}{The name of the function to use. Valid options are: lima, et, pt, uk (without quotation)}
+\item{algorithm}{The name of the function to use. Valid options are: lima, et, pts, uk (without quotation)}
 
 \item{n}{A positive integer to slice the first candidates.}
 

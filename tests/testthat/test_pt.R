@@ -14,7 +14,7 @@ test_that("Test pts_age function", {
             ),
             valid.results[i]
         )
-    }  
+    }
 
     invalid.donor.ages <- c('50', 61, 61, env$adulthood.age - 1, 39, 39, env$person.maximum.age, 39, 39)
     invalid.candidate.ages <- c(40, '55', 54, 55, env$adulthood.age - 1, 39, 39, env$person.maximum.age, 39)
@@ -28,7 +28,7 @@ test_that("Test pts_age function", {
                 age.difference.points <- invalid.age.difference.points[i]
             )
         )
-    }  
+    }
 })
 
 test_that("Test pts_PRA function", {
@@ -47,8 +47,8 @@ test_that("Test pts_PRA function", {
             ),
             valid.results[i]
         )
-    }  
-    
+    }
+
     invalid.cPRA <- c('1', -1, 101, 4, 4, 4)
     invalid.points.50 <- c(4, 4, 4, 4, 4, 4, '1', -1, 101)
     invalid.points.80 <- c(4, 4, 4, '1', -1, 101, 4, 4, 4)
@@ -61,11 +61,11 @@ test_that("Test pts_PRA function", {
                 points.80 <- invalid.points.80[i]
             )
         )
-    }  
+    }
 })
 
 
-test_that("Test pt algorithm", {
+test_that("Test pts algorithm", {
     iso = TRUE
     dABO = "O"
     dA = c("1","2")
@@ -123,10 +123,10 @@ test_that("Test pt algorithm", {
         ptsage = c(4, 4),
         ptsdial = c(10.4, 10.3)
     )
-    
+
     expect_equal(
         as.data.frame(
-            pt(
+            pts(
                 iso = TRUE
                 , dABO = "O"
                 , dA = c("1","2")

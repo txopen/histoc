@@ -7,7 +7,7 @@
 #' @param df.candidates A data frame containing demographics and medical information
 #' for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.
 #' @param df.abs A data frame with candidates' antibodies.
-#' @param algorithm The name of the function to use. Valid options are: lima, et, pt, uk (without quotation)
+#' @param algorithm The name of the function to use. Valid options are: lima, et, pts, uk (without quotation)
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
 #' @param ... all the parameters used on the function algorithm
@@ -25,14 +25,14 @@ donor_recipient_pairs <- function(df.donors = donors,
                             df.candidates = candidates,
                             df.abs = cabs,
                             algorithm = lima,
-                            n = 2, 
+                            n = 2,
                             check.validity = TRUE, ...){
-  
+
   if(!is.numeric(n)){
     stop("'n' is not a valid numeric value!")
   }
 
-  if(!identical(algorithm, uk) && !identical(algorithm, lima) && !identical(algorithm, pt) && !identical(algorithm, et)){
+  if(!identical(algorithm, uk) && !identical(algorithm, lima) && !identical(algorithm, pts) && !identical(algorithm, et)){
     stop("The algorithm doesn't exist.")
   }
 
@@ -84,7 +84,7 @@ donor_recipient_pairs <- function(df.donors = donors,
 #' @param df.candidates A data frame containing demographics and medical information
 #' for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.
 #' @param df.abs A data frame with candidates' antibodies.
-#' @param algorithm The name of the function to use. Valid options are: lima, et, pt, uk (without quotation)
+#' @param algorithm The name of the function to use. Valid options are: lima, et, pts, uk (without quotation)
 #' @param n A positive integer to slice the first candidates.
 #' @param seed.number Seed for new random number. seed.number can be NA in which case no seed is applied.
 #' @param check.validity Logical to decide whether to validate input.
@@ -105,10 +105,10 @@ several <- function(iteration.number = 10,
                        df.candidates = candidates,
                        df.abs = cabs,
                        algorithm = lima,
-                       n = 0, 
-                       seed.number = 123, 
+                       n = 0,
+                       seed.number = 123,
                        check.validity = TRUE, ...){
-  
+
   if(check.validity){
     if(identical(algorithm, uk)){
       uk_candidate_dataframe_check(df.candidates)
@@ -231,11 +231,11 @@ lima_several <- function(){
       df.candidates = candidates,
       df.abs = cabs,
       algorithm = lima,
-      n = 0, 
-      function_name = "lima", 
-      q2 = 60, 
-      q3 = 100, 
-      cPRA1 = 50, 
+      n = 0,
+      function_name = "lima",
+      q2 = 60,
+      q3 = 100,
+      cPRA1 = 50,
       cPRA2 = 85)
   )
 }
@@ -250,18 +250,18 @@ et_several <- function(){
       df.abs = cabs,
       algorithm = et,
       n = 0,
-      iso = TRUE, 
-      month = 2, 
-      mm0 = 400, 
-      mm1 = 333.33, 
-      mm2 = 266.67, 
-      mm3 = 200, 
-      mm4 = 133.33, 
-      mm5 = 66.67, 
-      mm6 = 0, 
-      hlaA = hlaApt, 
-      hlaB = hlaBpt, 
-      hlaDR = hlaDRpt, 
+      iso = TRUE,
+      month = 2,
+      mm0 = 400,
+      mm1 = 333.33,
+      mm2 = 266.67,
+      mm3 = 200,
+      mm4 = 133.33,
+      mm5 = 66.67,
+      mm6 = 0,
+      hlaA = hlaApt,
+      hlaB = hlaBpt,
+      hlaDR = hlaDRpt,
       abo_freq = ABOpt
     )
   )
@@ -275,12 +275,12 @@ pt_several <- function(){
       df.donors = donors,
       df.candidates = candidates,
       df.abs = cabs,
-      algorithm = pt,
+      algorithm = pts,
       n = 0,
-      iso = TRUE, 
-      points.80 = 8, 
-      points.50 = 4, 
-      points.dialysis = 0.1, 
+      iso = TRUE,
+      points.80 = 8,
+      points.50 = 4,
+      points.dialysis = 0.1,
       points.age = 4)
   )
 }
