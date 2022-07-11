@@ -4,7 +4,7 @@ template:
 navbar:
   structure:
     left:
-    - setup
+    - start
     - reference
     - articles
     - news
@@ -12,7 +12,7 @@ navbar:
     - search
     - github
   components:
-    setup:
+    start:
       text: Get Started
       href: articles/starts.html
 reference:
@@ -21,7 +21,7 @@ reference:
     Tests histocompatibility between donor and candidates
   contents:
   - abo
-  - mmHLa
+  - mmHLA
   - txscore
   - xmatch
 - title: Utilities
@@ -43,9 +43,10 @@ reference:
   desc: |
     Used to compute candidates selection according to Portuguese algorithm
   contents:
-  - pt
+  - pts
   - pts_HLA
   - pts_age
+  - pts_PRA
 - title: ET algorithm
   desc: |
     Used to compute candidates selection according to EuroTransplant algorithm
@@ -67,4 +68,6 @@ reference:
   - cabs
   - starts_with("hla")
   - ABOpt
+- title: package
+  contents: histoc
 
