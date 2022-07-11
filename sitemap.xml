@@ -7,6 +7,12 @@
     <loc>https://txopen.github.io/histoc/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://txopen.github.io/histoc/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://txopen.github.io/histoc/articles/starts.html</loc>
+  </url>
+  <url>
     <loc>https://txopen.github.io/histoc/authors.html</loc>
   </url>
   <url>
@@ -100,7 +106,7 @@
     <loc>https://txopen.github.io/histoc/reference/pipe.html</loc>
   </url>
   <url>
-    <loc>https://txopen.github.io/histoc/reference/pt.html</loc>
+    <loc>https://txopen.github.io/histoc/reference/pts.html</loc>
   </url>
   <url>
     <loc>https://txopen.github.io/histoc/reference/pts_HLA.html</loc>
