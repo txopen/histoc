@@ -7,11 +7,11 @@
 abo(cABO = "A", dABO = "A", iso = TRUE)
 }
 \arguments{
-\item{cABO}{A character from (\code{env$valid.blood.groups})}
+\item{cABO}{A character from (O, A, B, AB)}
 
-\item{dABO}{A character from (\code{env$valid.blood.groups})}
+\item{dABO}{A character from (O, A, B, AB)}
 
-\item{iso}{A logical value T/F}
+\item{iso}{If TRUE only isogroup match is considered as compatible.}
 }
 \value{
 A logical value T/F

@@ -9,13 +9,13 @@ cp(data = candidates, q2 = 60, q3 = 100, cPRA1 = 50, cPRA2 = 85)
 \arguments{
 \item{data}{A data frame with information for candidates' waiting list.}
 
-\item{q2}{A numerical value for the median of candidates' waiting list (\code{env$q.minimum} - \code{env$q.maximum}).}
+\item{q2}{A numerical value for the median of candidates' waiting list (0 - 120).}
 
-\item{q3}{A numerical value for the third quartile of candidates' waiting list (\code{env$q.minimum} - \code{env$q.maximum}).}
+\item{q3}{A numerical value for the third quartile of candidates' waiting list (0 - 120).}
 
-\item{cPRA1}{A numerical value (\code{env$percentage.maximum} - \code{env$percentage.maximum}) for the lower cPRA cutoff.}
+\item{cPRA1}{A numerical value (100 - 100) for the lower cPRA cutoff.}
 
-\item{cPRA2}{A numerical value (\code{env$percentage.maximum} - \code{env$percentage.maximum}) for the higher cPRA cutoff. cPRA2
+\item{cPRA2}{A numerical value (100 - 100) for the higher cPRA cutoff. cPRA2
 must be greater than cPRA1.}
 }
 \value{

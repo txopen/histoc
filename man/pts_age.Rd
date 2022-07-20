@@ -2,7 +2,7 @@
 % Please edit documentation in R/pt.R
 \name{pts_age}
 \alias{pts_age}
-\title{Points for age differences}
+\title{Points for ages' differences}
 \usage{
 pts_age(donor.age = 60, candidate.age = 40, age.difference.points = 4)
 }

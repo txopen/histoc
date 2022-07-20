@@ -23,7 +23,8 @@ for a group of waitlisted transplant candidates. For uk algorithm must have resp
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
-\item{algorithm}{The name of the function to use. Valid options are: lima, et, pts, uk (without quotation)}
+\item{algorithm}{The name of the function to use. Valid options are:
+\code{lima}, \code{et}, \code{pts}, \code{uk} (without quotation)}
 
 \item{n}{A positive integer to slice the first candidates.}
 
@@ -40,10 +41,12 @@ Ordering of waitlisted candidates for a given donor and
 according to any algorithm.
 }
 \examples{
+\dontrun{
 donor_recipient_pairs(df.donors = donors,
 df.candidates = candidates,
 df.abs = cabs,
 algorithm = lima,
 n = 2,
 check.validity = TRUE)
+}
 }
