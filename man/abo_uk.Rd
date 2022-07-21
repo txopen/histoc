@@ -2,16 +2,16 @@
 % Please edit documentation in R/uk.R
 \name{abo_uk}
 \alias{abo_uk}
-\title{test for ABO compatibility on UK transplant}
+\title{ABO compatibility on UK's algorithm}
 \usage{
 abo_uk(dABO = "A", cABO = "A", tier = "B")
 }
 \arguments{
-\item{dABO}{A character from (\code{env$valid.blood.groups}), for donor ABO group}
+\item{dABO}{A character from (O, A, B, AB), for donor ABO group}
 
-\item{cABO}{A character from (\code{env$valid.blood.groups}), for candidate ABO group}
+\item{cABO}{A character from (O, A, B, AB), for candidate ABO group}
 
-\item{tier}{A character value for UK transplant candidate's TIER classification (\code{env$valid.tiers})
+\item{tier}{A character value for UK transplant candidate's TIER classification (A, B)
 (options A and B)}
 }
 \value{

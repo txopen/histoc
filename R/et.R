@@ -19,8 +19,8 @@
 #' abo_freq = ABOpt, check.validity = TRUE)
 #' @export
 et_mmp <- function(data = candidates,
-                 hlaA = hlaApt, 
-                 hlaB = hlaBpt, 
+                 hlaA = hlaApt,
+                 hlaB = hlaBpt,
                  hlaDR = hlaDRpt,
                  abo_freq = ABOpt,
                  check.validity = TRUE){
@@ -87,7 +87,7 @@ et_mmp <- function(data = candidates,
 
 #' ET points for mmHLA
 #'
-#' @description Computes HLA mismatches and the respective punctuation within ET
+#' @description Computes HLA mismatches (mm) and the respective punctuation within ET
 #' Kidney allocation system
 #' @param dA donor's HLA-A typing
 #' @param dB donor's HLA-B typing
@@ -151,9 +151,9 @@ et_mmHLA <- function(dA = c("01","02"), dB = c("03","05"), dDR = c("04","06"),
 #' @description Punctuation given for each month on dialysis, within ET
 #' Kidney allocation system
 #' @param dialysis A numeric value with candidate's time on dialysis, in months
-#' (between `env$dialysis.minimum` and `env$dialysis.maximum`)
+#' (between `r env$dialysis.minimum` and `r env$dialysis.maximum`)
 #' @param month A numeric value with the punctuation for each month
-#' (between env$month.points.minimum and env$month.points.maximum)
+#' (between `r env$month.points.minimum` and `r env$month.points.maximum`)
 #' @examples
 #' et_dialysis(dialysis = 100, month = 2.78)
 #' @export
@@ -170,12 +170,13 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 }
 
 
-#' resume function for ET algorithm punctuation
+#' ET algorithm
 #'
-#' @description Ordering of waitlisted candidates for a given donor and
+#' @description Applies EuroTransplant algorithm on deceased donor's Kidney allocation for transplantation.
+#' Ordering of waitlisted candidates for a given donor and
 #' according to ETKAS algorithm.
 #' @param iso A logical value for isogroupal compatibility.
-#' @param dABO A character value with ABO blood group (`env$valid.blood.groups`).
+#' @param dABO A character value with ABO blood group (`r env$valid.blood.groups`).
 #' @param dA donor's HLA-A typing.
 #' @param dB donor's HLA-B typing.
 #' @param dDR donor's HLA-DR typing.
@@ -198,8 +199,8 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
-#' @return An ordered data frame with columns cPRA, HI, pointsET, SP, AM
-#' and 'mmHLA'.
+#' @return An ordered data frame with columns \code{cPRA}, \code{HI},
+#' \code{pointsET}, \code{SP}, \code{AM}, and \code{mmHLA}.
 #' @examples
 #' et(iso = TRUE, dABO = "A",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
@@ -240,9 +241,9 @@ et <- function(iso = TRUE
     candidate_dataframe_check(data)
   }
 
-  blood_group_checker(dABO) 
-  age_checker(donor.age) 
-  dialysis_checker(donor.age) 
+  blood_group_checker(dABO)
+  age_checker(donor.age)
+  dialysis_checker(donor.age)
 
   n <- max(1, n)
 

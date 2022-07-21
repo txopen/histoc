@@ -1,5 +1,5 @@
 ---
-title: "Get started"
+title: "Input data"
 ---
 
 ```{r, include = FALSE}
@@ -12,3 +12,4 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(histoc)
 ```
+

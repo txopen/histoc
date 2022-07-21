@@ -1,4 +1,4 @@
-#' Points for age differences
+#' Points for ages' differences
 #'
 #' @description Punctuation given for age difference between candidates and donors
 #' @param donor.age A numeric value with donor's age.
@@ -34,8 +34,8 @@ pts_age <- function(donor.age = 60
 #'
 #' @description Punctuation given for sensitized patients according to cPRA value
 #' @param cPRA Percentual value of cPRA (0 - 100)
-#' @param points.80 A numerical value (`env$pt.points.minimum` - `env$pt.points.maximum`) for the points to a cPRA >= 80
-#' @param points.50 A numerical value (`env$pt.points.minimum` - `env$pt.points.maximum`) for the points to a cPRA >= 50
+#' @param points.80 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 80
+#' @param points.50 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 50
 #' @return A numerical value for pre-defined points
 #' @examples
 #' pts_PRA(cPRA = 0, points.80 = 8, points.50 = 4)
@@ -105,12 +105,13 @@ pts_HLA <- function(itemA = 12
   return(pts)
 }
 
-#' Matching punctuation' according to 2007 PT's algorithm
+#' PT algorithm
 #'
-#' @description Ordering of waitlisted candidates for a given donor and
+#' @description Applies PT algorithm on deceased donor's Kidney allocation for transplantation.
+#' Ordering of waitlisted candidates for a given donor and
 #' according to PT's algorithm.
-#' @param iso A logical value for isogroupal compatibility.
-#' @param dABO A character value with ABO blood group (`env$valid.blood.groups`).
+#' @param iso A logical value for isogroup compatibility.
+#' @param dABO A character value with ABO blood group (`r env$valid.blood.groups`).
 #' @param dA donor's HLA-A typing.
 #' @param dB donor's HLA-B typing.
 #' @param dDR donor's HLA-DR typing.
@@ -118,14 +119,14 @@ pts_HLA <- function(itemA = 12
 #' @param data A data frame containing demographics and medical information for
 #' a group of waitlisted transplant candidates with color priority classification.
 #' @param df.abs A data frame with candidates' antibodies.
-#' @param points.80 A numerical value (`env$pt.points.minimum` - `env$pt.points.maximum`) for the points to a cPRA >= 80
-#' @param points.50 A numerical value (`env$pt.points.minimum` - `env$pt.points.maximum`) for the points to a cPRA >= 50
+#' @param points.80 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 80
+#' @param points.50 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 50
 #' @param points.dialysis punctuaction for each month on dialysis
 #' @param points.age A numerical value for the points to age difference
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
-#' @return An ordered data frame with a column 'cp' (color priority),
-#' 'sp', 'hi' and 'mmHLA'.
+#' @return An ordered data frame with a column \code{cp} (color priority),
+#' \code{sp}, \code{hi} and \code{mmHLA}.
 #' @examples
 #' pts(iso = TRUE, dABO = "A",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),

@@ -1,21 +1,21 @@
 #' test for ABO compatibility
 #'
 #' @description ABO compatibility test between donor and candidate
-#' @param cABO A character from (`env$valid.blood.groups`)
-#' @param dABO A character from (`env$valid.blood.groups`)
-#' @param iso A logical value T/F
+#' @param cABO A character from (`r env$valid.blood.groups`)
+#' @param dABO A character from (`r env$valid.blood.groups`)
+#' @param iso If TRUE only isogroup match is considered as compatible.
 #' @return A logical value T/F
 #' @examples
 #' abo(cABO = 'A', dABO = 'A', iso = TRUE)
 #' @export
 abo <- function(cABO = 'A', dABO = 'A', iso = TRUE){
-  blood_group_checker(cABO) 
+  blood_group_checker(cABO)
   blood_group_checker(dABO)
   is.logical(iso)
 
   if(iso == TRUE){
     value <- cABO == dABO
-    } 
+    }
   else {
     value <- ifelse(dABO == 'O', TRUE,
               ifelse(dABO == 'A' & cABO %in% c('A','AB'),TRUE,
@@ -26,7 +26,7 @@ abo <- function(cABO = 'A', dABO = 'A', iso = TRUE){
               )
         }
   return(value)
-    
+
 }
 
 #' number of HLA mismatchs
@@ -46,11 +46,11 @@ abo <- function(cABO = 'A', dABO = 'A', iso = TRUE){
 #' mmHLA(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
 #' cA = c('1','2'), cB = c('03','15'), cDR = c('04','07'))
 #' @export
-mmHLA <- function(dA = c('1','2'), 
-                  dB = c('5','7'), 
+mmHLA <- function(dA = c('1','2'),
+                  dB = c('5','7'),
                   dDR = c('1','4'),
-                  cA = c('1','2'), 
-                  cB = c('3','15'), 
+                  cA = c('1','2'),
+                  cB = c('3','15'),
                   cDR = c('4','7')){
 
   if(!is.character(dA)){stop("donor's HLA-A typing is not valid!\n")}
@@ -59,7 +59,7 @@ mmHLA <- function(dA = c('1','2'),
   if(!is.character(cA)){stop("candidate's HLA-A typing is not valid!\n")}
   if(!is.character(cB)){stop("candidate's HLA-B typing is not valid!\n")}
   if(!is.character(cDR)){stop("candidate's HLA-DR typing is not valid!\n")}
-  
+
   mmA <- NULL
   mmB <- NULL
   mmDR <- NULL
@@ -103,7 +103,7 @@ mmHLA <- function(dA = c('1','2'),
 xmatch <- function(dA = c('1','2'),
                    dB = c('5','7'),
                    dDR = c('1','4'),
-                   df.abs = cabs, 
+                   df.abs = cabs,
                    check.validity = TRUE){
   if(check.validity){
     if(!requireNamespace("dplyr", quietly = TRUE)) {
@@ -150,9 +150,9 @@ xmatch <- function(dA = c('1','2'),
 #'
 #' @description returns candidates' hiperimunized classification according to a
 #' cutoff value
-#' @param cPRA candidate's cPRA value
-#' @param cutoff A value to compare candidate's cPRA
-#' @return A logical value T/F when cPRA >= cutoff
+#' @param cPRA candidate's \code{cPRA} value
+#' @param cutoff A value to compare candidate's \code{cPRA}
+#' @return A logical value TRUE when \code{cPRA} >= cutoff
 #' @examples
 #' hiper(cPRA = 99, cutoff = 85)
 #' @export
@@ -246,7 +246,7 @@ txscore <- function(recipient.age = 20
   if(!mmHLA_A %in% c(0,1,2)){stop("Number of mm HLA-A is not valid! Valid optios: 0, 1, 2")}
   if(!mmHLA_B %in% c(0,1,2)){stop("Number of mm HLA-B is not valid! Valid optios: 0, 1, 2")}
   if(!mmHLA_DR %in% c(0,1,2)){stop("Number of mm HLA-DR is not valid! Valid optios: 0, 1, 2")}
-  
+
   mmHLA_ <- as.numeric(mmHLA_A) + as.numeric(mmHLA_B) + as.numeric(mmHLA_DR)
   mmHLA <- ifelse(mmHLA_ == 0 , '0',
                   ifelse(mmHLA_ < 4, '1-3', '4-6'))

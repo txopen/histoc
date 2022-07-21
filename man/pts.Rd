@@ -2,7 +2,7 @@
 % Please edit documentation in R/pt.R
 \name{pts}
 \alias{pts}
-\title{Matching punctuation' according to 2007 PT's algorithm}
+\title{PT algorithm}
 \usage{
 pts(
   iso = TRUE,
@@ -22,9 +22,9 @@ pts(
 )
 }
 \arguments{
-\item{iso}{A logical value for isogroupal compatibility.}
+\item{iso}{A logical value for isogroup compatibility.}
 
-\item{dABO}{A character value with ABO blood group (\code{env$valid.blood.groups}).}
+\item{dABO}{A character value with ABO blood group (O, A, B, AB).}
 
 \item{dA}{donor's HLA-A typing.}
 
@@ -39,9 +39,9 @@ pts(
 \item{data}{A data frame containing demographics and medical information for
 a group of waitlisted transplant candidates with color priority classification.}
 
-\item{points.80}{A numerical value (\code{env$pt.points.minimum} - \code{env$pt.points.maximum}) for the points to a cPRA >= 80}
+\item{points.80}{A numerical value (0 - 20) for the points to a cPRA >= 80}
 
-\item{points.50}{A numerical value (\code{env$pt.points.minimum} - \code{env$pt.points.maximum}) for the points to a cPRA >= 50}
+\item{points.50}{A numerical value (0 - 20) for the points to a cPRA >= 50}
 
 \item{points.dialysis}{punctuaction for each month on dialysis}
 
@@ -52,10 +52,11 @@ a group of waitlisted transplant candidates with color priority classification.}
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \value{
-An ordered data frame with a column 'cp' (color priority),
-'sp', 'hi' and 'mmHLA'.
+An ordered data frame with a column \code{cp} (color priority),
+\code{sp}, \code{hi} and \code{mmHLA}.
 }
 \description{
+Applies PT algorithm on deceased donor's Kidney allocation for transplantation.
 Ordering of waitlisted candidates for a given donor and
 according to PT's algorithm.
 }

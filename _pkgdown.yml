@@ -14,7 +14,7 @@ navbar:
   components:
     start:
       text: Get Started
-      href: articles/starts.html
+      href: articles/how_to.html
 reference:
 - title: Compatibility
   desc: |
@@ -63,8 +63,8 @@ reference:
   desc: |
     data frames availables from the pacakge
   contents:
-  - starts_with("candidat")
-  - starts_with("donor")
+  - starts_with("candidates")
+  - starts_with("donors")
   - cabs
   - starts_with("hla")
   - ABOpt

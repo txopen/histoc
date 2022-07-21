@@ -2,7 +2,7 @@
 % Please edit documentation in R/mult.R
 \name{several}
 \alias{several}
-\title{Runs several time the function donor_recipient_pairs() for as bootstrap.}
+\title{Runs several time the function donor_recipient_pairs() as bootstrap.}
 \usage{
 several(
   iteration.number = 10,
@@ -27,11 +27,13 @@ for a group of waitlisted transplant candidates. For uk algorithm must have resp
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
-\item{algorithm}{The name of the function to use. Valid options are: lima, et, pts, uk (without quotation)}
+\item{algorithm}{The name of the function to use. Valid options are:
+\code{lima}, \code{et}, \code{pts}, \code{uk} (without quotation)}
 
 \item{n}{A positive integer to slice the first candidates.}
 
-\item{seed.number}{Seed for new random number. seed.number can be NA in which case no seed is applied.}
+\item{seed.number}{Seed for new random number.
+\code{seed.number} can be \code{NA} in which case no seed is applied.}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 
@@ -42,9 +44,10 @@ Statistics related to all the times the function ran.
 }
 \description{
 Generic function that runs the matchability between all combinations of donors and candidates.
-Runs an arbitrary number of times ('iteration.number') to provide statistics.
+Runs an arbitrary number of times (\code{iteration.number}) to provide statistics.
 }
 \examples{
+\dontrun{
 several(iteration.number = 10,
 df.donors = donors,
 df.candidates = candidates,
@@ -53,4 +56,5 @@ algorithm = lima,
 n = 0,
 seed.number = 123,
 check.validity = TRUE)
+}
 }

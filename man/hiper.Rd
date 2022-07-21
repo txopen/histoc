@@ -7,12 +7,12 @@
 hiper(cPRA = 99, cutoff = 85)
 }
 \arguments{
-\item{cPRA}{candidate's cPRA value}
+\item{cPRA}{candidate's \code{cPRA} value}
 
-\item{cutoff}{A value to compare candidate's cPRA}
+\item{cutoff}{A value to compare candidate's \code{cPRA}}
 }
 \value{
-A logical value T/F when cPRA >= cutoff
+A logical value TRUE when \code{cPRA} >= cutoff
 }
 \description{
 returns candidates' hiperimunized classification according to a

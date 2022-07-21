@@ -7,19 +7,22 @@
 #' @param df.candidates A data frame containing demographics and medical information
 #' for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.
 #' @param df.abs A data frame with candidates' antibodies.
-#' @param algorithm The name of the function to use. Valid options are: lima, et, pts, uk (without quotation)
+#' @param algorithm The name of the function to use. Valid options are:
+#' \code{lima}, \code{et}, \code{pts}, \code{uk} (without quotation)
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
 #' @param ... all the parameters used on the function algorithm
 #' @return A list with the number of elements equal to the number of rows on donors data frame.
 #' Each element have a data frame with select candidates by donor.
 #' @examples
+#' \dontrun{
 #' donor_recipient_pairs(df.donors = donors,
 #' df.candidates = candidates,
 #' df.abs = cabs,
 #' algorithm = lima,
 #' n = 2,
 #' check.validity = TRUE)
+#' }
 #' @export
 donor_recipient_pairs <- function(df.donors = donors,
                             df.candidates = candidates,
@@ -74,23 +77,26 @@ donor_recipient_pairs <- function(df.donors = donors,
   return(lst)
 }
 
-#' Runs several time the function donor_recipient_pairs() for as bootstrap.
+#' Runs several time the function donor_recipient_pairs() as bootstrap.
 #'
 #' @description Generic function that runs the matchability between all combinations of donors and candidates.
-#' Runs an arbitrary number of times ('iteration.number') to provide statistics.
+#' Runs an arbitrary number of times (\code{iteration.number}) to provide statistics.
 #' @param iteration.number Number of times the matchability runs.
 #' @param df.donors A data frame containing demographics and medical information
 #' for a poll of donors. For uk algorithm must have respective columns.
 #' @param df.candidates A data frame containing demographics and medical information
 #' for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.
 #' @param df.abs A data frame with candidates' antibodies.
-#' @param algorithm The name of the function to use. Valid options are: lima, et, pts, uk (without quotation)
+#' @param algorithm The name of the function to use. Valid options are:
+#' \code{lima}, \code{et}, \code{pts}, \code{uk} (without quotation)
 #' @param n A positive integer to slice the first candidates.
-#' @param seed.number Seed for new random number. seed.number can be NA in which case no seed is applied.
+#' @param seed.number Seed for new random number.
+#' \code{seed.number} can be \code{NA} in which case no seed is applied.
 #' @param check.validity Logical to decide whether to validate input.
 #' @param ... all the parameters used on the function algorithm
 #' @return Statistics related to all the times the function ran.
 #' @examples
+#' \dontrun{
 #' several(iteration.number = 10,
 #' df.donors = donors,
 #' df.candidates = candidates,
@@ -99,6 +105,7 @@ donor_recipient_pairs <- function(df.donors = donors,
 #' n = 0,
 #' seed.number = 123,
 #' check.validity = TRUE)
+#' }
 #' @export
 several <- function(iteration.number = 10,
                        df.donors = donors,
