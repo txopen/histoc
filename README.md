@@ -3,12 +3,11 @@
 
 # histoc <img src="man/figures/logo.png" height="150" align="right"/>
 
+<!-- badges: start -->
+
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-
-<!-- badges: start -->
-
 [![R-CMD-check](https://github.com/txopen/histoc/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/histoc/actions)
 [![Last Commit
 Date](https://img.shields.io/github/last-commit/txopen/histoc.svg)](https://github.com/txopen/histoc/commits/main)
