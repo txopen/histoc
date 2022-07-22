@@ -33,9 +33,9 @@ The source code can be found [here](https://txopen.github.io/histoc/).
 
 ### Development version 
 
-The development version can be installed from GitHub, if you want all the latest features, together with all the latest bugs and errors. 
-
-You have been warned :exclamation:
+The development version can be installed from GitHub.  
+Alongside the latest features you might also get a couple of bugs:exclamation:  
+Be sure to report anything you find [here](https://github.com/txopen/histoc/issues).
 
 ```
 # install from GitHub
