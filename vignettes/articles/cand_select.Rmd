@@ -1,0 +1,66 @@
+---
+title: "Candidate's selection"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(histoc)
+```
+
+## Candidates’ selection for a pool of donors
+
+We can also simulate the selection of wait list candidates for a pool of donors, according to a given model (or algorithm). 
+The function `donor_recipient_pairs()` allow us to compute all possible donor-recipient pairs according to any of the [previously described](how_to.html) kidney allocation algorithms. 
+
+Here an example where we use a pool of 70 donors ([donors](../reference/donors.html) data frame available from the package) to select from a wait list of 500 transplant [candidates](../reference/candidates.html) (data frame is also available from the package)
+
+
+```{r}
+# compute all possible donor-recipient pairs for each one of the donors according to ‘lima’ algorithm
+all_pairs <- donor_recipient_pairs(df.donors = donors,
+                      df.candidates = candidates,
+                      df.abs = cabs,
+                      algorithm = lima,
+                      n = 0,
+                      check.validity = FALSE)
+
+# for loop to select 2 available candidates for a pool of donors
+used.candidates <- NULL
+result <- NULL
+for(i in 1: length(all_pairs)){
+  tmp <- all_pairs[[i]][!ID %in% used.candidates][1:2,]
+
+  result <- data.table::rbindlist(list(result, tmp))
+  used.candidates <- c(used.candidates, tmp$ID)
+}
+
+# as a result we have all the selected donor-recipient pairs for a given pool of donors
+result
+```
+
+Now we can also compute a new column for the estimated 5-year event (mortality or graft failure) probability as described by Molnar *et al.*^[Predictive Score for Posttransplantation Outcomes. Molnar M, Nguyen D, Chen Y, et al. Transplantation. 2017 Jun;101(6):1353-1364] and available from the application [TxScore](https://balima.shinyapps.io/scoreTx/), with the function `txscore()`:
+
+```{r}
+result[!is.na(ID),][ ,
+                     txs := txscore(recipient.age = age,
+                                    recipient.dialysis = dialysis,
+                                    donor.age = donor_age,
+                                    mmHLA_A = mmA,
+                                    mmHLA_B = mmB,
+                                    mmHLA_DR = mmDR)$prob5y,
+                     by = 'ID'][] 
+```
+
+
+## Input data
+
+Input data used on this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available. Also, [{simK}](https://github.com/txopen/simK) package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
+
+
+
