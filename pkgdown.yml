@@ -2,9 +2,9 @@ pandoc: 2.7.3
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
-  starts: starts.html
+  cand_select: cand_select.html
   how_to: how_to.html
-last_built: 2022-07-25T18:27Z
+last_built: 2022-07-25T19:11Z
 urls:
   reference: https://txopen.github.io/histoc/reference
   article: https://txopen.github.io/histoc/articles

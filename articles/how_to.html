@@ -51,7 +51,7 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/starts.html">Input data</a>
+    <a class="dropdown-item" href="../articles/cand_select.html">Candidate's selection</a>
     <a class="dropdown-item" href="../articles/how_to.html">How to use</a>
   </div>
 </li>
@@ -87,9 +87,10 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://txopen.github.io/histoc/">histoc</a></span><span class="op">)</span></span></code></pre></div>
 <p>The <code>histoc</code> assembles functions for histocompatibity testing in the context of kidney transplantation.</p>
 <p>Package main functions allows to simulate kidney allocation systems for the distribution of deceased donors’ grafts.</p>
-<p>Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurtotransplant (ET model), in the United Kingdom (UK model), and a system previously suggested by Lima <em>et al.</em> (Lima’s model), using functions: <code><a href="../reference/pts.html">pts()</a></code>, <code><a href="../reference/et.html">et()</a></code>, <code><a href="../reference/uk.html">uk()</a></code> and <code><a href="../reference/lima.html">lima()</a></code>, respectively.</p>
+<p>Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within EuroTransplant<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;EuroTransplant. ETKAS and ESP; 2020&lt;/p&gt;"><sup>1</sup></a> (ET model), in the United Kingdom<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;NHSBT, KAG - Kidney Allocation Policy. Published 2016&lt;/p&gt;"><sup>2</sup></a> (UK model), and a system previously suggested by Lima <em>et al.</em><a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Lima BA, Mendes M, Alves H. Kidney Transplant allocation in Portugal. Port J Nephrol Hypert. 2013;27(4):313-316&lt;/p&gt;"><sup>3</sup></a> (Lima’s model), using functions: <code><a href="../reference/pts.html">pts()</a></code>, <code><a href="../reference/et.html">et()</a></code>, <code><a href="../reference/uk.html">uk()</a></code> and <code><a href="../reference/lima.html">lima()</a></code>, respectively.</p>
 <p>Each one of these functions have as inputs a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and inputs for a potential donor.</p>
-<p>For all the models a virtual crossmatch between the donor and transplant candidates is performed (<code><a href="../reference/xmatch.html">xmatch()</a></code>). And, only those candidates with a negative crossmatch and ABo compatible can opt to donor’s kidney.</p>
+<p>For all the algorithms, a virtual crossmatch between the donor and transplant candidates is performed (<code><a href="../reference/xmatch.html">xmatch()</a></code>). And, only those candidates with a negative crossmatch and ABO compatible can opt to the donor’s kidney.</p>
+<p>Results are presented as <code>data.table</code> objects due to its high computation performance.</p>
 <div class="section level2">
 <h2 id="pt-model">PT model<a class="anchor" aria-label="anchor" href="#pt-model"></a>
 </h2>
@@ -115,7 +116,7 @@
 <span><span class="co">#&gt;       HI pointsET SP AM</span></span>
 <span><span class="co">#&gt; 1: FALSE       98  1  0</span></span>
 <span><span class="co">#&gt; 2: FALSE       69  1  0</span></span></code></pre></div>
-<p>A simplified version of EuroTransplant Kidney Allocation System (ETKAS) for first time kidney only candidates with more than 18 years old and not having donated one of their own kidneys can be simulated through <code><a href="../reference/et.html">et()</a></code>.</p>
+<p>A simplified version of EuroTransplant Kidney Allocation System (ETKAS)<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;EuroTransplant. ETKAS and ESP; 2020&lt;/p&gt;"><sup>4</sup></a> for first time kidney only candidates with more than 18 years old and not having donated one of their own kidneys can be simulated through <code><a href="../reference/et.html">et()</a></code>.</p>
 <p>In this simulation for each donor, transplant candidates as sorted as :</p>
 <ol style="list-style-type: decimal">
 <li>Senior Program (65+ years of old candidates when the donor has 65+ years) <code>SP</code>;</li>
@@ -164,10 +165,12 @@
 <span><span class="co">#&gt;       HI     cp SP</span></span>
 <span><span class="co">#&gt; 1: FALSE Orange  2</span></span>
 <span><span class="co">#&gt; 2: FALSE Orange  2</span></span></code></pre></div>
-<p>A color prioritization (<code><a href="../reference/cp.html">cp()</a></code>) of waiting list transplant candidates.</p>
-<p>With this model, transplant candidates are classified according to their clinical urgency (red color), and regarding their time on <code>dialysis</code> and cPRA value <code>cp</code>. With an orange color are marked those patients with a <code>cPRA</code> &gt;85% or with a time on <code>dialysis</code> higher than waiting time 3rd quartile. As yellow are classified the patients with a <code>cPRA</code> &gt;50% or with a time on <code>dialysis</code> higher than waiting time median. And, as green are classified all the rest.</p>
-<p>Also, patients are allocated to donors within the same age group (old to old program) (<code>SP</code>), mimicking EuroTransplant senior program (<code><a href="../reference/sp.html">sp()</a></code>).</p>
+<p>Within this model, a color prioritization (<code><a href="../reference/cp.html">cp()</a></code>) of all waiting list transplant candidates is established.</p>
+<p>Transplant candidates are classified according to their clinical urgency (red color), and regarding their time on <code>dialysis</code> and cPRA value <code>cPRA</code>. With an orange color are marked those patients with a <code>cPRA</code> &gt;85% or with a time on <code>dialysis</code> higher than waiting time 3rd quartile. As yellow are classified the patients with a <code>cPRA</code> &gt;50% or with a time on <code>dialysis</code> higher than waiting time median. And, as green are classified all the rest.</p>
+<p>Within each color group candidates are ordered by <code>mmHLA</code> (ascendant) and time on <code>dialisys</code> (descendant).</p>
+<p>Also, candidates are allocated to donors within the same age group (old to old program) (<code>SP</code>), mimicking EuroTransplant senior program (<code><a href="../reference/sp.html">sp()</a></code>).</p>
 </div>
+
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
 </div>
