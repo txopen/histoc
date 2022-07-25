@@ -9,11 +9,12 @@ jobs:
     name: Test coverage
     steps:
     - name: Collect test coverage
-      run: test_coverage()
+      run: devtools::test_coverage()
     - name: Upload coverage reports to Codecov
       run: |
         # Replace `linux` below with the appropriate OS
         # Options are `alpine`, `linux`, `macos`, `windows`
-        curl -Os https://uploader.codecov.io/latest/linux/codecov
-        chmod +x codecov
-        ./codecov -t ${CODECOV_TOKEN}
+        # curl -Os https://uploader.codecov.io/latest/linux/codecov
+        # chmod +x codecov
+        # ./codecov -t ${CODECOV_TOKEN}
+        echo "Hello"
