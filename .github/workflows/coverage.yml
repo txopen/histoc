@@ -19,7 +19,7 @@ jobs:
       - uses: r-lib/actions/setup-pandoc@master
 
       - name: Collect test coverage
-        run: devtools::test_coverage()
+        run: R -e 'devtools::test_coverage()'
       - name: Upload coverage reports to Codecov
         run: |
           # Replace `linux` below with the appropriate OS
