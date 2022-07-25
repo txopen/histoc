@@ -19,6 +19,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/txopen/histoc/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/histoc/actions)
+[![Codecov test coverage](https://codecov.io/gh/txopen/histoc/branch/main/graph/badge.svg)](https://app.codecov.io/gh/txopen/histoc?branch=main)
 <!-- badges: end -->
 
 **License**: Creative Commons Attribution [CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to share and adapt, but don't forget to credit the authors.
