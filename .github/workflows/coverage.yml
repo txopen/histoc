@@ -5,7 +5,7 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Test python API
+    name: Test coverage
     steps:
     - name: Collect test coverage
       run: devtools::test_coverage()
