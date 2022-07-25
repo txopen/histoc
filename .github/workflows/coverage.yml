@@ -1,8 +1,8 @@
 on: [push, pull_request]
-name: API workflow
+name: Test coverage
 
 jobs:
-  build:
+  coverage:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
