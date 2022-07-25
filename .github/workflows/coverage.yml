@@ -18,13 +18,15 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - uses: r-lib/actions/setup-pandoc@master
 
+
+      - name: Install devtools
+        run: R -e 'install.packages("devtools"))'
       - name: Collect test coverage
         run: R -e 'devtools::test_coverage()'
       - name: Upload coverage reports to Codecov
         run: |
           # Replace `linux` below with the appropriate OS
           # Options are `alpine`, `linux`, `macos`, `windows`
-          # curl -Os https://uploader.codecov.io/latest/linux/codecov
-          # chmod +x codecov
-          # ./codecov -t ${CODECOV_TOKEN}
-          echo "Hello"
+          curl -Os https://uploader.codecov.io/latest/linux/codecov
+          chmod +x codecov
+          ./codecov -t ${CODECOV_TOKEN}
