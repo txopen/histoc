@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   starts: starts.html
   how_to: how_to.html
-last_built: 2022-07-21T17:30Z
+last_built: 2022-07-25T18:27Z
 urls:
   reference: https://txopen.github.io/histoc/reference
   article: https://txopen.github.io/histoc/articles
