@@ -1,6 +1,5 @@
-name: API workflow
-
 on: [push, pull_request]
+name: API workflow
 
 jobs:
   build:
