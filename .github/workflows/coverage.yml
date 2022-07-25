@@ -1,4 +1,10 @@
-on: [push] #[push, pull_request]
+# on: [push] #[push, pull_request]
+on:
+  push:
+    branches: [test-coverage]
+  release:
+    types: [published]
+  workflow_dispatch:
 name: Test coverage
 
 jobs:
