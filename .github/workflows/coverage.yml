@@ -8,7 +8,7 @@ jobs:
     name: Test coverage
     steps:
     - name: Collect test coverage
-      run: devtools::test_coverage()
+      run: test_coverage()
     - name: Upload coverage reports to Codecov
       run: |
         # Replace `linux` below with the appropriate OS
