@@ -13,31 +13,32 @@ knitr::opts_chunk$set(
 )
 ```
 
-# histoc <img src="man/figures/logo.png" height="150" align="right"/>
+# histoc <img src="man/figures/logo.png" height="100" width="100" align="left"/>
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/txopen/histoc/workflows/R-CMD-check/badge.svg)](https://github.com/txopen/histoc/actions)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+![](https://img.shields.io/badge/lifecycle-development-yellow.svg)](https://lifecycle.r-lib.org/articles/stages.html#development)
+[![Last Commit Date](https://img.shields.io/github/last-commit/txopen/histoc.svg)](https://github.com/txopen/histoc/commits/main)
+[![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![Codecov test coverage](https://codecov.io/gh/txopen/histoc/branch/main/graph/badge.svg)](https://app.codecov.io/gh/txopen/histoc?branch=main)
 <!-- badges: end -->
 
-**License**: Creative Commons Attribution [CC-BY](https://creativecommons.org/licenses/by/2.0/). Feel free to share and adapt, but don't forget to credit the authors.
+`histoc` is a package for histocompatibility analysis performed on kidney transplantat allocation systems. 
+The source code can be found [here](https://txopen.github.io/histoc/).
 
+`histoc` provides functions for compatibility between organ donors and transplant candidates, allowing to simulate different kidney transplant allocation systems.
 
-:dart: A package for histocompatibility analysis performed on kidney allocation systems for transplantation. You can see `histoc` in action, [here](https://txopen.github.io/histoc/).
+> :warning: This package is not a medical device and <ins>should not be used for clinical decision-making</ins>.
 
-`histoc` provides functions for compatibility between organ donors and transplant candidates, allowing to simulate different kidney allocation systems for transplantation.
-
-> :warning: This package is not a medical device and <ins>should not be used for making clinical decisions</ins>.
-
-## Instalation
+## Installation
 
 ### Development version 
 
-The development version can be installed from GitHub, if you want all the latest features, together with all the latest bugs and errors. 
-
-You have been warned :exclamation:
+The development version can be installed from GitHub.  
+Alongside the latest features you might also get a couple of bugs:exclamation:  
+Be sure to report anything you find [here](https://github.com/txopen/histoc/issues).
 
 ```
 # install from GitHub
