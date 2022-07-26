@@ -27,46 +27,46 @@ ric(
 )
 }
 \arguments{
-\item{DRI}{Donor RisK Index group (env$valid.dris)}
+\item{DRI}{Donor RisK Index group (D1, D2, D3, D4)}
 
 \item{data}{A data file with candidates information for UK transplant}
 
-\item{D1R1}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D1R1}
+\item{D1R1}{A numeric value (0 - 1000) for the combination of indexes D1R1}
 
-\item{D1R2}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D1R2}
+\item{D1R2}{A numeric value (0 - 1000) for the combination of indexes D1R2}
 
-\item{D1R3}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D1R3}
+\item{D1R3}{A numeric value (0 - 1000) for the combination of indexes D1R3}
 
-\item{D1R4}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D1R4}
+\item{D1R4}{A numeric value (0 - 1000) for the combination of indexes D1R4}
 
-\item{D2R1}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D2R1}
+\item{D2R1}{A numeric value (0 - 1000) for the combination of indexes D2R1}
 
-\item{D2R2}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D2R2}
+\item{D2R2}{A numeric value (0 - 1000) for the combination of indexes D2R2}
 
-\item{D2R3}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D2R3}
+\item{D2R3}{A numeric value (0 - 1000) for the combination of indexes D2R3}
 
-\item{D2R4}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D2R4}
+\item{D2R4}{A numeric value (0 - 1000) for the combination of indexes D2R4}
 
-\item{D3R1}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D3R1}
+\item{D3R1}{A numeric value (0 - 1000) for the combination of indexes D3R1}
 
-\item{D3R2}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D3R2}
+\item{D3R2}{A numeric value (0 - 1000) for the combination of indexes D3R2}
 
-\item{D3R3}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D3R3}
+\item{D3R3}{A numeric value (0 - 1000) for the combination of indexes D3R3}
 
-\item{D3R4}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D3R4}
+\item{D3R4}{A numeric value (0 - 1000) for the combination of indexes D3R4}
 
-\item{D4R1}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D4R1}
+\item{D4R1}{A numeric value (0 - 1000) for the combination of indexes D4R1}
 
-\item{D4R2}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D4R2}
+\item{D4R2}{A numeric value (0 - 1000) for the combination of indexes D4R2}
 
-\item{D4R3}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D4R3}
+\item{D4R3}{A numeric value (0 - 1000) for the combination of indexes D4R3}
 
-\item{D4R4}{A numeric value (\code{env$dirj.minimum} - \code{env$dirj.maximum}) for the combination of indexes D4R4}
+\item{D4R4}{A numeric value (0 - 1000) for the combination of indexes D4R4}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \value{
-A tibble with a new column 'ric' that gives the  Risk Index Combination.
+A tibble with a new column \code{ric} that gives the  Risk Index Combination.
 }
 \description{
 computes Risk Index Combination for each pair donor-recipient

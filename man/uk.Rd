@@ -2,7 +2,7 @@
 % Please edit documentation in R/uk.R
 \name{uk}
 \alias{uk}
-\title{resume function for UK algorithm punctuation}
+\title{UK algorithm}
 \usage{
 uk(
   DRI = "D1",
@@ -47,7 +47,7 @@ uk(
 )
 }
 \arguments{
-\item{DRI}{Donor RisK Index group (env$valid.dris)}
+\item{DRI}{Donor RisK Index group (D1, D2, D3, D4)}
 
 \item{dA}{donor's HLA-A typing.}
 
@@ -55,44 +55,44 @@ uk(
 
 \item{dDR}{donor's HLA-DR typing.}
 
-\item{dABO}{A character value with ABO blood group (\code{env$valid.blood.groups}).}
+\item{dABO}{A character value with ABO blood group (O, A, B, AB).}
 
 \item{donor.age}{A numeric value with donor's age.}
 
 \item{data}{A data frame containing demographics and medical information for
 a group of waitlisted transplant for UK transplant.}
 
-\item{D1R1}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D1R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D1R2}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D1R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D1R3}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D1R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D1R4}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D1R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D2R1}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D2R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D2R2}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D2R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D2R3}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D2R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D2R4}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D2R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D3R1}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D3R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D3R2}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D3R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D3R3}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D3R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D3R4}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D3R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D4R1}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D4R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D4R2}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D4R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D4R3}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D4R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
-\item{D4R4}{A numeric value (env$dirj.minimum - env$dirj.maximum) for the combination of indexes DiRj}
+\item{D4R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
 
 \item{ptsDial}{A numeric value for the points corresponding to each month
 on dialysis}
@@ -133,6 +133,7 @@ b3*sin(age / 50)}
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \description{
+Applies UK algorithm on deceased donor's Kidney allocation for transplantation.
 Ordering of waitlisted candidates for a given donor and according
 to UK transplant algorithm.
 }

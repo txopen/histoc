@@ -2,16 +2,16 @@
 % Please edit documentation in R/uk.R
 \name{b_blood_penalization}
 \alias{b_blood_penalization}
-\title{blood group B match points}
+\title{Blood group B match points}
 \usage{
 b_blood_penalization(dABO = "B", cABO = "O", tier = "B", pts = -1000)
 }
 \arguments{
-\item{dABO}{A character from (\code{env$valid.blood.groups})}
+\item{dABO}{A character from (O, A, B, AB)}
 
-\item{cABO}{A character from (\code{env$valid.blood.groups})}
+\item{cABO}{A character from (O, A, B, AB)}
 
-\item{tier}{A character value for UK transplant TIER classification (\code{env$valid.tiers})}
+\item{tier}{A character value for UK transplant TIER classification (A, B)}
 
 \item{pts}{A negative value with penalization for B candidates}
 }
@@ -19,7 +19,7 @@ b_blood_penalization(dABO = "B", cABO = "O", tier = "B", pts = -1000)
 A numeric value.
 }
 \description{
-computes penalization when donor's group O and candidate's group B
+Computes penalization when donor's group O and candidate's group B
 }
 \examples{
 b_blood_penalization(dABO = "B", cABO = "O", tier = "B", pts = -1000)

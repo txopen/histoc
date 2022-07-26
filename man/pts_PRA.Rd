@@ -9,9 +9,9 @@ pts_PRA(cPRA = 0, points.80 = 8, points.50 = 4)
 \arguments{
 \item{cPRA}{Percentual value of cPRA (0 - 100)}
 
-\item{points.80}{A numerical value (\code{env$pt.points.minimum} - \code{env$pt.points.maximum}) for the points to a cPRA >= 80}
+\item{points.80}{A numerical value (0 - 20) for the points to a cPRA >= 80}
 
-\item{points.50}{A numerical value (\code{env$pt.points.minimum} - \code{env$pt.points.maximum}) for the points to a cPRA >= 50}
+\item{points.50}{A numerical value (0 - 20) for the points to a cPRA >= 50}
 }
 \value{
 A numerical value for pre-defined points

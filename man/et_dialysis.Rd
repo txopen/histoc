@@ -8,10 +8,10 @@ et_dialysis(dialysis = 0, month = 2.78)
 }
 \arguments{
 \item{dialysis}{A numeric value with candidate's time on dialysis, in months
-(between \code{env$dialysis.minimum} and \code{env$dialysis.maximum})}
+(between 0 and 999)}
 
 \item{month}{A numeric value with the punctuation for each month
-(between env$month.points.minimum and env$month.points.maximum)}
+(between 0 and 10)}
 }
 \description{
 Punctuation given for each month on dialysis, within ET

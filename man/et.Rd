@@ -2,7 +2,7 @@
 % Please edit documentation in R/et.R
 \name{et}
 \alias{et}
-\title{resume function for ET algorithm punctuation}
+\title{ET algorithm}
 \usage{
 et(
   iso = TRUE,
@@ -32,7 +32,7 @@ et(
 \arguments{
 \item{iso}{A logical value for isogroupal compatibility.}
 
-\item{dABO}{A character value with ABO blood group (\code{env$valid.blood.groups}).}
+\item{dABO}{A character value with ABO blood group (O, A, B, AB).}
 
 \item{dA}{donor's HLA-A typing.}
 
@@ -77,10 +77,11 @@ a group of waitlisted transplant candidates.}
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \value{
-An ordered data frame with columns cPRA, HI, pointsET, SP, AM
-and 'mmHLA'.
+An ordered data frame with columns \code{cPRA}, \code{HI},
+\code{pointsET}, \code{SP}, \code{AM}, and \code{mmHLA}.
 }
 \description{
+Applies EuroTransplant algorithm on deceased donor's Kidney allocation for transplantation.
 Ordering of waitlisted candidates for a given donor and
 according to ETKAS algorithm.
 }

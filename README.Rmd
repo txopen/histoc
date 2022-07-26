@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 ![](https://img.shields.io/badge/lifecycle-development-yellow.svg)](https://lifecycle.r-lib.org/articles/stages.html#development)
 [![Last Commit Date](https://img.shields.io/github/last-commit/txopen/histoc.svg)](https://github.com/txopen/histoc/commits/main)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test coverage](https://codecov.io/gh/txopen/histoc/branch/main/graph/badge.svg)](https://app.codecov.io/gh/txopen/histoc?branch=main)
 <!-- badges: end -->
 
 `histoc` is a package for histocompatibility analysis performed on kidney transplantat allocation systems. 

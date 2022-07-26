@@ -2,7 +2,7 @@
 % Please edit documentation in R/lima.R
 \name{lima}
 \alias{lima}
-\title{Candidates' ordering according to Lima's algorithm 'USING data.table'}
+\title{Lima's algorithm}
 \usage{
 lima(
   iso = TRUE,
@@ -24,7 +24,7 @@ lima(
 \arguments{
 \item{iso}{A logical value for isogroupal compatibility.}
 
-\item{dABO}{A character value with ABO blood group (\code{env$valid.blood.groups}).}
+\item{dABO}{A character value with ABO blood group (O, A, B, AB).}
 
 \item{dA}{donor's HLA-A typing.}
 
@@ -42,23 +42,24 @@ color priority classification.}
 
 \item{n}{A positive integer to slice the first candidates.}
 
-\item{q2}{A numerical value for the median of candidates' waiting list (\code{env$q.minimum} - \code{env$q.maximum}).}
+\item{q2}{A numerical value for the median of candidates' waiting list (0 - 120).}
 
-\item{q3}{A numerical value for the third quartile of candidates' waiting list (\code{env$q.minimum} - \code{env$q.maximum}).}
+\item{q3}{A numerical value for the third quartile of candidates' waiting list (0 - 120).}
 
-\item{cPRA1}{A numerical value (\code{env$percentage.minimum} - \code{env$percentage.maximum}) for the lower cPRA cutoff.}
+\item{cPRA1}{A numerical value (0 - 100) for the lower cPRA cutoff.}
 
-\item{cPRA2}{A numerical value (\code{env$percentage.minimum} - \code{env$percentage.maximum}) for the higher cPRA cutoff.}
+\item{cPRA2}{A numerical value (0 - 100) for the higher cPRA cutoff.}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \value{
-An ordered data frame with a column 'cp' (color priority),
+An ordered data frame with a column \code{cp} (color priority),
 'sp', 'hi' and 'mmHLA'.
 }
 \description{
+Applies Lima's algorithm on deceased donor's Kidney allocation for transplantation.
 Ordering of waitlisted candidates for a given donor and
-according to to Lima's algorithm.
+according to Lima's algorithm.
 }
 \examples{
 lima(iso = TRUE, dABO = "O",
