@@ -13,6 +13,8 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 [![Last Commit
 Date](https://img.shields.io/github/last-commit/txopen/histoc.svg)](https://github.com/txopen/histoc/commits/main)
 [![](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test
+coverage](https://codecov.io/gh/txopen/histoc/branch/main/graph/badge.svg)](https://app.codecov.io/gh/txopen/histoc?branch=main)
 <!-- badges: end -->
 
 `histoc` is a package for histocompatibility analysis performed on
