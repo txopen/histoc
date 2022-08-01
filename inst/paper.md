@@ -19,6 +19,7 @@ affiliations:
    index: 1
 date: 24 July 2022
 bibliography: inst/paper.bib
+link-citations: true
 ---
 
 # Summary
