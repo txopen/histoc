@@ -58,12 +58,12 @@ all candidates are ordered by their corresponding score.
 
 ### Euro Transplant Model
 
-A simplified version of EuroTransplant Kidney Allocation System (**ETKAS**) `[@ET]` can be simulated through `et()`. This applies to for first time kidney only candidates with more than 18 years old and that haven't donated one of their own kidneys.  
+A simplified version of EuroTransplant Kidney Allocation System (**ETKAS**) `[@ET]` can be simulated through `et()`. This applies to first time kidney only candidates with more than 18 years old and that haven't donated one of their own kidneys.  
 
 In this simulation for each donor, transplant candidates as sorted as :
 
 1. Senior Program (65+ years of old candidates when the donor has 65+ years) `SP`;
-1. Acceptable Mismatch Program (candidates with a cPRA >85% and without HLA antibodies against HLA's donor) `AM`;
+1. Acceptable Mismatch Program (candidates with a cPRA > 85% and without HLA antibodies against HLA's donor) `AM`;
 1. 000 HLA mismatches (candidates without HLA mismatches with the donor) `mmHLA`;
 1. ETKAS points `pointsET`.
 
@@ -73,7 +73,7 @@ Final points for each eligible candidate are obtained from the sum of HLA points
 
 United Kingdom (**UK model**) deceased donor kidney allocation for transplantation `[@UK]` (`uk()`) is firstly based on the definition of two ranked Tiers of candidates eligible for the donor (`Tier`):
 
-1. Tier A – patients with match score = 10 or `cPRA` = 100% or time on `dialysis` >7 years;
+1. Tier A – patients with match score = 10 or `cPRA` = 100% or time on `dialysis` > 7 years;
 1. Tier B – all other eligible patients.
 
 Within Tier A, transplant candidates are ordered by matchability and time on dialysis. Transplant candidates within Tier B are prioritized according to a point-based system computed with 7 elements:
@@ -92,7 +92,7 @@ This function simulates the allocation of kidneys to a candidates' waiting list 
 
 And lastly, within **Lima's model**, a color prioritization (`cp()`) of all waiting list transplant candidates is established.
 
-Transplant candidates are classified according to their clinical urgency (red color), and regarding their time on `dialysis` and cPRA value `cPRA`. With an orange color are marked those patients with a `cPRA` >85% or with a time on `dialysis` higher than waiting time 3rd quartile. As yellow are classified the patients with a `cPRA` >50% or with a time on `dialysis` higher than waiting time median. And, as green are classified all the rest.
+Transplant candidates are classified according to their clinical urgency (red color), and regarding their time on `dialysis` and cPRA value `cPRA`. With an orange color are marked those patients with a `cPRA` > 85% or with a time on `dialysis` higher than waiting time 3rd quartile. As yellow are classified the patients with a `cPRA` > 50% or with a time on `dialysis` higher than waiting time median. And, as green are classified all the rest.
 
 Within each color group candidates are ordered by `mmHLA` (ascendant) and time on `dialisys` (descendant).
 
