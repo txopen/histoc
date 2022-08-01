@@ -27,15 +27,15 @@ link-citations: true
 
 The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource `[@Lima2020]`. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) `[@Geddes2005]`.
 
-The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that unaided can eliminate specific transplant candidates from opting for a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each.
+The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that can eliminate specific transplant candidates from opting for a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each of them.
 
-{histoc} `[@histoc]` is an R `[@R]` package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package's main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine inputs for each one of the KAS as a way to test different approaches.
+{histoc} `[@histoc]` is an R `[@R]` package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package's main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine arguments for each one of the KAS as a way to test different approaches.
 
 # Kidney Allocation Systems
 
 Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model)`[@ET]`, in the United Kingdom (UK model)`[@UK]`, and a system suggested by Lima *et al*`[@Lima2013]` (Lima’s model).
 
-Each one of these models have as inputs a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and inputs for a potential donor.
+Each one of these models have as arguments a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and potential donor's information.
 
 For all the models a virtual crossmatch between the donor and transplant candidates is performed (`xmatch()`). And, only those candidates with a negative crossmatch and ABO compatible can opt to a donor’s kidney.
 
@@ -47,8 +47,7 @@ By default 2 candidates are selected for each donor, although we can define the 
 
 ### Portuguese Model
 
-Portuguese rules on allocation of kidneys from deceased donor (**PT model**) are based on a scoring system
-that takes in consideration:  
+Portuguese rules on allocation of kidneys from deceased donor (**PT model**) are based on a scoring system that takes in consideration:  
 1. HLA mismatches between donor and transplant candidate; 
 1. Level of immunization of the candidate; 
 1. Time on dialysis;
