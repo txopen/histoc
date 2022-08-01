@@ -5,7 +5,9 @@ Authors@R: c(
     person("Bruno", "Lima", , "balima78@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9090-4457")),
     person("Filipe", "Reis", ,"filipepintodosreis@gmail.com", role = "aut",
-            comment = c(ORCID = "0000-0002-8186-3910"))
+            comment = c(ORCID = "0000-0002-8186-3910")),
+    person(given = "TxOR",
+           role = c("cph", "fnd"))
     )
 Description: This package contains functions to assess matchs on organ transplantation. Histocompatibility analysis are possible with information from donors and candidates.
 License: MIT + file LICENSE

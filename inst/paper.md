@@ -18,6 +18,7 @@ affiliations:
  - name: Oficina de Bioestatistica, Portugal
    index: 1
 date: 24 July 2022
+output: html_document
 bibliography: paper.bib
 link-citations: true
 ---
@@ -26,13 +27,13 @@ link-citations: true
 
 The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource `[@Lima2020]`. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) `[@Geddes2005]`.
 
-The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that alone can eliminate certain transplant candidates from opting to a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each of these KAS.
+The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that unaided can eliminate specific transplant candidates from opting for a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each.
 
-{histoc} `[@histoc]` is an R `[@R]` package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, for each one of the KAS it is possible to redefine inputs as a way to test different approaches.
+{histoc} `[@histoc]` is an R `[@R]` package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package's main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine inputs for each one of the KAS as a way to test different approaches.
 
 # Kidney Allocation Systems
 
-Currently, it is possible to simulate allocation rules algorithms implemented in Portugal (PT model), in countries within Eurotransplant (ET model)`[@ET]`, in the United Kingdom (UK model)`[@UK]`, and a system previously suggested by Lima *et al*`[@Lima2013]` (Lima’s model).
+Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model)`[@ET]`, in the United Kingdom (UK model)`[@UK]`, and a system suggested by Lima *et al*`[@Lima2013]` (Lima’s model).
 
 Each one of these models have as inputs a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and inputs for a potential donor.
 
@@ -44,11 +45,21 @@ To get started a vignette describes [how to use](https://txopen.github.io/histoc
 
 By default 2 candidates are selected for each donor, although we can define the number of candidates to be selected.
 
+### Portuguese Model
+
 Portuguese rules on allocation of kidneys from deceased donor (**PT model**) are based on a scoring system
-that takes in consideration: HLA mismatches between donor and transplant candidate, level of immunization of the candidate, time on dialysis, and age difference between donor and transplant candidate (`pts()`). Total scores for donor-recipient pairs are given by the column `ptsPT`. Also, hipersensitized candidates (`hiper()`) (cPRA >85%) `HI` are prioritized and after that
+that takes in consideration:  
+1. HLA mismatches between donor and transplant candidate; 
+1. Level of immunization of the candidate; 
+1. Time on dialysis;
+1. Age difference between donor and transplant candidate (`pts()`). 
+
+Total scores for donor-recipient pairs are given by the column `ptsPT`. Also, hipersensitized candidates (`hiper()`) ( calculated Panel Reactive Antibody `cPRA` > 85%) `HI` are prioritized and after that
 all candidates are ordered by their corresponding score.
 
-A simplified version of EuroTransplant Kidney Allocation System (**ETKAS**) `[@ET]` for first time kidney only candidates with more than 18 years old and not having donated one of their own kidneys can be simulated through `et()`.
+### Euro Transplant Model
+
+A simplified version of EuroTransplant Kidney Allocation System (**ETKAS**) `[@ET]` can be simulated through `et()`. This applies to for first time kidney only candidates with more than 18 years old and that haven't donated one of their own kidneys.  
 
 In this simulation for each donor, transplant candidates as sorted as :
 
@@ -58,6 +69,8 @@ In this simulation for each donor, transplant candidates as sorted as :
 1. ETKAS points `pointsET`.
 
 Final points for each eligible candidate are obtained from the sum of HLA points (`et_mmHLA()`), dialysis (`et_dialysis()`) points and MMP points (`et_mmp()`).
+
+### United Kingdom Model
 
 United Kingdom (**UK model**) deceased donor kidney allocation for transplantation `[@UK]` (`uk()`) is firstly based on the definition of two ranked Tiers of candidates eligible for the donor (`Tier`):
 
@@ -75,6 +88,8 @@ Within Tier A, transplant candidates are ordered by matchability and time on dia
 1. Blood group match (`abo_uk()`)
 
 This function simulates the allocation of kidneys to a candidates' waiting list for kidney-only transplants and do not take in consideration geographical criteria.
+
+### Lima's Model
 
 And lastly, within **Lima's model**, a color prioritization (`cp()`) of all waiting list transplant candidates is established.
 
@@ -97,4 +112,3 @@ Also a new column for the estimated 5-year event (mortality or graft failure) pr
 ## Input data
 
 Input data used on this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available. Furthermore, [{simK}](https://github.com/txopen/simK) package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
-
