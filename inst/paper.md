@@ -18,7 +18,7 @@ affiliations:
  - name: Oficina de Bioestatistica, Portugal
    index: 1
 date: 24 July 2022
-bibliography: inst/paper.bib
+bibliography: paper.bib
 link-citations: true
 ---
 
