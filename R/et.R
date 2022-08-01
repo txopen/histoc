@@ -11,18 +11,18 @@
 #' @param hlaA A data frame with HLA-A allele frequencies
 #' @param hlaB A data frame with HLA-B allele frequencies
 #' @param hlaDR A data frame with HLA-DR allele frequencies
-#' @param abo_freq A data frame with ABO blood group frequencies
+#' @param abo.freq A data frame with ABO blood group frequencies
 #' @param check.validity Logical to decide whether to validate input.
 #' @examples
 #' et_mmp(data = candidates,
 #' hlaA = hlaApt, hlaB = hlaBpt, hlaDR = hlaDRpt,
-#' abo_freq = ABOpt, check.validity = TRUE)
+#' abo.freq = ABOpt, check.validity = TRUE)
 #' @export
 et_mmp <- function(data = candidates,
                  hlaA = hlaApt,
                  hlaB = hlaBpt,
                  hlaDR = hlaDRpt,
-                 abo_freq = ABOpt,
+                 abo.freq = ABOpt,
                  check.validity = TRUE){
 
   if(check.validity){
@@ -38,7 +38,7 @@ et_mmp <- function(data = candidates,
   data.table::setDT(hlaA)
   data.table::setDT(hlaB)
   data.table::setDT(hlaDR)
-  data.table::setDT(abo_freq)
+  data.table::setDT(abo.freq)
 
   data <- hlaA[, .(A, freq)][data, on = .(A = A1)]
   setnames(data, "freq", "A1_freq")
@@ -61,7 +61,7 @@ et_mmp <- function(data = candidates,
   setnames(data, "i.DR", "DR1")
   setnames(data, "DR", "DR2")
 
-  data <- abo_freq[data, on = .(abo = bg)]
+  data <- abo.freq[data, on = .(abo = bg)]
   setnames(data, "abo", "bg")
   setnames(data, "freq", "abo")
 
@@ -195,7 +195,7 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' @param hlaA A data frame with HLA-A allele frequencies
 #' @param hlaB A data frame with HLA-B allele frequencies
 #' @param hlaDR A data frame with HLA-DR allele frequencies
-#' @param abo_freq A data frame with ABO blood group frequencies
+#' @param abo.freq A data frame with ABO blood group frequencies
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
@@ -210,7 +210,7 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' mm4 = 133.33, mm5 = 66.67, mm6 = 0,
 #' df.abs = cabs,
 #' hlaA = hlaApt, hlaB = hlaBpt, hlaDR = hlaDRpt,
-#' abo_freq = ABOpt,
+#' abo.freq = ABOpt,
 #' n = 2,
 #' check.validity = TRUE)
 #' @export
@@ -233,7 +233,7 @@ et <- function(iso = TRUE
              , hlaA = hlaApt
              , hlaB = hlaBpt
              , hlaDR = hlaDRpt
-             , abo_freq = ABOpt
+             , abo.freq = ABOpt
              , n = 2
              , check.validity = TRUE){
 
@@ -252,7 +252,7 @@ et <- function(iso = TRUE
 
   data <- et_mmp(data = data, # Isto pode ser feito antes do for loop de candidato vs dador
                  hlaA = hlaA, hlaB = hlaB, hlaDR = hlaDR,
-                 abo_freq = abo_freq)
+                 abo.freq = abo.freq)
 
   data <- data[, .(ID, bg, A1, A2, B1, B2, DR1, DR2,
                   age, dialysis, cPRA, urgent, MMP)]

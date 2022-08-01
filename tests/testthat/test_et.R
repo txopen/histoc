@@ -144,7 +144,7 @@ test_that("et algorithm", {
                   , hlaA = hlaApt
                   , hlaB = hlaBpt
                   , hlaDR = hlaDRpt
-                  , abo_freq = ABOpt
+                  , abo.freq = ABOpt
                   , n = 2), result1)
   expect_equal(et(iso = F
                   , dABO = "A"
@@ -165,7 +165,7 @@ test_that("et algorithm", {
                   , hlaA = hlaApt
                   , hlaB = hlaBpt
                   , hlaDR = hlaDRpt
-                  , abo_freq = ABOpt
+                  , abo.freq = ABOpt
                   , n = 2), result2)
   expect_equal(et(iso = F
                   , dABO = "O"
@@ -186,7 +186,7 @@ test_that("et algorithm", {
                   , hlaA = hlaApt
                   , hlaB = hlaBpt
                   , hlaDR = hlaDRpt
-                  , abo_freq = ABOpt
+                  , abo.freq = ABOpt
                   , n = 2), result3)
   expect_equal(et(iso = T
                   , dABO = "AB"
@@ -207,7 +207,7 @@ test_that("et algorithm", {
                   , hlaA = hlaApt
                   , hlaB = hlaBpt
                   , hlaDR = hlaDRpt
-                  , abo_freq = ABOpt
+                  , abo.freq = ABOpt
                   , n = 2), result4)
 })
 

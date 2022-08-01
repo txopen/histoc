@@ -381,15 +381,15 @@ utility) while giving a reasonable opportunity to all wait list
 candidates to be transplanted (principle of justice)
 <code>[@Geddes2005]</code>.</p>
 <p>The selection of a donor-recipient pair in kidney transplantation is
-based on histocompatibility tests that unaided can eliminate specific
-transplant candidates from opting for a kidney from a given deceased
-donor. These histocompatibility tests are used in several KAS and can be
-specific to each.</p>
+based on histocompatibility tests that can eliminate specific transplant
+candidates from opting for a kidney from a given deceased donor. These
+histocompatibility tests are used in several KAS and can be specific to
+each of them.</p>
 <p>{histoc} <code>[@histoc]</code> is an R <code>[@R]</code> package
 that assembles tools for histocompatibility testing in the context of
 kidney transplantation. The package’s main functions allow simulating
 several KAS on the distribution of deceased donors’ grafts for
-transplantation. Moreover, it is possible to redefine inputs for each
+transplantation. Moreover, it is possible to redefine arguments for each
 one of the KAS as a way to test different approaches.</p>
 </div>
 <div id="kidney-allocation-systems" class="section level1">
@@ -399,9 +399,10 @@ Portugal (PT model), in countries within Eurotransplant (ET
 model)<code>[@ET]</code>, in the United Kingdom (UK
 model)<code>[@UK]</code>, and a system suggested by Lima <em>et
 al</em><code>[@Lima2013]</code> (Lima’s model).</p>
-<p>Each one of these models have as inputs a data frame with transplant
-candidates’ clinical and demographic characteristics, a data frame with
-candidates’ HLA antibodies and inputs for a potential donor.</p>
+<p>Each one of these models have as arguments a data frame with
+transplant candidates’ clinical and demographic characteristics, a data
+frame with candidates’ HLA antibodies and potential donor’s
+information.</p>
 <p>For all the models a virtual crossmatch between the donor and
 transplant candidates is performed (<code>xmatch()</code>). And, only
 those candidates with a negative crossmatch and ABO compatible can opt
@@ -430,7 +431,7 @@ that all candidates are ordered by their corresponding score.</p>
 <h3>Euro Transplant Model</h3>
 <p>A simplified version of EuroTransplant Kidney Allocation System
 (<strong>ETKAS</strong>) <code>[@ET]</code> can be simulated through
-<code>et()</code>. This applies to for first time kidney only candidates
+<code>et()</code>. This applies to first time kidney only candidates
 with more than 18 years old and that haven’t donated one of their own
 kidneys.</p>
 <p>In this simulation for each donor, transplant candidates as sorted as
@@ -438,7 +439,7 @@ kidneys.</p>
 <ol style="list-style-type: decimal">
 <li>Senior Program (65+ years of old candidates when the donor has 65+
 years) <code>SP</code>;</li>
-<li>Acceptable Mismatch Program (candidates with a cPRA &gt;85% and
+<li>Acceptable Mismatch Program (candidates with a cPRA &gt; 85% and
 without HLA antibodies against HLA’s donor) <code>AM</code>;</li>
 <li>000 HLA mismatches (candidates without HLA mismatches with the
 donor) <code>mmHLA</code>;</li>
@@ -457,7 +458,7 @@ firstly based on the definition of two ranked Tiers of candidates
 eligible for the donor (<code>Tier</code>):</p>
 <ol style="list-style-type: decimal">
 <li>Tier A – patients with match score = 10 or <code>cPRA</code> = 100%
-or time on <code>dialysis</code> &gt;7 years;</li>
+or time on <code>dialysis</code> &gt; 7 years;</li>
 <li>Tier B – all other eligible patients.</li>
 </ol>
 <p>Within Tier A, transplant candidates are ordered by matchability and
@@ -486,9 +487,9 @@ candidates is established.</p>
 <p>Transplant candidates are classified according to their clinical
 urgency (red color), and regarding their time on <code>dialysis</code>
 and cPRA value <code>cPRA</code>. With an orange color are marked those
-patients with a <code>cPRA</code> &gt;85% or with a time on
+patients with a <code>cPRA</code> &gt; 85% or with a time on
 <code>dialysis</code> higher than waiting time 3rd quartile. As yellow
-are classified the patients with a <code>cPRA</code> &gt;50% or with a
+are classified the patients with a <code>cPRA</code> &gt; 50% or with a
 time on <code>dialysis</code> higher than waiting time median. And, as
 green are classified all the rest.</p>
 <p>Within each color group candidates are ordered by <code>mmHLA</code>

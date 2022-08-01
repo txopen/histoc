@@ -269,7 +269,7 @@ et_several <- function(){
       hlaA = hlaApt,
       hlaB = hlaBpt,
       hlaDR = hlaDRpt,
-      abo_freq = ABOpt
+      abo.freq = ABOpt
     )
   )
 }
