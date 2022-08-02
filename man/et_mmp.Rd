@@ -12,7 +12,7 @@ et_mmp(
   hlaA = hlaApt,
   hlaB = hlaBpt,
   hlaDR = hlaDRpt,
-  abo_freq = ABOpt,
+  abo.freq = ABOpt,
   check.validity = TRUE
 )
 }
@@ -26,7 +26,7 @@ group of waitlisted transplant candidates.}
 
 \item{hlaDR}{A data frame with HLA-DR allele frequencies}
 
-\item{abo_freq}{A data frame with ABO blood group frequencies}
+\item{abo.freq}{A data frame with ABO blood group frequencies}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 }
@@ -40,5 +40,5 @@ between 0-100 MMPs
 \examples{
 et_mmp(data = candidates,
 hlaA = hlaApt, hlaB = hlaBpt, hlaDR = hlaDRpt,
-abo_freq = ABOpt, check.validity = TRUE)
+abo.freq = ABOpt, check.validity = TRUE)
 }
