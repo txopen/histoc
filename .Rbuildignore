@@ -9,3 +9,5 @@
 ^README\.Rmd$
 ^cran-comments\.md$
 ^codecov\.yml$
+^\.vscode$
+^paper$
