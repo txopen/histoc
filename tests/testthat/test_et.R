@@ -70,6 +70,35 @@ test_that("mmHLA points from ET's algorithm", {
                         mm4 = 133.33,
                         mm5 = 66.67,
                         mm6 = 500)[['ptsHLA']], 500)
+
+  expect_error(et_mmHLA(mm0 = 502),
+               'points.*')
+  expect_error(et_mmHLA(mm1 = 502),
+               'points.*')
+  expect_error(et_mmHLA(mm2 = 502),
+               'points.*')
+  expect_error(et_mmHLA(mm3 = 502),
+               'points.*')
+  expect_error(et_mmHLA(mm4 = 502),
+               'points.*')
+  expect_error(et_mmHLA(mm5 = 502),
+               'points.*')
+  expect_error(et_mmHLA(mm6 = 502),
+               'points.*')
+  expect_error(et_mmHLA(mm0 = -502),
+               'points.*')
+  expect_error(et_mmHLA(mm1 = -502),
+               'points.*')
+  expect_error(et_mmHLA(mm2 = -502),
+               'points.*')
+  expect_error(et_mmHLA(mm3 = -502),
+               'points.*')
+  expect_error(et_mmHLA(mm4 = -502),
+               'points.*')
+  expect_error(et_mmHLA(mm5 = -502),
+               'points.*')
+  expect_error(et_mmHLA(mm6 = -502),
+               'points.*')
   })
 
 
@@ -78,6 +107,11 @@ test_that("ET points for time on dialysis (in months)", {
   expect_equal(et_dialysis(dialysis = 1, month = 2.78), 2.78)
   expect_equal(et_dialysis(dialysis = 10, month = 2.78), 27.8)
   expect_equal(et_dialysis(dialysis = 100, month = 2.78), 278)
+
+  expect_error(et_dialysis(month = env$month.points.minimum-1),
+               'Attributed.*')
+  expect_error(et_dialysis(month = env$month.points.maximum+1),
+               'Attributed.*')
   })
 
 test_that("et algorithm", {

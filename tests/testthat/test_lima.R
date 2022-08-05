@@ -73,4 +73,13 @@ test_that("Test lima algorithm", {
         ),
         results
     )
+
+    expect_error(lima(q2 = env$q.minimum-1),
+                 'q2.*')
+    expect_error(lima(q2 = env$q.maximum+1),
+                 'q2.*')
+    expect_error(lima(q3 = env$q.minimum-1),
+                 'q2.*')
+    expect_error(lima(q3 = env$q.maximum+1),
+                 'q2.*')
 })
