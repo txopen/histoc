@@ -1,19 +1,19 @@
 #' Candidates' selection according to any algorithm for multiple donors
 #'
-#' @description Ordering of waitlisted candidates for a given donor and
+#' @description Ordering of waitlisted candidates for a each donor in a pool of donors and
 #' according to any algorithm.
 #' @param df.donors A data frame containing demographics and medical information
-#' for a poll of donors. For uk algorithm must have respective columns.
+#' for a pool of donors. For `uk` algorithm must have their respective columns.
 #' @param df.candidates A data frame containing demographics and medical information
-#' for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.
+#' for a group of waitlisted transplant candidates. For `uk` algorithm must have respective columns.
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param algorithm The name of the function to use. Valid options are:
 #' \code{lima}, \code{et}, \code{pts}, \code{uk} (without quotation)
 #' @param n A positive integer to slice the first candidates.
-#' @param check.validity Logical to decide whether to validate input.
-#' @param ... all the parameters used on the function algorithm
-#' @return A list with the number of elements equal to the number of rows on donors data frame.
-#' Each element have a data frame with select candidates by donor.
+#' @param check.validity Logical to decide whether to validate input arguments.
+#' @param ... all the parameters used on the algorithm function.
+#' @return A list with the number of elements equal to the number of rows on donors' data frame.
+#' Each element have a data frame with selected candidates by donor.
 #' @examples
 #' \dontrun{
 #' donor_recipient_pairs(df.donors = donors,
@@ -83,9 +83,9 @@ donor_recipient_pairs <- function(df.donors = donors,
 #' Runs an arbitrary number of times (\code{iteration.number}) to provide statistics.
 #' @param iteration.number Number of times the matchability runs.
 #' @param df.donors A data frame containing demographics and medical information
-#' for a poll of donors. For uk algorithm must have respective columns.
+#' for a pool of donors. For `uk` algorithm must have their respective columns.
 #' @param df.candidates A data frame containing demographics and medical information
-#' for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.
+#' for a group of waitlisted transplant candidates. For `uk` algorithm must have respective columns.
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param algorithm The name of the function to use. Valid options are:
 #' \code{lima}, \code{et}, \code{pts}, \code{uk} (without quotation)
@@ -94,7 +94,7 @@ donor_recipient_pairs <- function(df.donors = donors,
 #' \code{seed.number} can be \code{NA} in which case no seed is applied.
 #' @param check.validity Logical to decide whether to validate input.
 #' @param ... all the parameters used on the function algorithm
-#' @return Statistics related to all the times the function ran.
+#' @return Overall statistics obtained from all runs.
 #' @examples
 #' \dontrun{
 #' several(iteration.number = 10,

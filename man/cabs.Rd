@@ -8,7 +8,7 @@
 A data frame with 752 rows and 2 variables:
 \describe{
 \item{ID}{Candidates' identifier}
-\item{abs}{Candidates HLA antibodies for which they are himunezed to}
+\item{abs}{Candidates HLA antibodies for which they are himmunized to}
 ...
 }
 }

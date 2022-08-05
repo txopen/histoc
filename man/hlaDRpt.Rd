@@ -20,6 +20,7 @@ A data frame with 13 rows and 3 variables:
 hlaDRpt
 }
 \description{
-A dataset containing HLA-DR allele relative frequencies from portuguese donors used for MMP computation.
+A dataset containing HLA-DR allele relative frequencies from portuguese donors
+used for Mismatch Probability (MMP) computation.
 }
 \keyword{datasets}

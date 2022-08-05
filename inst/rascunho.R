@@ -44,6 +44,12 @@ gitcreds::gitcreds_set()
 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
 
 
+devtools::load_all()
+devtools::test_coverage()
+
+library(covr)
+report()
+
 #  < install.packages('revdepcheck')
 
 library(microbenchmark)

@@ -2,16 +2,16 @@
 #'
 #' @description Mismatch Probability (MMP) is a calculation of the probability of
 #' receiving a kidney offer with
-#' 0 and 1 broad HLA-A, -B or split DR mismatches based on 1000 kidneys offered,
-#' taking into account AB0 blood group rules and PRA screening. Patients receive
+#' 0 and 1 broad HLA-A, -B or DR mismatches based on 1000 kidneys offered,
+#' taking into account ABO blood group rules and PRA screening. Patients receive
 #' between 0-100 MMPs
 #' @source \url{https://www.eurotransplant.org/wp-content/uploads/2020/01/H4-Kidney.pdf}
 #' @param data A data frame containing demographics and medical information for a
 #' group of waitlisted transplant candidates.
-#' @param hlaA A data frame with HLA-A allele frequencies
-#' @param hlaB A data frame with HLA-B allele frequencies
-#' @param hlaDR A data frame with HLA-DR allele frequencies
-#' @param abo.freq A data frame with ABO blood group frequencies
+#' @param hlaA A data frame with HLA-A allele frequencies.
+#' @param hlaB A data frame with HLA-B allele frequencies.
+#' @param hlaDR A data frame with HLA-DR allele frequencies.
+#' @param abo.freq A data frame with ABO blood group frequencies.
 #' @param check.validity Logical to decide whether to validate input.
 #' @examples
 #' et_mmp(data = candidates,
@@ -89,19 +89,19 @@ et_mmp <- function(data = candidates,
 #'
 #' @description Computes HLA mismatches (mm) and the respective punctuation within ET
 #' Kidney allocation system
-#' @param dA donor's HLA-A typing
-#' @param dB donor's HLA-B typing
-#' @param dDR donor's HLA-DR typing
-#' @param cA candidate's HLA-A typing
-#' @param cB candidate's HLA-B typing
-#' @param cDR candidate's HLA-DR typing
-#' @param mm0 A numeric value with points for 0 HLA mm on ETKAS points table
-#' @param mm1 A numeric value with points for 1 HLA mm on ETKAS points table
-#' @param mm2 A numeric value with points for 2 HLA mm on ETKAS points table
-#' @param mm3 A numeric value with points for 3 HLA mm on ETKAS points table
-#' @param mm4 A numeric value with points for 4 HLA mm on ETKAS points table
-#' @param mm5 A numeric value with points for 5 HLA mm on ETKAS points table
-#' @param mm6 A numeric value with points for 6 HLA mm on ETKAS points table
+#' @param dA A two elements character vector donor's HLA-A typing.
+#' @param dB A two elements character vector donor's HLA-B typing.
+#' @param dDR A two elements character vector donor's HLA-DR typing.
+#' @param cA A two elements character vector candidate's HLA-A typing.
+#' @param cB A two elements character vector candidate's HLA-B typing.
+#' @param cDR A two elements character vector candidate's HLA-DR typing.
+#' @param mm0 A numeric value with points for 0 HLA mm on ETKAS points table.
+#' @param mm1 A numeric value with points for 1 HLA mm on ETKAS points table.
+#' @param mm2 A numeric value with points for 2 HLA mm on ETKAS points table.
+#' @param mm3 A numeric value with points for 3 HLA mm on ETKAS points table.
+#' @param mm4 A numeric value with points for 4 HLA mm on ETKAS points table.
+#' @param mm5 A numeric value with points for 5 HLA mm on ETKAS points table.
+#' @param mm6 A numeric value with points for 6 HLA mm on ETKAS points table.
 #' @examples
 #' et_mmHLA(dA = c("01","02"), dB = c("03","05"), dDR = c("04","06"),
 #' cA = c("01","02"), cB = c("03","05"), cDR = c("04","06"),
@@ -173,34 +173,33 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' ET algorithm
 #'
 #' @description Applies EuroTransplant algorithm on deceased donor's Kidney allocation for transplantation.
-#' Ordering of waitlisted candidates for a given donor and
-#' according to ETKAS algorithm.
+#' Ordering of waitlisted candidates for a given donor according to ETKAS algorithm.
 #' @param iso A logical value for isogroupal compatibility.
 #' @param dABO A character value with ABO blood group (`r env$valid.blood.groups`).
-#' @param dA donor's HLA-A typing.
-#' @param dB donor's HLA-B typing.
-#' @param dDR donor's HLA-DR typing.
+#' @param dA A two elements character vector donor's HLA-A typing.
+#' @param dB A two elements character vector donor's HLA-B typing.
+#' @param dDR A two elements character vector donor's HLA-DR typing.
 #' @param donor.age A numeric value with donor's age.
 #' @param data A data frame containing demographics and medical information for
 #' a group of waitlisted transplant candidates.
 #' @param month A numeric value with the punctuation for each month
-#' (between env$month.points.minimum and env$month.points.maximum)
-#' @param mm0 A numeric value with points for 0 HLA mm on ETKAS points table
-#' @param mm1 A numeric value with points for 1 HLA mm on ETKAS points table
-#' @param mm2 A numeric value with points for 2 HLA mm on ETKAS points table
-#' @param mm3 A numeric value with points for 3 HLA mm on ETKAS points table
-#' @param mm4 A numeric value with points for 4 HLA mm on ETKAS points table
-#' @param mm5 A numeric value with points for 5 HLA mm on ETKAS points table
-#' @param mm6 A numeric value with points for 6 HLA mm on ETKAS points table
-#' @param hlaA A data frame with HLA-A allele frequencies
-#' @param hlaB A data frame with HLA-B allele frequencies
-#' @param hlaDR A data frame with HLA-DR allele frequencies
-#' @param abo.freq A data frame with ABO blood group frequencies
+#' (between `r env$month.points.minimum` and `r env$month.points.maximum`).
+#' @param mm0 A numeric value with points for 0 HLA mm on ETKAS points table.
+#' @param mm1 A numeric value with points for 1 HLA mm on ETKAS points table.
+#' @param mm2 A numeric value with points for 2 HLA mm on ETKAS points table.
+#' @param mm3 A numeric value with points for 3 HLA mm on ETKAS points table.
+#' @param mm4 A numeric value with points for 4 HLA mm on ETKAS points table.
+#' @param mm5 A numeric value with points for 5 HLA mm on ETKAS points table.
+#' @param mm6 A numeric value with points for 6 HLA mm on ETKAS points table.
+#' @param hlaA A data frame with HLA-A allele frequencies.
+#' @param hlaB A data frame with HLA-B allele frequencies.
+#' @param hlaDR A data frame with HLA-DR allele frequencies.
+#' @param abo.freq A data frame with ABO blood group frequencies.
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
 #' @return An ordered data frame with columns \code{cPRA}, \code{HI},
-#' \code{pointsET}, \code{SP}, \code{AM}, and \code{mmHLA}.
+#' \code{pointsET}, \code{SP}, \code{AM}, \code{mmHLA}, ...
 #' @examples
 #' et(iso = TRUE, dABO = "A",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),

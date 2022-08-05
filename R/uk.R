@@ -1,8 +1,8 @@
-#' donor-recipient Risk Index Combination
+#' Donor-recipient Risk Index Combination
 #'
 #' @description computes Risk Index Combination for each pair donor-recipient
-#' @param DRI Donor RisK Index group (`r env$valid.dris`)
-#' @param data A data file with candidates information for UK transplant
+#' @param DRI Donor Risk Index group (`r env$valid.dris`)
+#' @param data A data file with candidates information for UK transplant.
 #' @param D1R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes D1R1
 #' @param D1R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes D1R2
 #' @param D1R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes D1R3
@@ -20,13 +20,13 @@
 #' @param D4R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes D4R3
 #' @param D4R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes D4R4
 #' @param check.validity Logical to decide whether to validate input.
-#' @return A tibble with a new column \code{ric} that gives the  Risk Index Combination.
+#' @return A table with a new column \code{ric} that gives the  Risk Index Combination.
 #' @examples
 #' ric(DRI = 'D1', data = candidates.uk,
 #' D1R1 = 1000, D1R2 = 700, D1R3 = 350, D1R4 = 0,
 #' D2R1 = 700, D2R2 = 1000, D2R3 = 500, D2R4 = 350,
 #' D3R1 = 350, D3R2 = 500, D3R3 = 1000, D3R4 = 700,
-#' D4R1 = 0, D4R2 = 350, D4R3 = 700, D4R4 = 1000, check.validity = TRUE)
+#' D4R1 = 0, D4R2 = 350, D4R3 = 700, D4R4 = 1000, check.validity = TRUE) %>% head()
 #' @export
 ric <- function(DRI = 'D1',
               data = candidates.uk,
@@ -96,12 +96,14 @@ ric <- function(DRI = 'D1',
                                                           RRI == 'R3' ~ D4R3,
                                                           RRI == 'R4' ~ D4R4))
   }
+
   return(data)
 }
 
-#' Donor recipient age difference
+#' Donor - recipient age difference
 #'
-#' @description computes punctuation according to donor-recipient age difference
+#' @description Computes punctuation according to donor-recipient age difference
+#' for UK algorithm.
 #' @param donor.age A numeric value with donor's age.
 #' @param candidate.age A numeric value with candidate's age.
 #' @return A numeric value.
@@ -125,13 +127,13 @@ age_diff <- function(donor.age = 60,
 #' Blood group B match points
 #'
 #' @description Computes penalization when donor's group O and candidate's group B
-#' @param cABO A character from (`r env$valid.blood.groups`)
-#' @param dABO A character from (`r env$valid.blood.groups`)
-#' @param tier A character value for UK transplant TIER classification (`r env$valid.tiers`)
+#' @param cABO A character value for candidate's ABO blood group (`r env$valid.blood.groups`).
+#' @param dABO A character value for donor's ABO blood group (`r env$valid.blood.groups`).
+#' @param tier A character value for UK transplant candidate's TIER classification (`r env$valid.tiers`)
 #' @param pts A negative value with penalization for B candidates
 #' @return A numeric value.
 #' @examples
-#' b_blood_penalization(dABO = "B", cABO = "O", tier = "B", pts = -1000)
+#' b_blood_penalization(dABO = "O", cABO = "B", tier = "B", pts = -1000)
 #' @export
 b_blood_penalization <- function(dABO = "B",
                   cABO = "O",
@@ -154,10 +156,9 @@ b_blood_penalization <- function(dABO = "B",
 #'
 #' @description ABO compatibility test between donor and candidate according to
 #' TIER classification
-#' @param cABO A character from (`r env$valid.blood.groups`), for candidate ABO group
-#' @param dABO A character from (`r env$valid.blood.groups`), for donor ABO group
+#' @param cABO A character value for candidate's ABO blood group (`r env$valid.blood.groups`).
+#' @param dABO A character value for donor's ABO blood group (`r env$valid.blood.groups`).
 #' @param tier A character value for UK transplant candidate's TIER classification (`r env$valid.tiers`)
-#' (options A and B)
 #' @return A logical value T/F
 #' @examples
 #' abo_uk(dABO = "A", cABO = "A", tier = "B")
@@ -193,54 +194,56 @@ abo_uk <- function(dABO = "A",
 #' UK algorithm
 #'
 #' @description Applies UK algorithm on deceased donor's Kidney allocation for transplantation.
-#' Ordering of waitlisted candidates for a given donor and according
+#' Ordering of waitlisted candidates for a given donor according
 #' to UK transplant algorithm.
 #' @param DRI Donor RisK Index group (`r env$valid.dris`)
 #' @param dABO A character value with ABO blood group (`r env$valid.blood.groups`).
-#' @param dA donor's HLA-A typing.
-#' @param dB donor's HLA-B typing.
-#' @param dDR donor's HLA-DR typing.
+#' @param dA A two elements character vector donor's HLA-A typing.
+#' @param dB A two elements character vector donor's HLA-B typing.
+#' @param dDR A two elements character vector donor's HLA-DR typing.
 #' @param donor.age A numeric value with donor's age.
 #' @param data A data frame containing demographics and medical information for
 #' a group of waitlisted transplant for UK transplant.
-#' @param D1R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D1R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D1R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D1R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D2R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D2R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D2R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D2R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D3R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D3R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D3R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D3R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D4R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D4R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D4R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
-#' @param D4R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes DiRj
+#' @param D1R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D1R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D1R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D1R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D2R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D2R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D2R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D2R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D3R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D3R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D3R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D3R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D4R1 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D4R2 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D4R3 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
+#' @param D4R4 A numeric value (`r env$dirj.minimum` - `r env$dirj.maximum`) for the combination of indexes.
 #' @param ptsDial A numeric value for the points corresponding to each month
-#' on dialysis
+#' on dialysis.
 #' @param a1 A numeric value for HLA match and age combined formula:
-#' b1*cos(age / env$adulthood.age)+a1
+#' `b1`*cos(`age` / `r env$adulthood.age`)+`a1`
 #' @param a2 A numeric value for HLA match and age combined formula:
-#' b2*cos(age / env$adulthood.age)+a2
+#' `b2`*cos(`age` / `r env$adulthood.age`)+`a2`
 #' @param b1 A numeric value for HLA match and age combined formula:
-#' b1*cos(age / env$adulthood.age)+a1
+#' `b1`*cos(`age` / `r env$adulthood.age`)+`a1`
 #' @param b2 A numeric value for HLA match and age combined formula:
-#' b2*cos(age / env$adulthood.age)+a2
+#' `b2`*cos(`age` / `r env$adulthood.age`)+`a2`
 #' @param b3 A numeric value for HLA match and age combined formula:
-#' b3*sin(age / 50)
-#' @param m A numeric value for matchability formula: m * (1 + (MS / nn) ^ o)
-#' @param nn A numeric value for matchability formula: m * (1 + (MS / nn) ^ o)
-#' @param o A numeric value for matchability formula: m * (1 + (MS / nn) ^ o)
-#' @param mm1 A numeric value to penalize 1 mm
-#' @param mm23 A numeric value to penalize 2-3 mm
-#' @param mm46 A numeric value to penalize 4-6 mm
-#' @param pts A negative value with penalization for B candidates
+#' `b3`*sin(`age` / 50)
+#' @param m A numeric value for matchability formula: `m` * (1 + (`MS` / `nn`) ^ `o`)
+#' @param nn A numeric value for matchability formula: `m` * (1 + (`MS` / `nn`) ^ `o`)
+#' @param o A numeric value for matchability formula: `m` * (1 + (`MS` / `nn`) ^ `o`)
+#' @param mm1 A numeric value to penalize 1 mm.
+#' @param mm23 A numeric value to penalize 2-3 mm.
+#' @param mm46 A numeric value to penalize 4-6 mm.
+#' @param pts A negative value with penalization for B candidates.
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
+#' @return An ordered data frame with a column \code{matchability},
+#' \code{Tier}, \code{pointsUK}, ...
 #' @examples
 #' uk(DRI = 'D1', dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 #' dABO = "O", donor.age = 65, data = candidates.uk,

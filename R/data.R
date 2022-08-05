@@ -5,7 +5,7 @@
 #' @format A data frame with 752 rows and 2 variables:
 #' \describe{
 #'   \item{ID}{Candidates' identifier}
-#'   \item{abs}{Candidates HLA antibodies for which they are himunezed to}
+#'   \item{abs}{Candidates HLA antibodies for which they are himmunized to}
 #'   ...
 #' }
 #' @source \url{https://balima.shinyapps.io/kars/}
@@ -18,7 +18,7 @@
 #' @format A data frame with 500 rows and 12 variables:
 #' \describe{
 #'   \item{ID}{Candidates' identifier}
-#'   \item{bg}{Candidates' blood group}
+#'   \item{bg}{Candidates' blood group (`r env$valid.blood.groups`)}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
@@ -41,7 +41,7 @@
 #' @format A data frame with 500 rows and 15 variables:
 #' \describe{
 #'   \item{ID}{Candidates' identifier}
-#'   \item{bg}{Candidates' blood group}
+#'   \item{bg}{Candidates' blood group (`r env$valid.blood.groups`)}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
@@ -52,8 +52,8 @@
 #'   \item{dialysis}{Candidates' time on dialysis in months}
 #'   \item{cPRA}{Candidates' cPRA percentage}
 #'   \item{Tier}{Candidates are ranked on two Tiers (A and B)}
-#'   \item{MS}{Candidates' MAtch Score defined as HLA transplantability}
-#'   \item{RRI}{A recipient risk score (RRI) is calculated, for each eligible patient using 4 risk factors: age, dialysis at registration, time on dialysis, diabetic status}
+#'   \item{MS}{Candidates' Match Score defined as HLA transplantability}
+#'   \item{RRI}{A recipient risk score (RRI) calculated for each eligible patient using 4 risk factors: age, dialysis at registration, time on dialysis, diabetic status}
 #'   \item{urgent}{clinical urgency 0/1}
 #'   ...
 #' }
@@ -67,7 +67,7 @@
 #' @format A data frame with 70 rows and 9 variables:
 #' \describe{
 #'   \item{ID}{Donors' identifier}
-#'   \item{bg}{Donors' blood group}
+#'   \item{bg}{Donors' blood group (`r env$valid.blood.groups`)}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
@@ -87,7 +87,7 @@
 #' @format A data frame with 70 rows and 10 variables:
 #' \describe{
 #'   \item{ID}{Donors' identifier}
-#'   \item{bg}{Donors' blood group}
+#'   \item{bg}{Donors' blood group (`r env$valid.blood.groups`)}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
@@ -103,7 +103,8 @@
 
 #' HLA-A relative frequencies.
 #'
-#' A dataset containing HLA-A allele relative frequencies from portuguese donors used for MMP computation.
+#' A dataset containing HLA-A allele relative frequencies from portuguese donors
+#' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 20 rows and 3 variables:
 #' \describe{
@@ -117,7 +118,8 @@
 
 #' HLA-B relative frequencies.
 #'
-#' A dataset containing HLA-B allele relative frequencies from portuguese donors used for MMP computation.
+#' A dataset containing HLA-B allele relative frequencies from portuguese donors
+#' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 34 rows and 3 variables:
 #' \describe{
@@ -131,7 +133,8 @@
 
 #' HLA-DR relative frequencies.
 #'
-#' A dataset containing HLA-DR allele relative frequencies from portuguese donors used for MMP computation.
+#' A dataset containing HLA-DR allele relative frequencies from portuguese donors
+#' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 13 rows and 3 variables:
 #' \describe{
@@ -145,7 +148,8 @@
 
 #' ABO relative frequencies.
 #'
-#' A dataset containing ABO relative frequencies from portuguese blood donors used for MMP computation.
+#' A dataset containing ABO relative frequencies from portuguese blood donors
+#' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 4 rows and 2 variables:
 #' \describe{
@@ -158,7 +162,8 @@
 
 #' HLA-A relative frequencies.
 #'
-#' A dataset containing HLA-A allele relative frequencies from EuroTransplant donors used for MMP computation.
+#' A dataset containing HLA-A allele relative frequencies from EuroTransplant donors
+#' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 27 rows and 3 variables:
 #' \describe{
@@ -172,7 +177,8 @@
 
 #' HLA-B relative frequencies.
 #'
-#' A dataset containing HLA-B allele relative frequencies from EuroTransplant donors used for MMP computation.
+#' A dataset containing HLA-B allele relative frequencies from EuroTransplant donors
+#' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 57 rows and 3 variables:
 #' \describe{
@@ -186,7 +192,8 @@
 
 #' HLA-DR relative frequencies.
 #'
-#' A dataset containing HLA-DR allele relative frequencies from EuroTransplant donors used for MMP computation.
+#' A dataset containing HLA-DR allele relative frequencies from EuroTransplant donors
+#' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 18 rows and 3 variables:
 #' \describe{

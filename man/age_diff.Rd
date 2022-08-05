@@ -2,7 +2,7 @@
 % Please edit documentation in R/uk.R
 \name{age_diff}
 \alias{age_diff}
-\title{Donor recipient age difference}
+\title{Donor - recipient age difference}
 \usage{
 age_diff(donor.age = 60, candidate.age = 50)
 }
@@ -15,7 +15,8 @@ age_diff(donor.age = 60, candidate.age = 50)
 A numeric value.
 }
 \description{
-computes punctuation according to donor-recipient age difference
+Computes punctuation according to donor-recipient age difference
+for UK algorithm.
 }
 \examples{
 age_diff(donor.age = 60, candidate.age = 50)

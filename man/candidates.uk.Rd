@@ -8,7 +8,7 @@
 A data frame with 500 rows and 15 variables:
 \describe{
 \item{ID}{Candidates' identifier}
-\item{bg}{Candidates' blood group}
+\item{bg}{Candidates' blood groupO, A, B, ABs`)}
 \item{A1}{HLA-A allele 1}
 \item{A2}{HLA-A allele 2}
 \item{B1}{HLA-B allele 1}
@@ -19,8 +19,8 @@ A data frame with 500 rows and 15 variables:
 \item{dialysis}{Candidates' time on dialysis in months}
 \item{cPRA}{Candidates' cPRA percentage}
 \item{Tier}{Candidates are ranked on two Tiers (A and B)}
-\item{MS}{Candidates' MAtch Score defined as HLA transplantability}
-\item{RRI}{A recipient risk score (RRI) is calculated, for each eligible patient using 4 risk factors: age, dialysis at registration, time on dialysis, diabetic status}
+\item{MS}{Candidates' Match Score defined as HLA transplantability}
+\item{RRI}{A recipient risk score (RRI) calculated for each eligible patient using 4 risk factors: age, dialysis at registration, time on dialysis, diabetic status}
 \item{urgent}{clinical urgency 0/1}
 ...
 }

@@ -34,11 +34,11 @@ et(
 
 \item{dABO}{A character value with ABO blood group (O, A, B, AB).}
 
-\item{dA}{donor's HLA-A typing.}
+\item{dA}{A two elements character vector donor's HLA-A typing.}
 
-\item{dB}{donor's HLA-B typing.}
+\item{dB}{A two elements character vector donor's HLA-B typing.}
 
-\item{dDR}{donor's HLA-DR typing.}
+\item{dDR}{A two elements character vector donor's HLA-DR typing.}
 
 \item{donor.age}{A numeric value with donor's age.}
 
@@ -46,31 +46,31 @@ et(
 a group of waitlisted transplant candidates.}
 
 \item{month}{A numeric value with the punctuation for each month
-(between env$month.points.minimum and env$month.points.maximum)}
+(between 0 and 10).}
 
-\item{mm0}{A numeric value with points for 0 HLA mm on ETKAS points table}
+\item{mm0}{A numeric value with points for 0 HLA mm on ETKAS points table.}
 
-\item{mm1}{A numeric value with points for 1 HLA mm on ETKAS points table}
+\item{mm1}{A numeric value with points for 1 HLA mm on ETKAS points table.}
 
-\item{mm2}{A numeric value with points for 2 HLA mm on ETKAS points table}
+\item{mm2}{A numeric value with points for 2 HLA mm on ETKAS points table.}
 
-\item{mm3}{A numeric value with points for 3 HLA mm on ETKAS points table}
+\item{mm3}{A numeric value with points for 3 HLA mm on ETKAS points table.}
 
-\item{mm4}{A numeric value with points for 4 HLA mm on ETKAS points table}
+\item{mm4}{A numeric value with points for 4 HLA mm on ETKAS points table.}
 
-\item{mm5}{A numeric value with points for 5 HLA mm on ETKAS points table}
+\item{mm5}{A numeric value with points for 5 HLA mm on ETKAS points table.}
 
-\item{mm6}{A numeric value with points for 6 HLA mm on ETKAS points table}
+\item{mm6}{A numeric value with points for 6 HLA mm on ETKAS points table.}
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
-\item{hlaA}{A data frame with HLA-A allele frequencies}
+\item{hlaA}{A data frame with HLA-A allele frequencies.}
 
-\item{hlaB}{A data frame with HLA-B allele frequencies}
+\item{hlaB}{A data frame with HLA-B allele frequencies.}
 
-\item{hlaDR}{A data frame with HLA-DR allele frequencies}
+\item{hlaDR}{A data frame with HLA-DR allele frequencies.}
 
-\item{abo.freq}{A data frame with ABO blood group frequencies}
+\item{abo.freq}{A data frame with ABO blood group frequencies.}
 
 \item{n}{A positive integer to slice the first candidates.}
 
@@ -78,12 +78,11 @@ a group of waitlisted transplant candidates.}
 }
 \value{
 An ordered data frame with columns \code{cPRA}, \code{HI},
-\code{pointsET}, \code{SP}, \code{AM}, and \code{mmHLA}.
+\code{pointsET}, \code{SP}, \code{AM}, \code{mmHLA}, ...
 }
 \description{
 Applies EuroTransplant algorithm on deceased donor's Kidney allocation for transplantation.
-Ordering of waitlisted candidates for a given donor and
-according to ETKAS algorithm.
+Ordering of waitlisted candidates for a given donor according to ETKAS algorithm.
 }
 \examples{
 et(iso = TRUE, dABO = "A",

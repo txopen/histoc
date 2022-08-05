@@ -20,10 +20,10 @@ several(
 \item{iteration.number}{Number of times the matchability runs.}
 
 \item{df.donors}{A data frame containing demographics and medical information
-for a poll of donors. For uk algorithm must have respective columns.}
+for a pool of donors. For \code{uk} algorithm must have their respective columns.}
 
 \item{df.candidates}{A data frame containing demographics and medical information
-for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.}
+for a group of waitlisted transplant candidates. For \code{uk} algorithm must have respective columns.}
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
@@ -40,7 +40,7 @@ for a group of waitlisted transplant candidates. For uk algorithm must have resp
 \item{...}{all the parameters used on the function algorithm}
 }
 \value{
-Statistics related to all the times the function ran.
+Overall statistics obtained from all runs.
 }
 \description{
 Generic function that runs the matchability between all combinations of donors and candidates.

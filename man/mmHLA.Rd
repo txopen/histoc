@@ -14,23 +14,23 @@ mmHLA(
 )
 }
 \arguments{
-\item{dA}{donor's HLA-A typing}
+\item{dA}{A two elements character vector with donor's HLA-A typing}
 
-\item{dB}{donor's HLA-B typing}
+\item{dB}{A two elements character vector withdonor's HLA-B typing}
 
-\item{dDR}{donor's HLA-DR typing}
+\item{dDR}{A two elements character vector withdonor's HLA-DR typing}
 
-\item{cA}{candidate's HLA-A typing}
+\item{cA}{A two elements character vector withcandidate's HLA-A typing}
 
-\item{cB}{candidate's HLA-B typing}
+\item{cB}{A two elements character vector withcandidate's HLA-B typing}
 
-\item{cDR}{candidate's HLA-DR typing}
+\item{cDR}{A two elements character vector withcandidate's HLA-DR typing}
 }
 \value{
-mmA number of HLA-A mismatchs between \code{dA} and \code{cA};
-mmB number of HLA-B mismatchs between \code{dB} and \code{cB};
-mmDR number of HLA-DR mismatchs between \code{dA}DRand \code{cDR};
-and mmHLA as the sum of mmA + mmB + mmDR
+\code{mmA} number of HLA-A mismatchs between \code{dA} and \code{cA};
+\code{mmB} number of HLA-B mismatchs between \code{dB} and \code{cB};
+\code{mmDR} number of HLA-DR mismatchs between \code{dA}DR and \code{cDR};
+and \code{mmHLA} as the sum of \code{mmA} + \code{mmB} + \code{mmDR}
 }
 \description{
 Computes the number of HLA mismatchs between donor and candidate

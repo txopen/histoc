@@ -24,13 +24,13 @@ lima(
 \arguments{
 \item{iso}{A logical value for isogroupal compatibility.}
 
-\item{dABO}{A character value with ABO blood group (O, A, B, AB).}
+\item{dABO}{A character value with donor's ABO blood group (O, A, B, AB).}
 
-\item{dA}{donor's HLA-A typing.}
+\item{dA}{A two elements character vector donor's HLA-A typing.}
 
-\item{dB}{donor's HLA-B typing.}
+\item{dB}{A two elements character vector donor's HLA-B typing.}
 
-\item{dDR}{donor's HLA-DR typing.}
+\item{dDR}{A two elements character vector donor's HLA-DR typing.}
 
 \item{donor.age}{A numeric value with donor's age.}
 
@@ -50,11 +50,11 @@ color priority classification.}
 
 \item{cPRA2}{A numerical value (0 - 100) for the higher cPRA cutoff.}
 
-\item{check.validity}{Logical to decide whether to validate input.}
+\item{check.validity}{Logical to decide whether to validate input arguments.}
 }
 \value{
 An ordered data frame with a column \code{cp} (color priority),
-'sp', 'hi' and 'mmHLA'.
+\code{SP}, \code{HI} and \code{mmHLA}.
 }
 \description{
 Applies Lima's algorithm on deceased donor's Kidney allocation for transplantation.

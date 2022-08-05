@@ -18,7 +18,7 @@ library(histoc)
 We can also simulate the selection of wait list candidates for a pool of donors, according to a given model (or algorithm). 
 The function `donor_recipient_pairs()` allow us to compute all possible donor-recipient pairs according to any of the [previously described](how_to.html) kidney allocation algorithms. 
 
-Here an example where we use a pool of 70 donors ([donors](../reference/donors.html) data frame available from the package) to select from a wait list of 500 transplant [candidates](../reference/candidates.html) (data frame is also available from the package)
+Here an example where we use a pool of 70 donors ([donors](../reference/donors.html) data frame available in the package) to select from a wait list of 500 transplant [candidates](../reference/candidates.html) (data frame is also available in the package)
 
 
 ```{r}
@@ -60,7 +60,7 @@ result[!is.na(ID),][ ,
 
 ## Input data
 
-Input data used on this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available. Also, [{simK}](https://github.com/txopen/simK) package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
+Input data used with this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available.   Moreover, [{simK}](https://github.com/txopen/simK) package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
 
 
 
