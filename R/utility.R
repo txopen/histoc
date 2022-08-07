@@ -65,7 +65,7 @@ rri_checker <- function(input_string){
 #' @param input_number A character from `r env$valid.urgent`
 #' @noRd
 urgent_checker <- function(input_number){
-  if(!input_number %in% env$valid.urgent){
+  if(!is.numeric(input_number) || !input_number %in% env$valid.urgent){
     stop("Invalid urgent. Accepted values: ", env$valid.urgent)
   }
 }
@@ -140,17 +140,6 @@ candidate_dataframe_check <- function(candidate.dataframe){
   return(TRUE)
 }
 
-#' Validates the Candids
-#' @param file_name name of the file
-#' @param file_type type of the file
-#' @param csv_separator character sequence separating columns in csv
-#' @return A logical value T/F
-#' @noRd
-validate_candid <- function(file_name, file_type, csv_separator = ";"){
-  candidate.dataframe <- read.csv(file_name, sep = csv_separator)
-  candidate_dataframe_check(candidate.dataframe)
-}
-
 #' Validates the CandidUK file.
 #' Makes sure the header matches the header that a candid file should have.
 #' For each line, call blood group and age checks.
@@ -204,16 +193,3 @@ uk_candidate_dataframe_check <- function(candidate.dataframe){
 
   return(TRUE)
 }
-
-#' Validates the CandidUK file.
-#' @param file_name name of the file
-#' @param file_type type of the file
-#' @param csv_separator character sequence separating columns in csv
-#' @return A logical value T/F
-#' @noRd
-validate_candid_uk <- function(file_name, file_type, csv_separator = ";"){
-  file <- read.csv(file_name, sep = csv_separator)
-  uk_candidate_dataframe_check(file)
-}
-
-
