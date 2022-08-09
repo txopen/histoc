@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">histoc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,19 +73,19 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>dA</dt>
-<dd><p>donor's HLA-A typing</p></dd>
+<dd><p>A two elements character vector donor's HLA-A typing</p></dd>
 
 
 <dt>dB</dt>
-<dd><p>donor's HLA-B typing</p></dd>
+<dd><p>A two elements character vector donor's HLA-B typing</p></dd>
 
 
 <dt>dDR</dt>
-<dd><p>donor's HLA-DR typing</p></dd>
+<dd><p>A two elements character vector donor's HLA-DR typing</p></dd>
 
 
 <dt>df.abs</dt>
-<dd><p>data frame with candidates' antibodies</p></dd>
+<dd><p>A data frame with candidates' antibodies</p></dd>
 
 
 <dt>check.validity</dt>
@@ -96,114 +96,19 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>A dataframe with candidates' ID and xm result POS/NEG</p>
+<p>A dataframe with candidates' <code>ID</code> and <code>xm</code> result POS/NEG</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">xmatch</span><span class="op">(</span>dA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'1'</span>,<span class="st">'2'</span><span class="op">)</span>, dB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'5'</span>,<span class="st">'7'</span><span class="op">)</span>, dDR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'1'</span>,<span class="st">'4'</span><span class="op">)</span>, df.abs <span class="op">=</span> <span class="va">cabs</span>, check.validity <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       ID  xm</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:   2 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:  11 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:  19 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:  24 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:  27 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   6:  28 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   7:  34 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   8:  37 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   9:  50 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  10:  78 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  11:  79 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  12:  87 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  13:  93 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  14:  94 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  15: 100 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  16: 111 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  17: 113 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  18: 114 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  19: 124 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  20: 126 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  21: 127 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  22: 128 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  23: 129 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  24: 131 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  25: 136 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  26: 137 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  27: 141 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  28: 143 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  29: 145 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  30: 183 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  31: 192 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  32: 194 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  33: 199 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  34: 205 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  35: 217 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  36: 220 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  37: 235 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  38: 236 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  39: 242 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  40: 246 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  41: 248 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  42: 249 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  43: 254 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  44: 256 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  45: 257 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  46: 259 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  47: 262 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  48: 263 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  49: 264 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  50: 275 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  51: 288 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  52: 303 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  53: 308 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  54: 309 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  55: 311 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  56: 320 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  57: 326 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  58: 331 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  59: 334 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  60: 336 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  61: 348 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  62: 349 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  63: 350 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  64: 351 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  65: 374 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  66: 375 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  67: 385 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  68: 388 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  69: 391 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  70: 393 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  71: 398 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  72: 399 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  73: 406 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  74: 408 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  75: 421 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  76: 424 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  77: 425 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  78: 431 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  79: 433 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  80: 436 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  81: 444 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  82: 445 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  83: 447 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  84: 449 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  85: 450 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  86: 451 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  87: 455 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  88: 458 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  89: 459 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  90: 460 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  91: 462 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  92: 464 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  93: 467 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  94: 468 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  95: 479 POS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  96: 482 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  97: 485 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  98: 488 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  99: 489 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100: 490 NEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       ID  xm</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">xmatch</span><span class="op">(</span>dA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'1'</span>,<span class="st">'2'</span><span class="op">)</span>, dB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'5'</span>,<span class="st">'7'</span><span class="op">)</span>, dDR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'1'</span>,<span class="st">'4'</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>df.abs <span class="op">=</span> <span class="va">cabs</span>, check.validity <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    ID  xm</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  2 NEG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: 11 POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3: 19 POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: 24 POS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: 27 NEG</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

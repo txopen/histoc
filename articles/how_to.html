@@ -33,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">histoc</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -95,7 +95,7 @@
 <p>The <code>histoc</code> assembles functions for histocompatibity testing in the context of kidney transplantation.</p>
 <p>Package main functions allows to simulate kidney allocation systems for the distribution of deceased donors’ grafts.</p>
 <p>Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within EuroTransplant<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;EuroTransplant. ETKAS and ESP; 2020&lt;/p&gt;"><sup>1</sup></a> (ET model), in the United Kingdom<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;NHSBT, KAG - Kidney Allocation Policy. Published 2016&lt;/p&gt;"><sup>2</sup></a> (UK model), and a system previously suggested by Lima <em>et al.</em><a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;Lima BA, Mendes M, Alves H. Kidney Transplant allocation in Portugal. Port J Nephrol Hypert. 2013;27(4):313-316&lt;/p&gt;"><sup>3</sup></a> (Lima’s model), using functions: <code><a href="../reference/pts.html">pts()</a></code>, <code><a href="../reference/et.html">et()</a></code>, <code><a href="../reference/uk.html">uk()</a></code> and <code><a href="../reference/lima.html">lima()</a></code>, respectively.</p>
-<p>Each one of these functions have as inputs a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and inputs for a potential donor.</p>
+<p>Each one of these functions have as arguments a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and data for a potential donor.</p>
 <p>For all the algorithms, a virtual crossmatch between the donor and transplant candidates is performed (<code><a href="../reference/xmatch.html">xmatch()</a></code>). And, only those candidates with a negative crossmatch and ABO compatible can opt to the donor’s kidney.</p>
 <p>Results are presented as <code>data.table</code> objects due to its high computation performance.</p>
 <div class="section level2">
@@ -110,7 +110,7 @@
 <span><span class="co">#&gt; 1: FALSE  16.4  3      2      0      4    10.4</span></span>
 <span><span class="co">#&gt; 2: FALSE  15.3  3      1      0      4    10.3</span></span></code></pre></div>
 <p>By default 2 candidates are selected for each donor, although we can define the number of candidates to be selected.</p>
-<p>Portuguese rules on allocation of kidneys from deceased donor (PT model) are based on a scoring system that takes in consideration: HLA mismatches between donor and transplant candidate, level of immunization of the candidate, time on dialysis, and age difference between donor and transplant candidate. Total scores for donor-recipient pairs are given by the column <code>ptsPT</code>. Also, hipersensitized candidates (<code><a href="../reference/hiper.html">hiper()</a></code>) (cPRA &gt;85%) <code>HI</code> are prioritized and after that all candidates are ordered by their corresponding score.</p>
+<p>Portuguese rules on allocation of kidneys from deceased donor (PT model) are based on a scoring system that takes in consideration: HLA mismatches between donor and transplant candidate, level of immunization of the candidate, time on dialysis, and age difference between donor and transplant candidate. Total scores for donor-recipient pairs are given by the column <code>ptsPT</code>. Also, hipersensitized candidates (<code><a href="../reference/hiper.html">hiper()</a></code>) (cPRA &gt;85%, <code>HI</code>) are prioritized and after that all candidates are ordered by their corresponding score.</p>
 </div>
 <div class="section level2">
 <h2 id="et-model">ET model<a class="anchor" aria-label="anchor" href="#et-model"></a>
@@ -124,7 +124,7 @@
 <span><span class="co">#&gt; 1: FALSE       98  1  0</span></span>
 <span><span class="co">#&gt; 2: FALSE       69  1  0</span></span></code></pre></div>
 <p>A simplified version of EuroTransplant Kidney Allocation System (ETKAS)<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content="&lt;p&gt;EuroTransplant. ETKAS and ESP; 2020&lt;/p&gt;"><sup>4</sup></a> for first time kidney only candidates with more than 18 years old and not having donated one of their own kidneys can be simulated through <code><a href="../reference/et.html">et()</a></code>.</p>
-<p>In this simulation for each donor, transplant candidates as sorted as :</p>
+<p>In this simulation for each donor, transplant candidates are sorted as :</p>
 <ol style="list-style-type: decimal">
 <li>Senior Program (65+ years of old candidates when the donor has 65+ years) <code>SP</code>;</li>
 <li>Acceptable Mismatch Program (candidates with a cPRA &gt;85% and without HLA antibodies against HLA’s donor) <code>AM</code>;</li>
@@ -144,7 +144,7 @@
 <span><span class="co">#&gt;    dialysis cPRA Tier pointsUK</span></span>
 <span><span class="co">#&gt; 1:       81    0    A     9999</span></span>
 <span><span class="co">#&gt; 2:       66    0    A     9999</span></span></code></pre></div>
-<p>United Kingdom (UK) deceased donor kidney allocation for transplantation is firstly based on the definition of two ranked Tiers of candidates eligible for the donor (<code>Tier</code>):</p>
+<p>United Kingdom (UK) deceased donor kidney allocation for transplantation is firstly based on the definition of two ranked Tiers of eligible candidates for a donor (<code>Tier</code>):</p>
 <ol style="list-style-type: decimal">
 <li>Tier A – patients with match score = 10 or <code>cPRA</code> = 100% or time on <code>dialysis</code> &gt;7 years;</li>
 <li>Tier B – all other eligible patients.</li>
@@ -159,7 +159,7 @@
 <li>Total HLA mismatch (<code>mmHLa</code>)</li>
 <li>Blood group match (<code><a href="../reference/abo_uk.html">abo_uk()</a></code>)</li>
 </ol>
-<p>This function simulates the allocation of kidneys to a candidates’ waiting list for kidney-only transplants and do not take in consideration geographical criteria.</p>
+<p>This function simulates the allocation of kidneys to a candidates’ waiting list for kidney-only transplants and do not take in consideration any geographical criteria.</p>
 </div>
 <div class="section level2">
 <h2 id="limas-model">Lima’s model<a class="anchor" aria-label="anchor" href="#limas-model"></a>
