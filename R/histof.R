@@ -80,7 +80,6 @@ mmHLA <- function(dA = c('1','2'),
                                       dplyr::if_else(!dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == ""), 1,
                                                      dplyr::if_else(dDR[1] == dDR[2],1,2))))
 
-  # resume results
   mmHLA <- mmA + mmB + mmDR
   mm <- c(mmA,mmB,mmDR,mmHLA)
   names(mm) <- c("mmA","mmB","mmDR","mmHLA")

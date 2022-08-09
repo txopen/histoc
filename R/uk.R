@@ -76,22 +76,22 @@ ric <- function(DRI = 'D1',
     }
 
   if(DRI == 'D1') {
-    data <- data %>% dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D1R1,
+    data <- data |> dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D1R1,
                                                           RRI == 'R2' ~ D1R2,
                                                           RRI == 'R3' ~ D1R3,
                                                           RRI == 'R4' ~ D1R4))
   } else if(DRI == 'D2') {
-    data <- data %>% dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D2R1,
+    data <- data |> dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D2R1,
                                                           RRI == 'R2' ~ D2R2,
                                                           RRI == 'R3' ~ D2R3,
                                                           RRI == 'R4' ~ D2R4))
   } else if(DRI == 'D3') {
-    data <- data %>% dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D3R1,
+    data <- data |> dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D3R1,
                                                           RRI == 'R2' ~ D3R2,
                                                           RRI == 'R3' ~ D3R3,
                                                           RRI == 'R4' ~ D3R4))
   } else {
-    data <- data %>% dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D4R1,
+    data <- data |> dplyr::mutate(ric = dplyr::case_when(RRI == 'R1' ~ D4R1,
                                                           RRI == 'R2' ~ D4R2,
                                                           RRI == 'R3' ~ D4R3,
                                                           RRI == 'R4' ~ D4R4))
@@ -320,8 +320,8 @@ uk <- function(DRI = 'D1',
     data = data
   )
 
-   data[, ID := as.character(ID)] # ensure ID as a character
-   xm[, ID := as.character(ID)] # ensure ID as a character
+   data[, ID := as.character(ID)]
+   xm[, ID := as.character(ID)]
 
    data <- merge(data, xm,
                  by = 'ID',
@@ -368,7 +368,7 @@ uk <- function(DRI = 'D1',
                   ifelse(mmA + mmB + mmDR == 1, mm1,
                     ifelse(mmA + mmB + mmDR < 4, mm23, mm46))),
     # compute matchability points from Match Score
-    matchability = round(m * (1 + (MS / nn) ^ o), 1), # Isto pode ser feito antes do for loop de candidato vs dador
+    matchability = round(m * (1 + (MS / nn) ^ o), 1),
     points.age = age_diff(donor.age = donor.age, candidate.age = age),
     points.abo = b_blood_penalization(dABO = dABO, cABO = bg, tier = Tier, pts = pts)
     ),

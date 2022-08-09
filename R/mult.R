@@ -48,7 +48,7 @@ donor_recipient_pairs <- function(df.donors = donors,
     }
   }
 
-  df.donors <- df.donors %>%
+  df.donors <- df.donors |>
     dplyr::mutate(dABO = bg,
                   dA = purrr::map2(.x = A1,
                                    .y = A2,
@@ -60,7 +60,7 @@ donor_recipient_pairs <- function(df.donors = donors,
                                     .y = DR2,
                                     ~c(.x,.y)),
                   donor.age = age
-    ) %>%
+    ) |>
     dplyr::select(dABO, dA, dB, dDR, donor.age)
 
   if(n == 0) n <- nrow(df.candidates)
@@ -162,17 +162,17 @@ several <- function(iteration.number = 10,
     all.statistics <- append(all.statistics, list(current.iteration.statistics))
   }
 
-  mean_age <- all.statistics %>% purrr::map(., ~mean(.x$age)) %>% unlist()
-  mean_dialysis <- all.statistics %>% purrr::map(., ~mean(.x$dialysis)) %>% unlist()
-  mean_cPRA <- all.statistics %>% purrr::map(., ~mean(.x$cPRA)) %>% unlist()
-  freq_mmHLA <- all.statistics %>% purrr::map(., ~table(.x$mmHLA)) #%>% unlist()
-  freq_mmA <- all.statistics %>% purrr::map(., ~table(.x$mmA)) #%>% unlist()
-  freq_mmB <- all.statistics %>% purrr::map(., ~table(.x$mmB)) #%>% unlist()
-  freq_mmDR <- all.statistics %>% purrr::map(., ~table(.x$mmDR)) #%>% unlist()
-  freq_ABO <- all.statistics %>% purrr::map(., ~table(.x$bg))
-  freq_HI <- all.statistics %>% purrr::map(., ~table(.x$HI))
-  freq_color <- all.statistics %>% purrr::map(., ~table(.x$cp))
-  freq_SP <- all.statistics %>% purrr::map(., ~table(.x$SP))
+  mean_age <- all.statistics |> purrr::map(., ~mean(.x$age)) |> unlist()
+  mean_dialysis <- all.statistics |> purrr::map(., ~mean(.x$dialysis)) |> unlist()
+  mean_cPRA <- all.statistics |> purrr::map(., ~mean(.x$cPRA)) |> unlist()
+  freq_mmHLA <- all.statistics |> purrr::map(., ~table(.x$mmHLA))
+  freq_mmA <- all.statistics |> purrr::map(., ~table(.x$mmA))
+  freq_mmB <- all.statistics |> purrr::map(., ~table(.x$mmB))
+  freq_mmDR <- all.statistics |> purrr::map(., ~table(.x$mmDR))
+  freq_ABO <- all.statistics |> purrr::map(., ~table(.x$bg))
+  freq_HI <- all.statistics |> purrr::map(., ~table(.x$HI))
+  freq_color <- all.statistics |> purrr::map(., ~table(.x$cp))
+  freq_SP <- all.statistics |> purrr::map(., ~table(.x$SP))
 
   return(list(age = mean_age,
               dialysis = mean_dialysis,
@@ -187,108 +187,3 @@ several <- function(iteration.number = 10,
               SP = freq_SP)
         )
 }
-
-uk_several <- function(){
-  return(
-    several(iteration.number = 10,
-            df.donors = donors.uk,
-            df.candidates = candidates.uk,
-            df.abs = cabs,
-            algorithm = uk,
-            n = 0,
-            D1R1 = 1000,
-            D1R2 = 700,
-            D1R3 = 350,
-            D1R4 = 0,
-            D2R1 = 700,
-            D2R2 = 1000,
-            D2R3 = 500,
-            D2R4 = 350,
-            D3R1 = 350,
-            D3R2 = 500,
-            D3R3 = 1000,
-            D3R4 = 700,
-            D4R1 = 0,
-            D4R2 = 350,
-            D4R3 = 700,
-            D4R4 = 1000,
-            ptsDial = 1,
-            a1 = 2300,
-            a2 = 1500,
-            b1 = 1200,
-            b2 = 750,
-            b3 = 400,
-            m = 40,
-            nn = 4.5,
-            o = 4.7,
-            mm1 = -100,
-            mm23 = -150,
-            mm46 = -250,
-            pts = -1000
-          )
-    )
-}
-
-# No export, testing purposes
-lima_several <- function(){
-  return(
-    several(
-      iteration.number = 10,
-      df.donors = donors,
-      df.candidates = candidates,
-      df.abs = cabs,
-      algorithm = lima,
-      n = 0,
-      function_name = "lima",
-      q2 = 60,
-      q3 = 100,
-      cPRA1 = 50,
-      cPRA2 = 85)
-  )
-}
-
-# No export, testing purposes
-et_several <- function(){
-  return(
-    several(
-      iteration.number = 10,
-      df.donors = donors,
-      df.candidates = candidates,
-      df.abs = cabs,
-      algorithm = et,
-      n = 0,
-      iso = TRUE,
-      month = 2,
-      mm0 = 400,
-      mm1 = 333.33,
-      mm2 = 266.67,
-      mm3 = 200,
-      mm4 = 133.33,
-      mm5 = 66.67,
-      mm6 = 0,
-      hlaA = hlaApt,
-      hlaB = hlaBpt,
-      hlaDR = hlaDRpt,
-      abo.freq = ABOpt
-    )
-  )
-}
-
-# No export, testing purposes
-pt_several <- function(){
-  return(
-    several(
-      iteration.number = 10,
-      df.donors = donors,
-      df.candidates = candidates,
-      df.abs = cabs,
-      algorithm = pts,
-      n = 0,
-      iso = TRUE,
-      points.80 = 8,
-      points.50 = 4,
-      points.dialysis = 0.1,
-      points.age = 4)
-  )
-}
-

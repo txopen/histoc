@@ -18,13 +18,13 @@ test_that("Donor-recipient Risk Index Combination", {
     urgent = c(0, 0, 0, 0, 0, 0)
   )
 
-  result1 <- cand_uk_test %>%
+  result1 <- cand_uk_test |>
     dplyr::mutate(ric = c(700,1000,350,700,0,1000))
-  result2 <- cand_uk_test %>%
+  result2 <- cand_uk_test |>
     dplyr::mutate(ric = c(1000,700,500,1000,350,700))
-  result3 <- cand_uk_test %>%
+  result3 <- cand_uk_test |>
     dplyr::mutate(ric = c(500,350,1000,500,700,350))
-  result4 <- cand_uk_test %>%
+  result4 <- cand_uk_test |>
     dplyr::mutate(ric = c(350,0,700,350,1000,0))
 
   expect_equal(ric(DRI = 'D1',

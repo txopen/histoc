@@ -166,7 +166,7 @@ pts <- function(iso = TRUE
 
   n <- max(1, n)
 
-  data <- cp(data = data) %>% # Isto pode ser feito antes do for loop de candidato vs dador
+  data <- cp(data = data) |>
     as.data.frame()
 
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)

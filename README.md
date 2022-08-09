@@ -18,7 +18,7 @@ coverage](https://codecov.io/gh/txopen/histoc/branch/main/graph/badge.svg)](http
 
 `histoc` is a package for histocompatibility analysis performed on
 kidney transplantation in allocation systems. A description of how to
-use it, can be found [here](https://txopen.github.io/histoc/).
+use it can be found [here](https://txopen.github.io/histoc/).
 
 `histoc` provides functions to test compatibility between organ donors
 and transplant candidates, allowing to simulate different kidney

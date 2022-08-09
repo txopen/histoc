@@ -58,7 +58,7 @@ lima <- function(iso = TRUE
             , q2 = q2
             , q3 = q3
             , cPRA1 = cPRA1
-            , cPRA2 = cPRA2) %>% # Isto pode ser feito antes do for loop de candidato vs dador
+            , cPRA2 = cPRA2) |> 
     as.data.frame()
 
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)
@@ -66,8 +66,8 @@ lima <- function(iso = TRUE
   data.table::setDT(data, key = 'ID')
   data.table::setDT(xm, key = 'ID')
 
-  data[, ID := as.character(ID)] # ensure ID as a character
-  xm[, ID := as.character(ID)] # ensure ID as a character
+  data[, ID := as.character(ID)]
+  xm[, ID := as.character(ID)]
 
   data <- merge(data, xm,
                 by = 'ID',
@@ -76,7 +76,7 @@ lima <- function(iso = TRUE
   data[, `:=`(
     donor_age = donor.age,
     SP = sp(candidate.age = age, donor.age = donor.age),
-    HI = hiper(cPRA = cPRA, 85), # Isto pode ser feito antes do for loop de candidato vs dador
+    HI = hiper(cPRA = cPRA, 85),
     compBlood = abo(iso = iso, dABO = dABO, cABO = bg)
     ), by = 'ID'][, row_n := 1:nrow(data)]
 
@@ -163,7 +163,7 @@ cp <- function(data = candidates,
     stop("Median time on dialysis quartiles must be lower than third quartile: q2 < q3!\n")
   }
 
-  data <- data %>%
+  data <- data |>
     dplyr::mutate(cp = ifelse(urgent == 1, 1,
                               ifelse(cPRA >= cPRA2 | dialysis >= q3, 2,
                                      ifelse(cPRA >= cPRA1 | dialysis >= q2, 3, 4)

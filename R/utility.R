@@ -1,5 +1,3 @@
-################# Field validation functions #################
-
 #' Tests if element is a valid Blood Group character
 #' @param input_string A character from `r env$valid.blood.groups`
 #' @noRd
@@ -86,10 +84,6 @@ cPRA_checker <- function(input_number){
     stop("Invalid age: cPRA should be lower or equal to ", env$cPRA.maximum, ".")
   }
 }
-
-################# Field validation functions #################
-
-################# File / Dataframe validation functions #################
 
 #' Validates the Candid file.
 #' Makes sure the header matches the header that a candid file should have.

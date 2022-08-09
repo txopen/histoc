@@ -30,9 +30,9 @@ et_mmp <- function(data = candidates,
   }
 
   # compute the sum of squared frequencies for each loci with PT frequencies
-  SallA <- sum((hlaA %>% tidyr::drop_na() %>% .$freq) ^ 2)
-  SallB <- sum((hlaB %>% tidyr::drop_na() %>% .$freq) ^ 2)
-  SallDR <- sum((hlaDR %>% tidyr::drop_na() %>% .$freq) ^ 2)
+  SallA <- sum((hlaA |> tidyr::drop_na() %>% .$freq) ^ 2)
+  SallB <- sum((hlaB |> tidyr::drop_na() %>% .$freq) ^ 2)
+  SallDR <- sum((hlaDR |> tidyr::drop_na() %>% .$freq) ^ 2)
 
   data.table::setDT(data, key = 'ID')
   data.table::setDT(hlaA)
@@ -249,15 +249,15 @@ et <- function(iso = TRUE
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)
   data.table::setDT(xm, key = 'ID')
 
-  data <- et_mmp(data = data, # Isto pode ser feito antes do for loop de candidato vs dador
+  data <- et_mmp(data = data,
                  hlaA = hlaA, hlaB = hlaB, hlaDR = hlaDR,
                  abo.freq = abo.freq)
 
   data <- data[, .(ID, bg, A1, A2, B1, B2, DR1, DR2,
                   age, dialysis, cPRA, urgent, MMP)]
 
-  data[, ID := as.character(ID)] # ensure ID as a character
-  xm[, ID := as.character(ID)] # ensure ID as a character
+  data[, ID := as.character(ID)] 
+  xm[, ID := as.character(ID)] 
 
   data <- merge(data, xm, by = 'ID', all.x = TRUE)
 
@@ -278,7 +278,7 @@ et <- function(iso = TRUE
                        abo(iso = iso, dABO = dABO, cABO = bg)
                        ),
 
-    pointsDial = et_dialysis(month = month, dialysis = dialysis) # Isto pode ser feito antes do for loop de candidato vs dador
+    pointsDial = et_dialysis(month = month, dialysis = dialysis)
     ),
     by = 'ID']
 

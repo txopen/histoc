@@ -74,17 +74,17 @@ test_that("virtual crossmatch", {
   xmatch(dA = c('1','2'),
          dB = c('5','7'),
          dDR = c('1','4'),
-         df.abs = cabs)$xm %>% .[1] %>%
+         df.abs = cabs)$xm %>% .[1] |>
     expect_equal("NEG")
   xmatch(dA = c('1','2'),
          dB = c('5','7'),
          dDR = c('1','4'),
-         df.abs = cabs)$xm %>% .[6] %>%
+         df.abs = cabs)$xm %>% .[6] |>
     expect_equal("POS")
   xmatch(dA = c('1','2'),
          dB = c('5','7'),
          dDR = c('1','4'),
-         df.abs = cabs)$xm %>% .[10] %>%
+         df.abs = cabs)$xm %>% .[10] |>
     expect_equal("POS")
 
   expect_error(xmatch(dA = c(1,2),
