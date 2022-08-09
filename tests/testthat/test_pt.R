@@ -8,24 +8,24 @@ test_that("Test pts_age function", {
     for (i in 1:length(valid.donor.ages)){
         expect_equal(
             pts_age(
-                donor.age <- valid.donor.ages[i],
-                candidate.age <- valid.candidate.ages[i],
-                age.difference.points <- valid.age.difference.points[i]
+                donor.age = valid.donor.ages[i],
+                candidate.age = valid.candidate.ages[i],
+                age.difference.points = valid.age.difference.points[i]
             ),
             valid.results[i]
         )
     }
+    
+    invalid.donor.ages <- list('50', 61, 61, env$adulthood.age - 1, 39, 39, env$person.maximum.age + 1, 39, 39)
+    invalid.candidate.ages <- list(40, '55', 54, 55, env$adulthood.age - 1, 39, 39, env$person.maximum.age + 1, 39)
+    invalid.age.difference.points <- list(4, 4, '4', 4, 4, env$minimum.age.difference.points - 1, 4, 4, env$maximum.age.difference.points + 1)
 
-    invalid.donor.ages <- c('50', 61, 61, env$adulthood.age - 1, 39, 39, env$person.maximum.age, 39, 39)
-    invalid.candidate.ages <- c(40, '55', 54, 55, env$adulthood.age - 1, 39, 39, env$person.maximum.age, 39)
-    invalid.age.difference.points <- c(4, 4, '4', 4, 4, env$minimum.age.difference.points - 1, 4, 4, env$maximum.age.difference.points + 1)
-
-    for (i in 1:length(valid.donor.ages)){
+    for (i in 1:length(invalid.donor.ages)){
         expect_error(
             pts_age(
-                donor.age <- invalid.donor.ages[i],
-                candidate.age <- invalid.candidate.ages[i],
-                age.difference.points <- invalid.age.difference.points[i]
+                donor.age = invalid.donor.ages[[i]],
+                candidate.age = invalid.candidate.ages[[i]],
+                age.difference.points = invalid.age.difference.points[[i]]
             )
         )
     }
@@ -41,24 +41,24 @@ test_that("Test pts_PRA function", {
     for (i in 1:length(valid.cPRA)){
         expect_equal(
             pts_PRA(
-                cPRA <- valid.cPRA[i],
-                points.50 <- valid.points.80[i], # ????????????
-                points.80 <- valid.points.50[i]  # ????????????
+                cPRA = valid.cPRA[i],
+                points.50 = valid.points.50[i], 
+                points.80 = valid.points.80[i]
             ),
             valid.results[i]
         )
     }
 
-    invalid.cPRA <- c('1', -1, 101, 4, 4, 4)
-    invalid.points.50 <- c(4, 4, 4, 4, 4, 4, '1', -1, 101)
-    invalid.points.80 <- c(4, 4, 4, '1', -1, 101, 4, 4, 4)
+    invalid.cPRA <- list('1', -1, 101, 4, 4, 4)
+    invalid.points.50 <- list(4, 4, 4, 4, 4, 4, '1', -1, 101)
+    invalid.points.80 <- list(4, 4, 4, '1', -1, 101, 4, 4, 4)
 
     for (i in 1:length(invalid.cPRA)){
         expect_error(
             pts_PRA(
-                cPRA <- invalid.cPRA[i],
-                points.50 <- invalid.points.50[i],
-                points.80 <- invalid.points.80[i]
+                cPRA = invalid.cPRA[[i]],
+                points.50 = invalid.points.50[[i]],
+                points.80 = invalid.points.80[[i]]
             )
         )
     }
