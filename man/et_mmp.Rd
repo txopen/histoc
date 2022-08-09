@@ -20,21 +20,21 @@ et_mmp(
 \item{data}{A data frame containing demographics and medical information for a
 group of waitlisted transplant candidates.}
 
-\item{hlaA}{A data frame with HLA-A allele frequencies}
+\item{hlaA}{A data frame with HLA-A allele frequencies.}
 
-\item{hlaB}{A data frame with HLA-B allele frequencies}
+\item{hlaB}{A data frame with HLA-B allele frequencies.}
 
-\item{hlaDR}{A data frame with HLA-DR allele frequencies}
+\item{hlaDR}{A data frame with HLA-DR allele frequencies.}
 
-\item{abo.freq}{A data frame with ABO blood group frequencies}
+\item{abo.freq}{A data frame with ABO blood group frequencies.}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \description{
 Mismatch Probability (MMP) is a calculation of the probability of
 receiving a kidney offer with
-0 and 1 broad HLA-A, -B or split DR mismatches based on 1000 kidneys offered,
-taking into account AB0 blood group rules and PRA screening. Patients receive
+0 and 1 broad HLA-A, -B or DR mismatches based on 1000 kidneys offered,
+taking into account ABO blood group rules and PRA screening. Patients receive
 between 0-100 MMPs
 }
 \examples{

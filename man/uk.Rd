@@ -49,11 +49,11 @@ uk(
 \arguments{
 \item{DRI}{Donor RisK Index group (D1, D2, D3, D4)}
 
-\item{dA}{donor's HLA-A typing.}
+\item{dA}{A two elements character vector donor's HLA-A typing.}
 
-\item{dB}{donor's HLA-B typing.}
+\item{dB}{A two elements character vector donor's HLA-B typing.}
 
-\item{dDR}{donor's HLA-DR typing.}
+\item{dDR}{A two elements character vector donor's HLA-DR typing.}
 
 \item{dABO}{A character value with ABO blood group (O, A, B, AB).}
 
@@ -62,69 +62,69 @@ uk(
 \item{data}{A data frame containing demographics and medical information for
 a group of waitlisted transplant for UK transplant.}
 
-\item{D1R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D1R1}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D1R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D1R2}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D1R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D1R3}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D1R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D1R4}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D2R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D2R1}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D2R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D2R2}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D2R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D2R3}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D2R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D2R4}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D3R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D3R1}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D3R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D3R2}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D3R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D3R3}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D3R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D3R4}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D4R1}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D4R1}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D4R2}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D4R2}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D4R3}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D4R3}{A numeric value (0 - 1000) for the combination of indexes.}
 
-\item{D4R4}{A numeric value (0 - 1000) for the combination of indexes DiRj}
+\item{D4R4}{A numeric value (0 - 1000) for the combination of indexes.}
 
 \item{ptsDial}{A numeric value for the points corresponding to each month
-on dialysis}
+on dialysis.}
 
 \item{a1}{A numeric value for HLA match and age combined formula:
-b1*cos(age / env$adulthood.age)+a1}
+\code{b1}*cos(\code{age} / 18)+\code{a1}}
 
 \item{a2}{A numeric value for HLA match and age combined formula:
-b2*cos(age / env$adulthood.age)+a2}
+\code{b2}*cos(\code{age} / 18)+\code{a2}}
 
 \item{b1}{A numeric value for HLA match and age combined formula:
-b1*cos(age / env$adulthood.age)+a1}
+\code{b1}*cos(\code{age} / 18)+\code{a1}}
 
 \item{b2}{A numeric value for HLA match and age combined formula:
-b2*cos(age / env$adulthood.age)+a2}
+\code{b2}*cos(\code{age} / 18)+\code{a2}}
 
 \item{b3}{A numeric value for HLA match and age combined formula:
-b3*sin(age / 50)}
+\code{b3}*sin(\code{age} / 50)}
 
-\item{m}{A numeric value for matchability formula: m * (1 + (MS / nn) ^ o)}
+\item{m}{A numeric value for matchability formula: \code{m} * (1 + (\code{MS} / \code{nn}) ^ \code{o})}
 
-\item{nn}{A numeric value for matchability formula: m * (1 + (MS / nn) ^ o)}
+\item{nn}{A numeric value for matchability formula: \code{m} * (1 + (\code{MS} / \code{nn}) ^ \code{o})}
 
-\item{o}{A numeric value for matchability formula: m * (1 + (MS / nn) ^ o)}
+\item{o}{A numeric value for matchability formula: \code{m} * (1 + (\code{MS} / \code{nn}) ^ \code{o})}
 
-\item{mm1}{A numeric value to penalize 1 mm}
+\item{mm1}{A numeric value to penalize 1 mm.}
 
-\item{mm23}{A numeric value to penalize 2-3 mm}
+\item{mm23}{A numeric value to penalize 2-3 mm.}
 
-\item{mm46}{A numeric value to penalize 4-6 mm}
+\item{mm46}{A numeric value to penalize 4-6 mm.}
 
-\item{pts}{A negative value with penalization for B candidates}
+\item{pts}{A negative value with penalization for B candidates.}
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
@@ -132,9 +132,13 @@ b3*sin(age / 50)}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 }
+\value{
+An ordered data frame with a column \code{matchability},
+\code{Tier}, \code{pointsUK}, ...
+}
 \description{
 Applies UK algorithm on deceased donor's Kidney allocation for transplantation.
-Ordering of waitlisted candidates for a given donor and according
+Ordering of waitlisted candidates for a given donor according
 to UK transplant algorithm.
 }
 \examples{

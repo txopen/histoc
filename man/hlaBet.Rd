@@ -20,6 +20,7 @@ A data frame with 57 rows and 3 variables:
 hlaBet
 }
 \description{
-A dataset containing HLA-B allele relative frequencies from EuroTransplant donors used for MMP computation.
+A dataset containing HLA-B allele relative frequencies from EuroTransplant donors
+used for Mismatch Probability (MMP) computation.
 }
 \keyword{datasets}

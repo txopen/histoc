@@ -15,8 +15,8 @@ hiper(cPRA = 99, cutoff = 85)
 A logical value TRUE when \code{cPRA} >= cutoff
 }
 \description{
-returns candidates' hiperimunized classification according to a
-cutoff value
+Returns candidates' hiperimunized classification (logical) according to a
+cutoff value.
 }
 \examples{
 hiper(cPRA = 99, cutoff = 85)

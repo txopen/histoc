@@ -7,9 +7,9 @@
 abo(cABO = "A", dABO = "A", iso = TRUE)
 }
 \arguments{
-\item{cABO}{A character from (O, A, B, AB)}
+\item{cABO}{A character from (O, A, B, AB) for candidate's blood group}
 
-\item{dABO}{A character from (O, A, B, AB)}
+\item{dABO}{A character from (O, A, B, AB) for donor's blood group}
 
 \item{iso}{If TRUE only isogroup match is considered as compatible.}
 }

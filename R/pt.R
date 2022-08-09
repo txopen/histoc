@@ -63,14 +63,14 @@ pts_PRA <- function(cPRA = 0
 #' @param itemB Points without mm for HLA-B and DR
 #' @param itemC Points with 1 mm for HLA-B and DR
 #' @param itemD Points with 1 mm for HLA-B and 1 mm for DR
-#' @param itemE Points for remaing possibilities
+#' @param itemE Points for remaning possibilities
 #' @param mm.A Number of HLA-A mismatchs(0 to 2)
 #' @param mm.B Number of HLA-B mismatchs(0 to 2)
 #' @param mm.DR Number of HLA-DR mismatchs(0 to 2)
 #' @return A numerical value for pre-defined points
 #' @examples
-#' pts_HLA(itemA = 12, itemB = 8, itemC = 4, itemD = 2, itemE = 1
-#' , mm.A = 0, mm.B = 0, mm.DR = 0)
+#' pts_HLA(itemA = 12, itemB = 8, itemC = 4, itemD = 2, itemE = 1,
+#' mm.A = 0, mm.B = 0, mm.DR = 0)
 #' @export
 pts_HLA <- function(itemA = 12
                     , itemB = 8
@@ -107,17 +107,16 @@ pts_HLA <- function(itemA = 12
 
 #' PT algorithm
 #'
-#' @description Applies PT algorithm on deceased donor's Kidney allocation for transplantation.
-#' Ordering of waitlisted candidates for a given donor and
-#' according to PT's algorithm.
+#' @description Applies Portuguese (PT) algorithm on deceased donor's kidney allocation for transplantation.
+#' Ordering of waitlisted candidates for a given donor according to PT's algorithm.
 #' @param iso A logical value for isogroup compatibility.
 #' @param dABO A character value with ABO blood group (`r env$valid.blood.groups`).
-#' @param dA donor's HLA-A typing.
-#' @param dB donor's HLA-B typing.
-#' @param dDR donor's HLA-DR typing.
+#' @param dA A two elements character vector donor's HLA-A typing.
+#' @param dB A two elements character vector donor's HLA-B typing.
+#' @param dDR A two elements character vector donor's HLA-DR typing.
 #' @param donor.age A numeric value with donor's age.
 #' @param data A data frame containing demographics and medical information for
-#' a group of waitlisted transplant candidates with color priority classification.
+#' a group of waitlisted transplant candidates.
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param points.80 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 80
 #' @param points.50 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 50
@@ -125,8 +124,8 @@ pts_HLA <- function(itemA = 12
 #' @param points.age A numerical value for the points to age difference
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
-#' @return An ordered data frame with a column \code{cp} (color priority),
-#' \code{sp}, \code{hi} and \code{mmHLA}.
+#' @return An ordered data frame with column, \code{ptsPT},
+#' \code{SP}, \code{HI}, \code{mmHLA}, ....
 #' @examples
 #' pts(iso = TRUE, dABO = "A",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
@@ -167,7 +166,7 @@ pts <- function(iso = TRUE
 
   n <- max(1, n)
 
-  data <- cp(data = data) %>% # Isto pode ser feito antes do for loop de candidato vs dador
+  data <- cp(data = data) |>
     as.data.frame()
 
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)

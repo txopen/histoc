@@ -1,9 +1,13 @@
+# histoc 0.2.0
+
+* Using native pipe (`|>`).
+* Increased unit-test quality and coverage.
+
 # histoc 0.1.0
 
-* first release version
+* First release version.
 
 # histoc 0.0.9
 
 * Added a `NEWS.md` file to track changes to the package.
-
-* Initial functions tested
+* Initial functions tested.

@@ -24,7 +24,7 @@ pts_HLA(
 
 \item{itemD}{Points with 1 mm for HLA-B and 1 mm for DR}
 
-\item{itemE}{Points for remaing possibilities}
+\item{itemE}{Points for remaning possibilities}
 
 \item{mm.A}{Number of HLA-A mismatchs(0 to 2)}
 
@@ -39,6 +39,6 @@ A numerical value for pre-defined points
 Punctuation given according to HLA mismatchs (mm) for item A) to E) from PT's algorithm
 }
 \examples{
-pts_HLA(itemA = 12, itemB = 8, itemC = 4, itemD = 2, itemE = 1
-, mm.A = 0, mm.B = 0, mm.DR = 0)
+pts_HLA(itemA = 12, itemB = 8, itemC = 4, itemD = 2, itemE = 1,
+mm.A = 0, mm.B = 0, mm.DR = 0)
 }

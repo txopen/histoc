@@ -13,22 +13,23 @@ xmatch(
 )
 }
 \arguments{
-\item{dA}{donor's HLA-A typing}
+\item{dA}{A two elements character vector donor's HLA-A typing}
 
-\item{dB}{donor's HLA-B typing}
+\item{dB}{A two elements character vector donor's HLA-B typing}
 
-\item{dDR}{donor's HLA-DR typing}
+\item{dDR}{A two elements character vector donor's HLA-DR typing}
 
-\item{df.abs}{data frame with candidates' antibodies}
+\item{df.abs}{A data frame with candidates' antibodies}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \value{
-A dataframe with candidates' ID and xm result POS/NEG
+A dataframe with candidates' \code{ID} and \code{xm} result POS/NEG
 }
 \description{
 returns candidates' virtual crossmatch againts donor's HLA typing
 }
 \examples{
-xmatch(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'), df.abs = cabs, check.validity = TRUE)
+xmatch(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
+df.abs = cabs, check.validity = TRUE)[1:5,]
 }

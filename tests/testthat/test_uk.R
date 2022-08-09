@@ -18,13 +18,13 @@ test_that("Donor-recipient Risk Index Combination", {
     urgent = c(0, 0, 0, 0, 0, 0)
   )
 
-  result1 <- cand_uk_test %>%
+  result1 <- cand_uk_test |>
     dplyr::mutate(ric = c(700,1000,350,700,0,1000))
-  result2 <- cand_uk_test %>%
+  result2 <- cand_uk_test |>
     dplyr::mutate(ric = c(1000,700,500,1000,350,700))
-  result3 <- cand_uk_test %>%
+  result3 <- cand_uk_test |>
     dplyr::mutate(ric = c(500,350,1000,500,700,350))
-  result4 <- cand_uk_test %>%
+  result4 <- cand_uk_test |>
     dplyr::mutate(ric = c(350,0,700,350,1000,0))
 
   expect_equal(ric(DRI = 'D1',
@@ -55,6 +55,75 @@ test_that("Donor-recipient Risk Index Combination", {
                    D3R1 = 350, D3R2 = 500, D3R3 = 1000, D3R4 = 700,
                    D4R1 = 0, D4R2 = 350, D4R3 = 700, D4R4 = 1000
                    ), result4)
+
+  expect_error(ric(DRI = 0),
+               'Invalid.*')
+  expect_error(ric(DRI = 'X'),
+               'Invalid.*')
+  expect_error(ric(D1R1 = env$dirj.minimum-1),
+               'D1R1.*')
+  expect_error(ric(D1R1 = env$dirj.maximum+1),
+               'D1R1.*')
+  expect_error(ric(D1R2 = env$dirj.minimum-1),
+               'D1R2.*')
+  expect_error(ric(D1R2 = env$dirj.maximum+1),
+               'D1R2.*')
+  expect_error(ric(D1R3 = env$dirj.minimum-1),
+               'D1R3.*')
+  expect_error(ric(D1R3 = env$dirj.maximum+1),
+               'D1R3.*')
+  expect_error(ric(D1R4 = env$dirj.minimum-1),
+               'D1R4.*')
+  expect_error(ric(D1R4 = env$dirj.maximum+1),
+               'D1R4.*')
+  expect_error(ric(D2R1 = env$dirj.minimum-1),
+               'D2R1.*')
+  expect_error(ric(D2R1 = env$dirj.maximum+1),
+               'D2R1.*')
+  expect_error(ric(D2R2 = env$dirj.minimum-1),
+               'D2R2.*')
+  expect_error(ric(D2R2 = env$dirj.maximum+1),
+               'D2R2.*')
+  expect_error(ric(D2R3 = env$dirj.minimum-1),
+               'D2R3.*')
+  expect_error(ric(D2R3 = env$dirj.maximum+1),
+               'D2R3.*')
+  expect_error(ric(D2R4 = env$dirj.minimum-1),
+               'D2R4.*')
+  expect_error(ric(D2R4 = env$dirj.maximum+1),
+               'D2R4.*')
+  expect_error(ric(D3R1 = env$dirj.minimum-1),
+               'D3R1.*')
+  expect_error(ric(D3R1 = env$dirj.maximum+1),
+               'D3R1.*')
+  expect_error(ric(D3R2 = env$dirj.minimum-1),
+               'D3R2.*')
+  expect_error(ric(D3R2 = env$dirj.maximum+1),
+               'D3R2.*')
+  expect_error(ric(D3R3 = env$dirj.minimum-1),
+               'D3R3.*')
+  expect_error(ric(D3R3 = env$dirj.maximum+1),
+               'D3R3.*')
+  expect_error(ric(D3R4 = env$dirj.minimum-1),
+               'D3R4.*')
+  expect_error(ric(D3R4 = env$dirj.maximum+1),
+               'D3R4.*')
+  expect_error(ric(D4R1 = env$dirj.minimum-1),
+               'D4R1.*')
+  expect_error(ric(D4R1 = env$dirj.maximum+1),
+               'D4R1.*')
+  expect_error(ric(D4R2 = env$dirj.minimum-1),
+               'D4R2.*')
+  expect_error(ric(D4R2 = env$dirj.maximum+1),
+               'D4R2.*')
+  expect_error(ric(D4R3 = env$dirj.minimum-1),
+               'D4R3.*')
+  expect_error(ric(D4R3 = env$dirj.maximum+1),
+               'D4R3.*')
+  expect_error(ric(D4R4 = env$dirj.minimum-1),
+               'D4R4.*')
+  expect_error(ric(D4R4 = env$dirj.maximum+1),
+               'D4R4.*')
 })
 
 test_that("Donor recipient age difference", {
@@ -70,6 +139,15 @@ test_that("Donor recipient age difference", {
                         candidate.age = 20), -800)
   expect_equal(age_diff(donor.age = 18,
                         candidate.age = 69), -1300.5)
+
+  expect_error(age_diff(donor.age = env$adulthood.age-1),
+               'Donor.*')
+  expect_error(age_diff(donor.age = env$person.maximum.age+1),
+               'Donor.*')
+  expect_error(age_diff(candidate.age = env$adulthood.age-1),
+               'Candidate.*')
+  expect_error(age_diff(candidate.age = env$person.maximum.age+1),
+               'Candidate.*')
 })
 
 test_that("blood group B match points", {
@@ -93,6 +171,9 @@ test_that("blood group B match points", {
                        cABO = "AB",
                        tier = "B",
                        pts = -2000), 0)
+
+  expect_error(b_blood_penalization(pts = 1),
+               'pts must.*')
 })
 
 test_that("test for ABO compatibility on UK transplant", {

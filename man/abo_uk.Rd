@@ -7,12 +7,11 @@
 abo_uk(dABO = "A", cABO = "A", tier = "B")
 }
 \arguments{
-\item{dABO}{A character from (O, A, B, AB), for donor ABO group}
+\item{dABO}{A character value for donor's ABO blood group (O, A, B, AB).}
 
-\item{cABO}{A character from (O, A, B, AB), for candidate ABO group}
+\item{cABO}{A character value for candidate's ABO blood group (O, A, B, AB).}
 
-\item{tier}{A character value for UK transplant candidate's TIER classification (A, B)
-(options A and B)}
+\item{tier}{A character value for UK transplant candidate's TIER classification (A, B)}
 }
 \value{
 A logical value T/F

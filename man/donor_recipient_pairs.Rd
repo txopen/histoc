@@ -16,10 +16,10 @@ donor_recipient_pairs(
 }
 \arguments{
 \item{df.donors}{A data frame containing demographics and medical information
-for a poll of donors. For uk algorithm must have respective columns.}
+for a pool of donors. For \code{uk} algorithm must have their respective columns.}
 
 \item{df.candidates}{A data frame containing demographics and medical information
-for a group of waitlisted transplant candidates. For uk algorithm must have respective columns.}
+for a group of waitlisted transplant candidates. For \code{uk} algorithm must have respective columns.}
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
@@ -28,16 +28,16 @@ for a group of waitlisted transplant candidates. For uk algorithm must have resp
 
 \item{n}{A positive integer to slice the first candidates.}
 
-\item{check.validity}{Logical to decide whether to validate input.}
+\item{check.validity}{Logical to decide whether to validate input arguments.}
 
-\item{...}{all the parameters used on the function algorithm}
+\item{...}{all the parameters used on the algorithm function.}
 }
 \value{
-A list with the number of elements equal to the number of rows on donors data frame.
-Each element have a data frame with select candidates by donor.
+A list with the number of elements equal to the number of rows on donors' data frame.
+Each element have a data frame with selected candidates by donor.
 }
 \description{
-Ordering of waitlisted candidates for a given donor and
+Ordering of waitlisted candidates for a each donor in a pool of donors and
 according to any algorithm.
 }
 \examples{

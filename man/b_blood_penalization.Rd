@@ -7,11 +7,11 @@
 b_blood_penalization(dABO = "B", cABO = "O", tier = "B", pts = -1000)
 }
 \arguments{
-\item{dABO}{A character from (O, A, B, AB)}
+\item{dABO}{A character value for donor's ABO blood group (O, A, B, AB).}
 
-\item{cABO}{A character from (O, A, B, AB)}
+\item{cABO}{A character value for candidate's ABO blood group (O, A, B, AB).}
 
-\item{tier}{A character value for UK transplant TIER classification (A, B)}
+\item{tier}{A character value for UK transplant candidate's TIER classification (A, B)}
 
 \item{pts}{A negative value with penalization for B candidates}
 }
@@ -22,5 +22,5 @@ A numeric value.
 Computes penalization when donor's group O and candidate's group B
 }
 \examples{
-b_blood_penalization(dABO = "B", cABO = "O", tier = "B", pts = -1000)
+b_blood_penalization(dABO = "O", cABO = "B", tier = "B", pts = -1000)
 }

@@ -19,6 +19,7 @@ A data frame with 4 rows and 2 variables:
 ABOpt
 }
 \description{
-A dataset containing ABO relative frequencies from portuguese blood donors used for MMP computation.
+A dataset containing ABO relative frequencies from portuguese blood donors
+used for Mismatch Probability (MMP) computation.
 }
 \keyword{datasets}

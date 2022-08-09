@@ -1,8 +1,8 @@
 #' test for ABO compatibility
 #'
 #' @description ABO compatibility test between donor and candidate
-#' @param cABO A character from (`r env$valid.blood.groups`)
-#' @param dABO A character from (`r env$valid.blood.groups`)
+#' @param cABO A character from (`r env$valid.blood.groups`) for candidate's blood group
+#' @param dABO A character from (`r env$valid.blood.groups`) for donor's blood group
 #' @param iso If TRUE only isogroup match is considered as compatible.
 #' @return A logical value T/F
 #' @examples
@@ -32,16 +32,16 @@ abo <- function(cABO = 'A', dABO = 'A', iso = TRUE){
 #' number of HLA mismatchs
 #'
 #' @description Computes the number of HLA mismatchs between donor and candidate
-#' @param dA donor's HLA-A typing
-#' @param dB donor's HLA-B typing
-#' @param dDR donor's HLA-DR typing
-#' @param cA candidate's HLA-A typing
-#' @param cB candidate's HLA-B typing
-#' @param cDR candidate's HLA-DR typing
-#' @return mmA number of HLA-A mismatchs between \code{dA} and \code{cA};
-#' mmB number of HLA-B mismatchs between \code{dB} and \code{cB};
-#' mmDR number of HLA-DR mismatchs between \code{dA}DRand \code{cDR};
-#' and mmHLA as the sum of mmA + mmB + mmDR
+#' @param dA A two elements character vector with donor's HLA-A typing
+#' @param dB A two elements character vector withdonor's HLA-B typing
+#' @param dDR A two elements character vector withdonor's HLA-DR typing
+#' @param cA A two elements character vector withcandidate's HLA-A typing
+#' @param cB A two elements character vector withcandidate's HLA-B typing
+#' @param cDR A two elements character vector withcandidate's HLA-DR typing
+#' @return `mmA` number of HLA-A mismatchs between \code{dA} and \code{cA};
+#' `mmB` number of HLA-B mismatchs between \code{dB} and \code{cB};
+#' `mmDR` number of HLA-DR mismatchs between \code{dA}DR and \code{cDR};
+#' and `mmHLA` as the sum of `mmA` + `mmB` + `mmDR`
 #' @examples
 #' mmHLA(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
 #' cA = c('1','2'), cB = c('03','15'), cDR = c('04','07'))
@@ -80,7 +80,6 @@ mmHLA <- function(dA = c('1','2'),
                                       dplyr::if_else(!dDR[1] %in% cDR & (is.na(dDR[2]) | dDR[2] == ""), 1,
                                                      dplyr::if_else(dDR[1] == dDR[2],1,2))))
 
-  # resume results
   mmHLA <- mmA + mmB + mmDR
   mm <- c(mmA,mmB,mmDR,mmHLA)
   names(mm) <- c("mmA","mmB","mmDR","mmHLA")
@@ -91,14 +90,15 @@ mmHLA <- function(dA = c('1','2'),
 #' virtual crossmatch (XM)
 #'
 #' @description returns candidates' virtual crossmatch againts donor's HLA typing
-#' @param dA donor's HLA-A typing
-#' @param dB donor's HLA-B typing
-#' @param dDR donor's HLA-DR typing
-#' @param df.abs data frame with candidates' antibodies
+#' @param dA A two elements character vector donor's HLA-A typing
+#' @param dB A two elements character vector donor's HLA-B typing
+#' @param dDR A two elements character vector donor's HLA-DR typing
+#' @param df.abs A data frame with candidates' antibodies
 #' @param check.validity Logical to decide whether to validate input.
-#' @return A dataframe with candidates' ID and xm result POS/NEG
+#' @return A dataframe with candidates' `ID` and `xm` result POS/NEG
 #' @examples
-#' xmatch(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'), df.abs = cabs, check.validity = TRUE)
+#' xmatch(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
+#' df.abs = cabs, check.validity = TRUE)[1:5,]
 #' @export
 xmatch <- function(dA = c('1','2'),
                    dB = c('5','7'),
@@ -148,8 +148,8 @@ xmatch <- function(dA = c('1','2'),
 
 #' Hiperimunized classification
 #'
-#' @description returns candidates' hiperimunized classification according to a
-#' cutoff value
+#' @description Returns candidates' hiperimunized classification (logical) according to a
+#' cutoff value.
 #' @param cPRA candidate's \code{cPRA} value
 #' @param cutoff A value to compare candidate's \code{cPRA}
 #' @return A logical value TRUE when \code{cPRA} >= cutoff
@@ -233,19 +233,31 @@ txscore <- function(recipient.age = 20
                     , mmHLA_B = 0
                     , mmHLA_DR = 0){
   age_checker(recipient.age)
-  if(!recipient.race %in% c('White','Black','Hispanic','Other')){stop("Recipient's race is not valid! Valid options: 'White','Black','Hispanic','Other'")}
-  if(!recipient.causeESRD %in% c('Diabetes','Hypertension','Glomerulonephritis','Cystic Disease','Other')){stop("Recipient's cause of ESRD is not valid! Valid options: 'Diabetes','Hypertension','Glomerulonephritis','Cystic Disease','Other'")}
-  if(!is.numeric(recipient.dialysis) | recipient.dialysis < 0 | recipient.dialysis > 200){stop("Recipient's Time on dialysis is not valid! Expected a value between 0 and 200")}
-  if(!is.logical(recipient.diabetes)){stop("Recipient's diabetes is not valid! Expected a logical value.")}
-  if(!is.logical(recipient.coronary)){stop("Recipient's coronary disease is not valid! Expected a logical value.")}
-  if(!is.numeric(recipient.albumin) | recipient.albumin < 1 | recipient.albumin > 5){stop("Recipient's Albumin is not valid! Expected a value between 1 and 5")}
-  if(!is.numeric(recipient.hemoglobin) | recipient.hemoglobin < 3 | recipient.hemoglobin > 20){stop("Recipient's Hemoglobin is not valid! Expected a value between 3 and 20")}
+  if(!recipient.race %in% c('White','Black','Hispanic','Other')){
+    stop("Recipient's race is not valid! Valid options: 'White','Black','Hispanic','Other'")}
+  if(!recipient.causeESRD %in% c('Diabetes','Hypertension','Glomerulonephritis','Cystic Disease','Other')){
+    stop("Recipient's cause of ESRD is not valid! Valid options: 'Diabetes','Hypertension','Glomerulonephritis','Cystic Disease','Other'")}
+  if(!is.numeric(recipient.dialysis) | recipient.dialysis < 0 | recipient.dialysis > 200){
+    stop("Recipient's Time on dialysis is not valid! Expected a value between 0 and 200")}
+  if(!is.logical(recipient.diabetes)){
+    stop("Recipient's diabetes is not valid! Expected a logical value.")}
+  if(!is.logical(recipient.coronary)){
+    stop("Recipient's coronary disease is not valid! Expected a logical value.")}
+  if(!is.numeric(recipient.albumin) | recipient.albumin < 1 | recipient.albumin > 5){
+    stop("Recipient's Albumin is not valid! Expected a value between 1 and 5")}
+  if(!is.numeric(recipient.hemoglobin) | recipient.hemoglobin < 3 | recipient.hemoglobin > 20){
+    stop("Recipient's Hemoglobin is not valid! Expected a value between 3 and 20")}
   age_checker(donor.age)
-  if(!donor.diabetes %in% c('Absence','Presence','Unknown')){stop("Donor's diabetes is not valid! Valid options: 'Absence','Presence','Unknown'")}
-  if(!is.logical(donor.ECD)){stop("Recipient's ECD is not valid! Expected a logical value.")}
-  if(!mmHLA_A %in% c(0,1,2)){stop("Number of mm HLA-A is not valid! Valid optios: 0, 1, 2")}
-  if(!mmHLA_B %in% c(0,1,2)){stop("Number of mm HLA-B is not valid! Valid optios: 0, 1, 2")}
-  if(!mmHLA_DR %in% c(0,1,2)){stop("Number of mm HLA-DR is not valid! Valid optios: 0, 1, 2")}
+  if(!donor.diabetes %in% c('Absence','Presence','Unknown')){
+    stop("Donor's diabetes is not valid! Valid options: 'Absence','Presence','Unknown'")}
+  if(!is.logical(donor.ECD)){
+    stop("Donor's ECD is not valid! Expected a logical value.")}
+  if(!mmHLA_A %in% c(0,1,2)){
+    stop("Number of mm HLA-A is not valid! Valid optios: 0, 1, 2")}
+  if(!mmHLA_B %in% c(0,1,2)){
+    stop("Number of mm HLA-B is not valid! Valid optios: 0, 1, 2")}
+  if(!mmHLA_DR %in% c(0,1,2)){
+    stop("Number of mm HLA-DR is not valid! Valid optios: 0, 1, 2")}
 
   mmHLA_ <- as.numeric(mmHLA_A) + as.numeric(mmHLA_B) + as.numeric(mmHLA_DR)
   mmHLA <- ifelse(mmHLA_ == 0 , '0',

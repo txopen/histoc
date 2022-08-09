@@ -26,18 +26,18 @@ pts(
 
 \item{dABO}{A character value with ABO blood group (O, A, B, AB).}
 
-\item{dA}{donor's HLA-A typing.}
+\item{dA}{A two elements character vector donor's HLA-A typing.}
 
-\item{dB}{donor's HLA-B typing.}
+\item{dB}{A two elements character vector donor's HLA-B typing.}
 
-\item{dDR}{donor's HLA-DR typing.}
+\item{dDR}{A two elements character vector donor's HLA-DR typing.}
 
 \item{donor.age}{A numeric value with donor's age.}
 
 \item{df.abs}{A data frame with candidates' antibodies.}
 
 \item{data}{A data frame containing demographics and medical information for
-a group of waitlisted transplant candidates with color priority classification.}
+a group of waitlisted transplant candidates.}
 
 \item{points.80}{A numerical value (0 - 20) for the points to a cPRA >= 80}
 
@@ -52,13 +52,12 @@ a group of waitlisted transplant candidates with color priority classification.}
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \value{
-An ordered data frame with a column \code{cp} (color priority),
-\code{sp}, \code{hi} and \code{mmHLA}.
+An ordered data frame with column, \code{ptsPT},
+\code{SP}, \code{HI}, \code{mmHLA}, ....
 }
 \description{
-Applies PT algorithm on deceased donor's Kidney allocation for transplantation.
-Ordering of waitlisted candidates for a given donor and
-according to PT's algorithm.
+Applies Portuguese (PT) algorithm on deceased donor's kidney allocation for transplantation.
+Ordering of waitlisted candidates for a given donor according to PT's algorithm.
 }
 \examples{
 pts(iso = TRUE, dABO = "A",

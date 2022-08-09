@@ -21,31 +21,31 @@ et_mmHLA(
 )
 }
 \arguments{
-\item{dA}{donor's HLA-A typing}
+\item{dA}{A two elements character vector donor's HLA-A typing.}
 
-\item{dB}{donor's HLA-B typing}
+\item{dB}{A two elements character vector donor's HLA-B typing.}
 
-\item{dDR}{donor's HLA-DR typing}
+\item{dDR}{A two elements character vector donor's HLA-DR typing.}
 
-\item{cA}{candidate's HLA-A typing}
+\item{cA}{A two elements character vector candidate's HLA-A typing.}
 
-\item{cB}{candidate's HLA-B typing}
+\item{cB}{A two elements character vector candidate's HLA-B typing.}
 
-\item{cDR}{candidate's HLA-DR typing}
+\item{cDR}{A two elements character vector candidate's HLA-DR typing.}
 
-\item{mm0}{A numeric value with points for 0 HLA mm on ETKAS points table}
+\item{mm0}{A numeric value with points for 0 HLA mm on ETKAS points table.}
 
-\item{mm1}{A numeric value with points for 1 HLA mm on ETKAS points table}
+\item{mm1}{A numeric value with points for 1 HLA mm on ETKAS points table.}
 
-\item{mm2}{A numeric value with points for 2 HLA mm on ETKAS points table}
+\item{mm2}{A numeric value with points for 2 HLA mm on ETKAS points table.}
 
-\item{mm3}{A numeric value with points for 3 HLA mm on ETKAS points table}
+\item{mm3}{A numeric value with points for 3 HLA mm on ETKAS points table.}
 
-\item{mm4}{A numeric value with points for 4 HLA mm on ETKAS points table}
+\item{mm4}{A numeric value with points for 4 HLA mm on ETKAS points table.}
 
-\item{mm5}{A numeric value with points for 5 HLA mm on ETKAS points table}
+\item{mm5}{A numeric value with points for 5 HLA mm on ETKAS points table.}
 
-\item{mm6}{A numeric value with points for 6 HLA mm on ETKAS points table}
+\item{mm6}{A numeric value with points for 6 HLA mm on ETKAS points table.}
 }
 \description{
 Computes HLA mismatches (mm) and the respective punctuation within ET

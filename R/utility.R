@@ -1,5 +1,3 @@
-################# Field validation functions #################
-
 #' Tests if element is a valid Blood Group character
 #' @param input_string A character from `r env$valid.blood.groups`
 #' @noRd
@@ -65,7 +63,7 @@ rri_checker <- function(input_string){
 #' @param input_number A character from `r env$valid.urgent`
 #' @noRd
 urgent_checker <- function(input_number){
-  if(!input_number %in% env$valid.urgent){
+  if(!is.numeric(input_number) || !input_number %in% env$valid.urgent){
     stop("Invalid urgent. Accepted values: ", env$valid.urgent)
   }
 }
@@ -86,10 +84,6 @@ cPRA_checker <- function(input_number){
     stop("Invalid age: cPRA should be lower or equal to ", env$cPRA.maximum, ".")
   }
 }
-
-################# Field validation functions #################
-
-################# File / Dataframe validation functions #################
 
 #' Validates the Candid file.
 #' Makes sure the header matches the header that a candid file should have.
@@ -138,17 +132,6 @@ candidate_dataframe_check <- function(candidate.dataframe){
   }
 
   return(TRUE)
-}
-
-#' Validates the Candids
-#' @param file_name name of the file
-#' @param file_type type of the file
-#' @param csv_separator character sequence separating columns in csv
-#' @return A logical value T/F
-#' @noRd
-validate_candid <- function(file_name, file_type, csv_separator = ";"){
-  candidate.dataframe <- read.csv(file_name, sep = csv_separator)
-  candidate_dataframe_check(candidate.dataframe)
 }
 
 #' Validates the CandidUK file.
@@ -204,68 +187,3 @@ uk_candidate_dataframe_check <- function(candidate.dataframe){
 
   return(TRUE)
 }
-
-#' Validates the CandidUK file.
-#' @param file_name name of the file
-#' @param file_type type of the file
-#' @param csv_separator character sequence separating columns in csv
-#' @return A logical value T/F
-#' @noRd
-validate_candid_uk <- function(file_name, file_type, csv_separator = ";"){
-  file <- read.csv(file_name, sep = csv_separator)
-  uk_candidate_dataframe_check(file)
-}
-
-################# File / Dataframe validation functions #################
-
-################# Algorithm helper functions #################
-
-#' Candidates' Color Priority
-#'
-#' @description Classification of candidates according to waiting list
-#' time on dialysis' quartiles and two cPRA cutoff values.
-#' @param data A data frame with information for candidates' waiting list.
-#' @param q2 A numerical value for the median of candidates' waiting list (`r env$q.minimum` - `r env$q.maximum`).
-#' @param q3 A numerical value for the third quartile of candidates' waiting list (`r env$q.minimum` - `r env$q.maximum`).
-#' @param cPRA1 A numerical value (`r env$percentage.maximum` - `r env$percentage.maximum`) for the lower cPRA cutoff.
-#' @param cPRA2 A numerical value (`r env$percentage.maximum` - `r env$percentage.maximum`) for the higher cPRA cutoff. cPRA2
-#' must be greater than cPRA1.
-#' @return A data frame with a new column 'cp' (color priority)
-#' @examples
-#' cp(data = candidates, q2 = 60, q3 = 100, cPRA1 = 50, cPRA2 = 85)
-#' @export
-cp <- function(data = candidates,
-               q2 = 60,
-               q3 = 100,
-               cPRA1 = 50,
-               cPRA2 = 85){
-  if(cPRA2 < cPRA1){
-    stop("Higher cPRA cutoff value (cPRA2) must be greater than lower cPRA cutoff (cPRA1)!\n")
-  }
-  if(cPRA1 > env$percentage.maximum || cPRA1 < env$percentage.minimum){
-    stop("cPRA1 corresponds to a percetage. Values should be between ",
-          env$percentage.maximum, " and ", env$percentage.minimum, ".")
-  }
-  if(cPRA2 > env$percentage.maximum || cPRA2 < env$percentage.minimum){
-    stop("cPRA2 corresponds to a percetage. Values should be between ",
-          env$percentage.maximum, " and ", env$percentage.minimum, ".")
-  }
-  if(q2 >= q3){
-    stop("Median time on dialysis quartiles must be lower than third quartile: q2 < q3!\n")
-  }
-
-  data <- data %>%
-    dplyr::mutate(cp = ifelse(urgent == 1, 1,
-                            ifelse(cPRA >= cPRA2 | dialysis >= q3, 2,
-                                   ifelse(cPRA >= cPRA1 | dialysis >= q2, 3, 4)
-                                   )
-                            ),
-                  cp = factor(cp, levels = 1:4,
-                              labels = env$color.priority.labels
-                              )
-                  )
-
-  return(data)
-}
-
-################# Algorithm helper functions #################

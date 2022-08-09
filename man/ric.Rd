@@ -2,7 +2,7 @@
 % Please edit documentation in R/uk.R
 \name{ric}
 \alias{ric}
-\title{donor-recipient Risk Index Combination}
+\title{Donor-recipient Risk Index Combination}
 \usage{
 ric(
   DRI = "D1",
@@ -27,9 +27,9 @@ ric(
 )
 }
 \arguments{
-\item{DRI}{Donor RisK Index group (D1, D2, D3, D4)}
+\item{DRI}{Donor Risk Index group (D1, D2, D3, D4)}
 
-\item{data}{A data file with candidates information for UK transplant}
+\item{data}{A data file with candidates information for UK transplant.}
 
 \item{D1R1}{A numeric value (0 - 1000) for the combination of indexes D1R1}
 
@@ -66,7 +66,7 @@ ric(
 \item{check.validity}{Logical to decide whether to validate input.}
 }
 \value{
-A tibble with a new column \code{ric} that gives the  Risk Index Combination.
+A table with a new column \code{ric} that gives the  Risk Index Combination.
 }
 \description{
 computes Risk Index Combination for each pair donor-recipient
@@ -76,5 +76,5 @@ ric(DRI = 'D1', data = candidates.uk,
 D1R1 = 1000, D1R2 = 700, D1R3 = 350, D1R4 = 0,
 D2R1 = 700, D2R2 = 1000, D2R3 = 500, D2R4 = 350,
 D3R1 = 350, D3R2 = 500, D3R3 = 1000, D3R4 = 700,
-D4R1 = 0, D4R2 = 350, D4R3 = 700, D4R4 = 1000, check.validity = TRUE)
+D4R1 = 0, D4R2 = 350, D4R3 = 700, D4R4 = 1000, check.validity = TRUE) \%>\% head()
 }
