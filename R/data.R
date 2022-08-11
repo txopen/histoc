@@ -67,7 +67,7 @@
 #' @format A data frame with 70 rows and 9 variables:
 #' \describe{
 #'   \item{ID}{Donors' identifier}
-#'   \item{bg}{Donors' blood group (`r env$valid.blood.groups`)}
+#'   \item{bg}{Donors' blood group:   `r env$valid.blood.groups `}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
@@ -87,7 +87,7 @@
 #' @format A data frame with 70 rows and 10 variables:
 #' \describe{
 #'   \item{ID}{Donors' identifier}
-#'   \item{bg}{Donors' blood group (`r env$valid.blood.groups`)}
+#'   \item{bg}{Donors' blood group:   `r env$valid.blood.groups `}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
