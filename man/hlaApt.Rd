@@ -20,7 +20,7 @@ A data frame with 20 rows and 3 variables:
 hlaApt
 }
 \description{
-A dataset containing HLA-A allele relative frequencies from portuguese donors
+A dataset containing HLA-A allele relative frequencies from Portuguese donors
 used for Mismatch Probability (MMP) computation.
 }
 \keyword{datasets}

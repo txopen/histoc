@@ -58,15 +58,15 @@ pts_PRA <- function(cPRA = 0
 
 #' Points for HLA mismatches
 #'
-#' @description Punctuation given according to HLA mismatchs (mm) for item A) to E) from PT's algorithm
+#' @description Punctuation given according to HLA mismatches (mm) for item A) to E) from PT's algorithm
 #' @param itemA Points for HLA fullmatch (no mm for HLA-A, B and DR)
 #' @param itemB Points without mm for HLA-B and DR
 #' @param itemC Points with 1 mm for HLA-B and DR
 #' @param itemD Points with 1 mm for HLA-B and 1 mm for DR
-#' @param itemE Points for remaning possibilities
-#' @param mm.A Number of HLA-A mismatchs(0 to 2)
-#' @param mm.B Number of HLA-B mismatchs(0 to 2)
-#' @param mm.DR Number of HLA-DR mismatchs(0 to 2)
+#' @param itemE Points for remaining possibilities
+#' @param mm.A Number of HLA-A mismatches(0 to 2)
+#' @param mm.B Number of HLA-B mismatches(0 to 2)
+#' @param mm.DR Number of HLA-DR mismatches(0 to 2)
 #' @return A numerical value for pre-defined points
 #' @examples
 #' pts_HLA(itemA = 12, itemB = 8, itemC = 4, itemD = 2, itemE = 1,
@@ -120,7 +120,7 @@ pts_HLA <- function(itemA = 12
 #' @param df.abs A data frame with candidates' antibodies.
 #' @param points.80 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 80
 #' @param points.50 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 50
-#' @param points.dialysis punctuaction for each month on dialysis
+#' @param points.dialysis punctuation for each month on dialysis
 #' @param points.age A numerical value for the points to age difference
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.

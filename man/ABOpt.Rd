@@ -7,7 +7,7 @@
 \format{
 A data frame with 4 rows and 2 variables:
 \describe{
-\item{abo}{ABO froup}
+\item{abo}{ABO group}
 \item{freq}{relative frequencies}
 ...
 }
@@ -19,7 +19,7 @@ A data frame with 4 rows and 2 variables:
 ABOpt
 }
 \description{
-A dataset containing ABO relative frequencies from portuguese blood donors
+A dataset containing ABO relative frequencies from Portuguese blood donors
 used for Mismatch Probability (MMP) computation.
 }
 \keyword{datasets}

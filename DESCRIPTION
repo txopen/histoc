@@ -9,7 +9,7 @@ Authors@R: c(
     person(given = "TxOR",
            role = c("cph", "fnd"))
     )
-Description: This package contains functions to assess matchs on organ transplantation. Histocompatibility analysis are possible with information from donors and candidates.
+Description: This package contains functions to assess matches on organ transplantation. Histocompatibility analysis are possible with information from donors and candidates.
 License: MIT + file LICENSE
 BugReports: https://github.com/txopen/histoc/issues
 Encoding: UTF-8
@@ -31,7 +31,7 @@ Imports:
     tibble,
     rlang
 Depends: 
-    R (>= 4.0.0)
+    R (>= 4.1.0)
 LazyData: true
 Config/testthat/edition: 3
 URL: https://txopen.github.io/histoc/

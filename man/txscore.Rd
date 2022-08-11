@@ -51,18 +51,18 @@ Disease, with options: 'Other', 'Diabetes', 'Hypertension',
 
 \item{donor.ECD}{A logical value regarding Extended Criteria Donor}
 
-\item{mmHLA_A}{A numeric value (0, 1, 2) with the number of HLA-A mismatchs}
+\item{mmHLA_A}{A numeric value (0, 1, 2) with the number of HLA-A mismatches}
 
-\item{mmHLA_B}{A numeric value (0, 1, 2) with the number of HLA-B mismatchs}
+\item{mmHLA_B}{A numeric value (0, 1, 2) with the number of HLA-B mismatches}
 
-\item{mmHLA_DR}{A numeric value (0, 1, 2) with the number of HLA-DR mismatchs}
+\item{mmHLA_DR}{A numeric value (0, 1, 2) with the number of HLA-DR mismatches}
 }
 \value{
 5 year probability for combined outcome of mortality or graft failure
 }
 \description{
 Returns the estimated 5-year event (mortality or graft failure
-combined outcome) probability as described by Molnar, el al (2017).
+combined outcome) probability as described by Molnar, et al (2017).
 }
 \examples{
 txscore(recipient.age = 20,

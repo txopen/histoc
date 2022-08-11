@@ -43,7 +43,7 @@ a group of waitlisted transplant candidates.}
 
 \item{points.50}{A numerical value (0 - 20) for the points to a cPRA >= 50}
 
-\item{points.dialysis}{punctuaction for each month on dialysis}
+\item{points.dialysis}{punctuation for each month on dialysis}
 
 \item{points.age}{A numerical value for the points to age difference}
 
