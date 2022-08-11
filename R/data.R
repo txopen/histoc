@@ -18,7 +18,7 @@
 #' @format A data frame with 500 rows and 12 variables:
 #' \describe{
 #'   \item{ID}{Candidates' identifier}
-#'   \item{bg}{Candidates' blood group (`r env$valid.blood.groups`)}
+#'   \item{bg}{Candidates' blood group:   `r env$valid.blood.groups `}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
@@ -41,7 +41,7 @@
 #' @format A data frame with 500 rows and 15 variables:
 #' \describe{
 #'   \item{ID}{Candidates' identifier}
-#'   \item{bg}{Candidates' blood group (`r env$valid.blood.groups`)}
+#'   \item{bg}{Candidates' blood group:   `r env$valid.blood.groups `}
 #'   \item{A1}{HLA-A allele 1}
 #'   \item{A2}{HLA-A allele 2}
 #'   \item{B1}{HLA-B allele 1}
