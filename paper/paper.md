@@ -110,3 +110,7 @@ Also a new column for the estimated 5-year event (mortality or graft failure) pr
 ## Input data
 
 Input data used on this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available. Furthermore, [{simK}](https://github.com/txopen/simK) package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
+
+# Acknowledgements
+
+This project received the “Antonio Morais Sarmento” research grant from the Portuguese Society of Transplantation. This funding had no role in: study design; software development; the writing of the report; neither in the decision to submit the article for publication.
