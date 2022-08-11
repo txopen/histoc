@@ -103,7 +103,7 @@
 
 #' HLA-A relative frequencies.
 #'
-#' A dataset containing HLA-A allele relative frequencies from portuguese donors
+#' A dataset containing HLA-A allele relative frequencies from Portuguese donors
 #' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 20 rows and 3 variables:
@@ -118,7 +118,7 @@
 
 #' HLA-B relative frequencies.
 #'
-#' A dataset containing HLA-B allele relative frequencies from portuguese donors
+#' A dataset containing HLA-B allele relative frequencies from Portuguese donors
 #' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 34 rows and 3 variables:
@@ -133,7 +133,7 @@
 
 #' HLA-DR relative frequencies.
 #'
-#' A dataset containing HLA-DR allele relative frequencies from portuguese donors
+#' A dataset containing HLA-DR allele relative frequencies from Portuguese donors
 #' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 13 rows and 3 variables:
@@ -148,7 +148,7 @@
 
 #' ABO relative frequencies.
 #'
-#' A dataset containing ABO relative frequencies from portuguese blood donors
+#' A dataset containing ABO relative frequencies from Portuguese blood donors
 #' used for Mismatch Probability (MMP) computation.
 #'
 #' @format A data frame with 4 rows and 2 variables:
