@@ -29,18 +29,18 @@ abo <- function(cABO = 'A', dABO = 'A', iso = TRUE){
 
 }
 
-#' number of HLA mismatchs
+#' number of HLA mismatches
 #'
-#' @description Computes the number of HLA mismatchs between donor and candidate
+#' @description Computes the number of HLA mismatches between donor and candidate
 #' @param dA A two elements character vector with donor's HLA-A typing
-#' @param dB A two elements character vector withdonor's HLA-B typing
-#' @param dDR A two elements character vector withdonor's HLA-DR typing
-#' @param cA A two elements character vector withcandidate's HLA-A typing
-#' @param cB A two elements character vector withcandidate's HLA-B typing
-#' @param cDR A two elements character vector withcandidate's HLA-DR typing
-#' @return `mmA` number of HLA-A mismatchs between \code{dA} and \code{cA};
-#' `mmB` number of HLA-B mismatchs between \code{dB} and \code{cB};
-#' `mmDR` number of HLA-DR mismatchs between \code{dA}DR and \code{cDR};
+#' @param dB A two elements character vector with donor's HLA-B typing
+#' @param dDR A two elements character vector with donor's HLA-DR typing
+#' @param cA A two elements character vector with candidate's HLA-A typing
+#' @param cB A two elements character vector with candidate's HLA-B typing
+#' @param cDR A two elements character vector with candidate's HLA-DR typing
+#' @return `mmA` number of HLA-A mismatches between \code{dA} and \code{cA};
+#' `mmB` number of HLA-B mismatches between \code{dB} and \code{cB};
+#' `mmDR` number of HLA-DR mismatches between \code{dA}DR and \code{cDR};
 #' and `mmHLA` as the sum of `mmA` + `mmB` + `mmDR`
 #' @examples
 #' mmHLA(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),
@@ -89,7 +89,7 @@ mmHLA <- function(dA = c('1','2'),
 
 #' virtual crossmatch (XM)
 #'
-#' @description returns candidates' virtual crossmatch againts donor's HLA typing
+#' @description returns candidates' virtual crossmatch against donor's HLA typing
 #' @param dA A two elements character vector donor's HLA-A typing
 #' @param dB A two elements character vector donor's HLA-B typing
 #' @param dDR A two elements character vector donor's HLA-DR typing
@@ -146,9 +146,9 @@ xmatch <- function(dA = c('1','2'),
   return(res[])
 }
 
-#' Hiperimunized classification
+#' Hiperimmunized classification
 #'
-#' @description Returns candidates' hiperimunized classification (logical) according to a
+#' @description Returns candidates' hiperimmunized classification (logical) according to a
 #' cutoff value.
 #' @param cPRA candidate's \code{cPRA} value
 #' @param cutoff A value to compare candidate's \code{cPRA}
@@ -159,8 +159,8 @@ xmatch <- function(dA = c('1','2'),
 hiper <- function(cPRA = 99, cutoff = 85){
   cPRA_checker(cPRA)
 
-  is.hiperimunized <- cPRA >= cutoff
-  return(is.hiperimunized)
+  is.hiperimmunized <- cPRA >= cutoff
+  return(is.hiperimmunized)
 }
 
 #' Senior Program classification
@@ -184,7 +184,7 @@ sp <- function(donor.age, candidate.age){
 #' TRANSPLANTSCORE (Tx Score)
 #'
 #' @description Returns the estimated 5-year event (mortality or graft failure
-#' combined outcome) probability as described by Molnar, el al (2017).
+#' combined outcome) probability as described by Molnar, et al (2017).
 #' @param recipient.age A numeric value with recipient's age
 #' @param recipient.race A character value with recipient's race from the options:
 #' 'White', 'Black', 'Hispanic', 'Other'
@@ -200,9 +200,9 @@ sp <- function(donor.age, candidate.age){
 #' @param donor.diabetes A logical value with donor's diabetic status, with options:
 #' 'Absence', 'Presence', 'Unknown'
 #' @param donor.ECD A logical value regarding Extended Criteria Donor
-#' @param mmHLA_A A numeric value (0, 1, 2) with the number of HLA-A mismatchs
-#' @param mmHLA_B A numeric value (0, 1, 2) with the number of HLA-B mismatchs
-#' @param mmHLA_DR A numeric value (0, 1, 2) with the number of HLA-DR mismatchs
+#' @param mmHLA_A A numeric value (0, 1, 2) with the number of HLA-A mismatches
+#' @param mmHLA_B A numeric value (0, 1, 2) with the number of HLA-B mismatches
+#' @param mmHLA_DR A numeric value (0, 1, 2) with the number of HLA-DR mismatches
 #' @return 5 year probability for combined outcome of mortality or graft failure
 #' @examples
 #' txscore(recipient.age = 20,

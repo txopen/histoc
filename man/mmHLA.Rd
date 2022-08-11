@@ -2,7 +2,7 @@
 % Please edit documentation in R/histof.R
 \name{mmHLA}
 \alias{mmHLA}
-\title{number of HLA mismatchs}
+\title{number of HLA mismatches}
 \usage{
 mmHLA(
   dA = c("1", "2"),
@@ -16,24 +16,24 @@ mmHLA(
 \arguments{
 \item{dA}{A two elements character vector with donor's HLA-A typing}
 
-\item{dB}{A two elements character vector withdonor's HLA-B typing}
+\item{dB}{A two elements character vector with donor's HLA-B typing}
 
-\item{dDR}{A two elements character vector withdonor's HLA-DR typing}
+\item{dDR}{A two elements character vector with donor's HLA-DR typing}
 
-\item{cA}{A two elements character vector withcandidate's HLA-A typing}
+\item{cA}{A two elements character vector with candidate's HLA-A typing}
 
-\item{cB}{A two elements character vector withcandidate's HLA-B typing}
+\item{cB}{A two elements character vector with candidate's HLA-B typing}
 
-\item{cDR}{A two elements character vector withcandidate's HLA-DR typing}
+\item{cDR}{A two elements character vector with candidate's HLA-DR typing}
 }
 \value{
-\code{mmA} number of HLA-A mismatchs between \code{dA} and \code{cA};
-\code{mmB} number of HLA-B mismatchs between \code{dB} and \code{cB};
-\code{mmDR} number of HLA-DR mismatchs between \code{dA}DR and \code{cDR};
+\code{mmA} number of HLA-A mismatches between \code{dA} and \code{cA};
+\code{mmB} number of HLA-B mismatches between \code{dB} and \code{cB};
+\code{mmDR} number of HLA-DR mismatches between \code{dA}DR and \code{cDR};
 and \code{mmHLA} as the sum of \code{mmA} + \code{mmB} + \code{mmDR}
 }
 \description{
-Computes the number of HLA mismatchs between donor and candidate
+Computes the number of HLA mismatches between donor and candidate
 }
 \examples{
 mmHLA(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),

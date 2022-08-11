@@ -6,7 +6,7 @@ test_that("compatibility ABO", {
   expect_true(abo(cABO = 'AB', dABO = 'AB', iso = TRUE))
 })
 
-test_that("computes HLA mismatchs", {
+test_that("computes HLA mismatches", {
   expect_equal(mmHLA(dA = c('01','02'),
                      dB = c('05','07'),
                      dDR = c('01','04'),
@@ -103,7 +103,7 @@ test_that("virtual crossmatch", {
 })
 
 
-test_that("Hiperimunized patients", {
+test_that("Hiperimmunized patients", {
   expect_true(hiper(cPRA = 99, cutoff = 85))
   expect_false(hiper(cPRA = 80, cutoff = 85))
   expect_true(hiper(cPRA = 90, cutoff = 80))
