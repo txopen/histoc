@@ -27,8 +27,9 @@ Imports:
     utils,
     data.table,
     purrr,
-    tibble,
-    rlang
+    rlang,
+    mockr,
+    tibble
 Depends: 
     R (>= 4.1.0)
 LazyData: true
