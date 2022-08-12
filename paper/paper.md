@@ -1,38 +1,41 @@
 ---
 title: 'histoc: Histocompatibility analysis performed by kidney allocation systems'
 tags:
-  - R
-  - transplantation
-  - kidney
-  - allocation
+- R
+- transplantation
+- kidney
+- allocation
+date: "24 July 2022"
+output: pdf_document
 authors:
-  - name: Bruno A Lima
-    orcid: 0000-0001-9090-4457
-    equal-contrib: true
-    affiliation: 1
-  - name: Filipe P Reis
-    orcid: 0000-0002-8186-3910
-    equal-contrib: true
-    affiliation: 1
-affiliations:
- - name: Oficina de Bioestatistica, Portugal
-   index: 1
-date: 24 July 2022
+- name: Bruno A Lima
+  orcid: 0000-0001-9090-4457
+  equal-contrib: yes
+  affiliation: 1
+- name: Filipe P Reis
+  orcid: 0000-0002-8186-3910
+  equal-contrib: yes
+  affiliation: 1
 bibliography: paper.bib
-link-citations: true
+link-citations: yes
+affiliations:
+- name: Oficina de Bioestatistica, Portugal
+  index: 1
 ---
 
 # Summary
 
-The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource `[@Lima2020]`. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) `[@Geddes2005]`.
+The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource `[@Lima:2020]`. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) `[@Geddes:2005]`.
 
 The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that can eliminate specific transplant candidates from opting for a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each of them.
 
+The goal of this package is to aid the evaluation and assessment of KAS in transplantation.
+
+# Statement of need
+
 {histoc} `[@histoc]` is an R `[@R]` package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package's main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine arguments for each one of the KAS as a way to test different approaches.
 
-# Kidney Allocation Systems
-
-Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model)`[@ET]`, in the United Kingdom (UK model)`[@UK]`, and a system suggested by Lima *et al*`[@Lima2013]` (Lima’s model).
+Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model)`[@ET]`, in the United Kingdom (UK model)`[@UK]`, and a system suggested by Lima *et al*`[@Lima:2013]` (Lima’s model).
 
 Each one of these models have as arguments a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and potential donor's information.
 
@@ -43,6 +46,8 @@ Results are presented as {data.table} `[@data.table]` objects due to its high co
 To get started a vignette describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each of the algorithms.
 
 By default 2 candidates are selected for each donor, although we can define the number of candidates to be selected.
+
+## Kidney Allocation Systems
 
 ### Portuguese Model
 
@@ -105,7 +110,7 @@ The function `donor_recipient_pairs()` allow us to compute all possible donor-re
 An example where we use a pool of 70 donors (data frame available from the package) to select from a wait list of 500 transplant candidates (data frame also available from the package) is described by [candidates' selection](https://txopen.github.io/histoc/articles/cand_select.html) vignette.
 
 
-Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by Molnar *et al.*`[@Molnar2018]` and available from the application [TxScore](https://balima.shinyapps.io/scoreTx/), with the function `txscore()`, can be computed.
+Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by Molnar *et al.*`[@Molnar:2018]` and available from the application [TxScore](https://balima.shinyapps.io/scoreTx/), with the function `txscore()`, can be computed.
 
 ## Input data
 
@@ -114,3 +119,5 @@ Input data used on this package's functions, regarding either candidates or dono
 # Acknowledgements
 
 This project received the “Antonio Morais Sarmento” research grant from the Portuguese Society of Transplantation. This funding had no role in: study design; software development; the writing of the report; neither in the decision to submit the article for publication.
+
+# References

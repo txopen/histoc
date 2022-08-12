@@ -172,18 +172,21 @@ pre code {
 
 <div id="summary" class="section level1">
 <h1>Summary</h1>
-<p>The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource <code>[@Lima2020]</code>. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) <code>[@Geddes2005]</code>.</p>
+<p>The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource <code>[@Lima:2020]</code>. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) <code>[@Geddes:2005]</code>.</p>
 <p>The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that can eliminate specific transplant candidates from opting for a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each of them.</p>
-<p>{histoc} <code>[@histoc]</code> is an R <code>[@R]</code> package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package’s main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine arguments for each one of the KAS as a way to test different approaches.</p>
+<p>The goal of this package is to aid the evaluation and assessment of KAS in transplantation.</p>
 </div>
-<div id="kidney-allocation-systems" class="section level1">
-<h1>Kidney Allocation Systems</h1>
-<p>Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model)<code>[@ET]</code>, in the United Kingdom (UK model)<code>[@UK]</code>, and a system suggested by Lima <em>et al</em><code>[@Lima2013]</code> (Lima’s model).</p>
+<div id="statement-of-need" class="section level1">
+<h1>Statement of need</h1>
+<p>{histoc} <code>[@histoc]</code> is an R <code>[@R]</code> package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package’s main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine arguments for each one of the KAS as a way to test different approaches.</p>
+<p>Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model)<code>[@ET]</code>, in the United Kingdom (UK model)<code>[@UK]</code>, and a system suggested by Lima <em>et al</em><code>[@Lima:2013]</code> (Lima’s model).</p>
 <p>Each one of these models have as arguments a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and potential donor’s information.</p>
 <p>For all the models a virtual crossmatch between the donor and transplant candidates is performed (<code>xmatch()</code>). And, only those candidates with a negative crossmatch and ABO compatible can opt to a donor’s kidney.</p>
 <p>Results are presented as {data.table} <code>[@data.table]</code> objects due to its high computation performance.</p>
 <p>To get started a vignette describes <a href="https://txopen.github.io/histoc/articles/how_to.html">how to use</a> each of the algorithms.</p>
 <p>By default 2 candidates are selected for each donor, although we can define the number of candidates to be selected.</p>
+<div id="kidney-allocation-systems" class="section level2">
+<h2>Kidney Allocation Systems</h2>
 <div id="portuguese-model" class="section level3">
 <h3>Portuguese Model</h3>
 <p>Portuguese rules on allocation of kidneys from deceased donor (<strong>PT model</strong>) are based on a scoring system that takes in consideration:<br />
@@ -228,11 +231,12 @@ pre code {
 <p>Within each color group candidates are ordered by <code>mmHLA</code> (ascendant) and time on <code>dialisys</code> (descendant).</p>
 <p>Also, candidates are allocated to donors within the same age group (old to old program) (<code>SP</code>), mimicking EuroTransplant senior program (<code>sp()</code>).</p>
 </div>
+</div>
 <div id="candidates-selection-for-a-pool-of-donors" class="section level2">
 <h2>Candidates’ selection for a pool of donors</h2>
 <p>We can also simulate the selection of wait list candidates for a pool of donors, according to a given model (or algorithm). The function <code>donor_recipient_pairs()</code> allow us to compute all possible donor-recipient pairs according to any of the previously described kidney allocation algorithms.</p>
 <p>An example where we use a pool of 70 donors (data frame available from the package) to select from a wait list of 500 transplant candidates (data frame also available from the package) is described by <a href="https://txopen.github.io/histoc/articles/cand_select.html">candidates’ selection</a> vignette.</p>
-<p>Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by Molnar <em>et al.</em><code>[@Molnar2018]</code> and available from the application <a href="https://balima.shinyapps.io/scoreTx/">TxScore</a>, with the function <code>txscore()</code>, can be computed.</p>
+<p>Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by Molnar <em>et al.</em><code>[@Molnar:2018]</code> and available from the application <a href="https://balima.shinyapps.io/scoreTx/">TxScore</a>, with the function <code>txscore()</code>, can be computed.</p>
 </div>
 <div id="input-data" class="section level2">
 <h2>Input data</h2>
@@ -242,6 +246,9 @@ pre code {
 <div id="acknowledgements" class="section level1">
 <h1>Acknowledgements</h1>
 <p>This project received the “Antonio Morais Sarmento” research grant from the Portuguese Society of Transplantation. This funding had no role in: study design; software development; the writing of the report; neither in the decision to submit the article for publication.</p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
 </div>
 
 
