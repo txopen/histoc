@@ -27,7 +27,7 @@ xmatch(
 A dataframe with candidates' \code{ID} and \code{xm} result POS/NEG
 }
 \description{
-returns candidates' virtual crossmatch againts donor's HLA typing
+returns candidates' virtual crossmatch against donor's HLA typing
 }
 \examples{
 xmatch(dA = c('1','2'), dB = c('5','7'), dDR = c('1','4'),

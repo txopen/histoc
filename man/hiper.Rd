@@ -2,7 +2,7 @@
 % Please edit documentation in R/histof.R
 \name{hiper}
 \alias{hiper}
-\title{Hiperimunized classification}
+\title{Hiperimmunized classification}
 \usage{
 hiper(cPRA = 99, cutoff = 85)
 }
@@ -15,7 +15,7 @@ hiper(cPRA = 99, cutoff = 85)
 A logical value TRUE when \code{cPRA} >= cutoff
 }
 \description{
-Returns candidates' hiperimunized classification (logical) according to a
+Returns candidates' hiperimmunized classification (logical) according to a
 cutoff value.
 }
 \examples{
