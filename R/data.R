@@ -172,7 +172,7 @@
 #'   \item{freq}{allele frequencies}
 #'   ...
 #' }
-#' @source \url{https://www.eurotransplant.org/wp-content/uploads/2020/01/H4-Kidney.pdf}
+#' @source \url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}
 "hlaAet"
 
 #' HLA-B relative frequencies.
@@ -187,7 +187,7 @@
 #'   \item{freq}{allele frequencies}
 #'   ...
 #' }
-#' @source \url{https://www.eurotransplant.org/wp-content/uploads/2020/01/H4-Kidney.pdf}
+#' @source \url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}
 "hlaBet"
 
 #' HLA-DR relative frequencies.
@@ -202,5 +202,5 @@
 #'   \item{freq}{allele frequencies}
 #'   ...
 #' }
-#' @source \url{https://www.eurotransplant.org/wp-content/uploads/2020/01/H4-Kidney.pdf}
+#' @source \url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}
 "hlaDRet"

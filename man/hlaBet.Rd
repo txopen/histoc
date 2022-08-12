@@ -14,7 +14,7 @@ A data frame with 57 rows and 3 variables:
 }
 }
 \source{
-\url{https://www.eurotransplant.org/wp-content/uploads/2020/01/H4-Kidney.pdf}
+\url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}
 }
 \usage{
 hlaBet

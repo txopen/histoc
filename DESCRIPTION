@@ -1,5 +1,5 @@
 Package: histoc
-Title: Histocompatibility functions for organ transplantation
+Title: Histocompatibility Functions for Organ Transplantation
 Version: 0.2.0
 Authors@R: c(
     person("Bruno", "Lima", , "balima78@gmail.com", role = c("aut", "cre"),
