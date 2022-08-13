@@ -25,7 +25,7 @@ affiliations:
 
 # Summary
 
-The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource `[@Lima:2020]`. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) `[@Geddes:2005]`.
+The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource [@Lima:2020]. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) [@Geddes:2005].
 
 The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that can eliminate specific transplant candidates from opting for a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each of them.
 
@@ -33,15 +33,15 @@ The goal of this package is to aid the evaluation and assessment of KAS in trans
 
 # Statement of need
 
-{histoc} `[@histoc]` is an R `[@R]` package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package's main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine arguments for each one of the KAS as a way to test different approaches.
+{histoc} [@histoc] is an R [@R] package that assembles tools for histocompatibility testing in the context of kidney transplantation. The package's main functions allow simulating several KAS on the distribution of deceased donors’ grafts for transplantation. Moreover, it is possible to redefine arguments for each one of the KAS as a way to test different approaches.
 
-Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model)`[@ET]`, in the United Kingdom (UK model)`[@UK]`, and a system suggested by Lima *et al*`[@Lima:2013]` (Lima’s model).
+Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model) [@ET], in the United Kingdom (UK model) [@UK], and a system suggested by @Lima:2013 (Lima’s model).
 
 Each one of these models have as arguments a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and potential donor's information.
 
 For all the models a virtual crossmatch between the donor and transplant candidates is performed (`xmatch()`). And, only those candidates with a negative crossmatch and ABO compatible can opt to a donor’s kidney.
 
-Results are presented as {data.table} `[@data.table]` objects due to its high computation performance.
+Results are presented as {data.table} [@data.table] objects due to its high computation performance.
 
 To get started a vignette describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each of the algorithms.
 
@@ -62,7 +62,7 @@ all candidates are ordered by their corresponding score.
 
 ### Euro Transplant Model
 
-A simplified version of EuroTransplant Kidney Allocation System (**ETKAS**) `[@ET]` can be simulated through `et()`. This applies to first time kidney only candidates with more than 18 years old and that haven't donated one of their own kidneys.  
+A simplified version of EuroTransplant Kidney Allocation System (**ETKAS**) [@ET] can be simulated through `et()`. This applies to first time kidney only candidates with more than 18 years old and that haven't donated one of their own kidneys.  
 
 In this simulation for each donor, transplant candidates as sorted as :
 
@@ -75,7 +75,7 @@ Final points for each eligible candidate are obtained from the sum of HLA points
 
 ### United Kingdom Model
 
-United Kingdom (**UK model**) deceased donor kidney allocation for transplantation `[@UK]` (`uk()`) is firstly based on the definition of two ranked Tiers of candidates eligible for the donor (`Tier`):
+United Kingdom (**UK model**) deceased donor kidney allocation for transplantation [@UK] (`uk()`) is firstly based on the definition of two ranked Tiers of candidates eligible for the donor (`Tier`):
 
 1. Tier A – patients with match score = 10 or `cPRA` = 100% or time on `dialysis` > 7 years;
 1. Tier B – all other eligible patients.
@@ -110,13 +110,13 @@ The function `donor_recipient_pairs()` allow us to compute all possible donor-re
 An example where we use a pool of 70 donors (data frame available from the package) to select from a wait list of 500 transplant candidates (data frame also available from the package) is described by [candidates' selection](https://txopen.github.io/histoc/articles/cand_select.html) vignette.
 
 
-Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by Molnar *et al.*`[@Molnar:2018]` and available from the application [TxScore](https://balima.shinyapps.io/scoreTx/), with the function `txscore()`, can be computed.
+Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by @Molnar:2018] and available from the application [TxScore](https://balima.shinyapps.io/scoreTx/), with the function `txscore()`, can be computed.
 
 ## Input data
 
-Input data used on this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available. Furthermore, [{simK}](https://github.com/txopen/simK) package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
+Input data used on this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available. Furthermore, [{simK}](https://github.com/txopen/simK) [@simK] package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
 
-# Acknowledgements
+# Funding
 
 This project received the “Antonio Morais Sarmento” research grant from the Portuguese Society of Transplantation. This funding had no role in: study design; software development; the writing of the report; neither in the decision to submit the article for publication.
 
