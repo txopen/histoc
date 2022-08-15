@@ -5,7 +5,7 @@
 #' 0 and 1 broad HLA-A, -B or DR mismatches based on 1000 kidneys offered,
 #' taking into account ABO blood group rules and PRA screening. Patients receive
 #' between 0-100 MMPs
-#' @source \url{https://www.eurotransplant.org/wp-content/uploads/2020/01/H4-Kidney.pdf}
+#' @source \url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}
 #' @param data A data frame containing demographics and medical information for a
 #' group of waitlisted transplant candidates.
 #' @param hlaA A data frame with HLA-A allele frequencies.

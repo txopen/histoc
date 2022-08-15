@@ -1,5 +1,5 @@
 Package: histoc
-Title: Histocompatibility functions for organ transplantation
+Title: Histocompatibility Functions for Organ Transplantation
 Version: 0.2.0
 Authors@R: c(
     person("Bruno", "Lima", , "balima78@gmail.com", role = c("aut", "cre"),
@@ -9,7 +9,7 @@ Authors@R: c(
     person(given = "TxOR",
            role = c("cph", "fnd"))
     )
-Description: This package contains functions to assess matches on organ transplantation. Histocompatibility analysis are possible with information from donors and candidates.
+Description: Provides functions to assess matches on organ transplantation. Histocompatibility analysis are possible with information from donors and candidates.
 License: MIT + file LICENSE
 BugReports: https://github.com/txopen/histoc/issues
 Encoding: UTF-8
@@ -27,9 +27,9 @@ Imports:
     utils,
     data.table,
     purrr,
+    rlang,
     mockr,
-    tibble,
-    rlang
+    tibble
 Depends: 
     R (>= 4.1.0)
 LazyData: true

@@ -5,6 +5,9 @@
 #' @section histoc functions:
 #' The \code{histoc} main functions: \code{lima}, \code{pts}, \code{uk}, \code{et}, \code{several}
 #' @import data.table
+#' @importFrom mockr local_mock
+#' @importFrom tibble tribble
+#' @importFrom utils globalVariables
 #' @docType package
 #' @name histoc
 NULL
