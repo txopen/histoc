@@ -166,9 +166,6 @@ pts <- function(iso = TRUE
 
   n <- max(1, n)
 
-  data <- cp(data = data) |>
-    as.data.frame()
-
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)
 
   data.table::setDT(data, key = 'ID')
