@@ -75,7 +75,7 @@ lima <- function(iso = TRUE
 
   data[, `:=`(
     donor_age = donor.age,
-    SP = sp(candidate.age = age, donor.age = donor.age),
+    SP = ifelse(sp(donor.age = donor.age, candidate.age = age) == 1, 1, 0),
     HI = hiper(cPRA = cPRA, 85),
     compBlood = abo(iso = iso, dABO = dABO, cABO = bg)
     ), by = 'ID'][, row_n := 1:nrow(data)]
