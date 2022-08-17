@@ -17,6 +17,11 @@ pts(
   points.50 = 4,
   points.dialysis = 0.1,
   points.age = 4,
+  itemA = 12,
+  itemB = 8,
+  itemC = 4,
+  itemD = 2,
+  itemE = 1,
   n = 2,
   check.validity = TRUE
 )
@@ -47,6 +52,16 @@ a group of waitlisted transplant candidates.}
 
 \item{points.age}{A numerical value for the points to age difference}
 
+\item{itemA}{Points for HLA fullmatch (no mm for HLA-A, B and DR)}
+
+\item{itemB}{Points without mm for HLA-B and DR}
+
+\item{itemC}{Points with 1 mm for HLA-B and DR}
+
+\item{itemD}{Points with 1 mm for HLA-B and 1 mm for DR}
+
+\item{itemE}{Points for remaining possibilities}
+
 \item{n}{A positive integer to slice the first candidates.}
 
 \item{check.validity}{Logical to decide whether to validate input.}
@@ -63,5 +78,7 @@ Ordering of waitlisted candidates for a given donor according to PT's algorithm.
 pts(iso = TRUE, dABO = "A",
 dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 donor.age = 65,  data = candidates,
-df.abs = cabs, n = 2)
+df.abs = cabs,
+itemA = 12, itemB = 8, itemC = 4, itemD = 2, itemE = 1,
+n = 2)
 }

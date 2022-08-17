@@ -15,7 +15,7 @@ test_that("Test pts_age function", {
             valid.results[i]
         )
     }
-    
+
     invalid.donor.ages <- list('50', 61, 61, env$adulthood.age - 1, 39, 39, env$person.maximum.age + 1, 39, 39)
     invalid.candidate.ages <- list(40, '55', 54, 55, env$adulthood.age - 1, 39, 39, env$person.maximum.age + 1, 39)
     invalid.age.difference.points <- list(4, 4, '4', 4, 4, env$minimum.age.difference.points - 1, 4, 4, env$maximum.age.difference.points + 1)
@@ -42,7 +42,7 @@ test_that("Test pts_PRA function", {
         expect_equal(
             pts_PRA(
                 cPRA = valid.cPRA[i],
-                points.50 = valid.points.50[i], 
+                points.50 = valid.points.50[i],
                 points.80 = valid.points.80[i]
             ),
             valid.results[i]
@@ -77,6 +77,11 @@ test_that("Test pts algorithm", {
     points.50 = 4
     points.dialysis = 0.1
     points.age = 4
+    itemA = 12
+    itemB = 8
+    itemC = 4
+    itemD = 2
+    itemE = 1
     n = 2
 
     candidates_test <- data.frame(
@@ -93,10 +98,6 @@ test_that("Test pts algorithm", {
         cPRA = c(0, 0, 0, 0, 0, 0),
         urgent = c(0, 0, 0, 0, 0, 0)
     )
-
-#   ID bg A1 A2 B1 B2 DR1 DR2 mmA mmB mmDR mmHLA age donor_age dialysis cPRA    HI ptsPT SP ptsHLA ptsPRA ptsage ptsdial
-# 1: 1  O  2 29 44 44   4  12   1   1    1     3  58        65      104    0 FALSE  16.4  3      2      0      4    10.4
-# 2: 2  O  2 33 15 27  11   7   1   1    2     4  55        65      103    0 FALSE  15.3  3      1      0      4    10.3
 
     results <- data.frame(
         ID = c(1, 2),
@@ -121,7 +122,8 @@ test_that("Test pts algorithm", {
         ptsHLA = c(2, 1),
         ptsPRA = c(0, 0),
         ptsage = c(4, 4),
-        ptsdial = c(10.4, 10.3)
+        ptsdial = c(10.4, 10.3),
+        urgent = c(0,0)
     )
 
     expect_equal(
@@ -139,6 +141,11 @@ test_that("Test pts algorithm", {
                 , points.50 = 4
                 , points.dialysis = 0.1
                 , points.age = 4
+                , itemA = 12
+                , itemB = 8
+                , itemC = 4
+                , itemD = 2
+                , itemE = 1
                 , n = 2
             )
         ),

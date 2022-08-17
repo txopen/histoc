@@ -132,3 +132,6 @@ result[!is.na(ID),][ ,
 et_mmp()
 et_mmHLA()
 et_dialysis()
+
+test <- c(T,F,F)
+test[order(-test)]
