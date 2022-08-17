@@ -128,7 +128,7 @@ for a group of waitlisted transplant candidates. For <code>uk</code> algorithm m
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">several</span><span class="op">(</span>iteration.number <span class="op">=</span> <span class="fl">10</span>,</span></span>
 <span class="r-in"><span>df.donors <span class="op">=</span> <span class="va">donors</span>,</span></span>
 <span class="r-in"><span>df.candidates <span class="op">=</span> <span class="va">candidates</span>,</span></span>
@@ -137,7 +137,623 @@ for a group of waitlisted transplant candidates. For <code>uk</code> algorithm m
 <span class="r-in"><span>n <span class="op">=</span> <span class="fl">0</span>,</span></span>
 <span class="r-in"><span>seed.number <span class="op">=</span> <span class="fl">123</span>,</span></span>
 <span class="r-in"><span>check.validity <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $age</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1 1 2 2 2 2 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [149] 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0 0 1 2 2 0 0 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [186] 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0 2 0 0 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [223] 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1 1 2 2 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [260] 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [297] 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [334] 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [371] 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [408] 0 2 1 2 2 2 1 1 1 1 1 0 0 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [445] 1 0 1 1 1 2 1 1 1 2 1 1 1 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [482] 1 2 1 2 1 2 2 1 2 1 1 1 2 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [519] 1 1 1 0 1 1 1 1 1 1 0 2 1 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [556] 1 1 1 1 0 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [593] 2 2 1 1 2 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [630] 1 1 1 1 1 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [667] 2 2 2 2 1 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [704] 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [741] 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [778] 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [815] 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2 2 0 2 2 0 1 2 2 2 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [852] 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2 1 1 2 1 2 1 2 1 0 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [889] 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0 1 1 1 1 2 2 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [926] 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2 0 1 2 1 1 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [963] 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1000] 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1037] 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1074] 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1111] 0 0 1 2 1 1 1 2 1 1 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1148] 0 2 1 1 1 2 1 2 2 1 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1185] 2 2 2 2 1 2 1 1 0 0 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1222] 0 2 2 2 2 1 1 2 1 1 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1259] 1 2 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1296] 1 0 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1333] 2 2 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1370] 2 2 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dialysis</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1 1 2 2 2 2 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [149] 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0 0 1 2 2 0 0 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [186] 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0 2 0 0 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [223] 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1 1 2 2 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [260] 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [297] 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [334] 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [371] 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [408] 0 2 1 2 2 2 1 1 1 1 1 0 0 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [445] 1 0 1 1 1 2 1 1 1 2 1 1 1 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [482] 1 2 1 2 1 2 2 1 2 1 1 1 2 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [519] 1 1 1 0 1 1 1 1 1 1 0 2 1 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [556] 1 1 1 1 0 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [593] 2 2 1 1 2 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [630] 1 1 1 1 1 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [667] 2 2 2 2 1 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [704] 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [741] 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [778] 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [815] 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2 2 0 2 2 0 1 2 2 2 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [852] 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2 1 1 2 1 2 1 2 1 0 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [889] 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0 1 1 1 1 2 2 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [926] 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2 0 1 2 1 1 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [963] 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1000] 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1037] 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1074] 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1111] 0 0 1 2 1 1 1 2 1 1 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1148] 0 2 1 1 1 2 1 2 2 1 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1185] 2 2 2 2 1 2 1 1 0 0 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1222] 0 2 2 2 2 1 1 2 1 1 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1259] 1 2 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1296] 1 0 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1333] 2 2 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1370] 2 2 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $cPRA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1 1 2 2 2 2 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [149] 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0 0 1 2 2 0 0 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [186] 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0 2 0 0 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [223] 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1 1 2 2 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [260] 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [297] 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [334] 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [371] 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [408] 0 2 1 2 2 2 1 1 1 1 1 0 0 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [445] 1 0 1 1 1 2 1 1 1 2 1 1 1 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [482] 1 2 1 2 1 2 2 1 2 1 1 1 2 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [519] 1 1 1 0 1 1 1 1 1 1 0 2 1 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [556] 1 1 1 1 0 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [593] 2 2 1 1 2 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [630] 1 1 1 1 1 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [667] 2 2 2 2 1 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [704] 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [741] 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [778] 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2 1 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [815] 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2 2 0 2 2 0 1 2 2 2 0 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [852] 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2 1 1 2 1 2 1 2 1 0 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [889] 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0 1 1 1 1 2 2 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [926] 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2 0 1 2 1 1 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [963] 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1000] 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1037] 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1074] 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1111] 0 0 1 2 1 1 1 2 1 1 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1148] 0 2 1 1 1 2 1 2 2 1 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1185] 2 2 2 2 1 2 1 1 0 0 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1222] 0 2 2 2 2 1 1 2 1 1 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1259] 1 2 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1296] 1 0 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1333] 2 2 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1370] 2 2 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmHLA[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmA[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmB[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $mmDR[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $ABO[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $HI[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $color[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 0 1 1 0 1 2 1 2 2 2 1 2 2 1 0 0 1 1 0 2 2 1 1 2 2 2 1 2 1 2 2 1 2 1 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 0 0 2 1 2 2 1 2 1 2 2 2 2 1 2 2 1 1 1 2 1 2 1 1 0 1 1 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 0 1 1 1 0 1 2 2 1 1 1 2 2 2 1 1 2 1 0 1 2 1 1 2 2 1 2 1 2 2 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 2 0 1 2 1 2 1 1 2 0 2 2 1 1 0 2 2 1 2 1 0 0 0 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 2 0 2 2 0 1 2 1 1 1 2 0 1 2 1 2 1 1 0 1 0 1 1 1 1 1 2 1 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 2 2 0 0 0 2 2 2 1 2 1 2 1 1 2 1 1 2 2 1 2 0 0 1 1 1 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 0 0 2 1 1 1 1 1 1 1 2 1 2 1 2 2 2 2 1 1 2 2 2 2 1 1 1 2 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 2 2 2 1 2 2 1 1 2 2 1 1 1 2 1 0 2 1 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 2 1 1 1 1 1 2 1 2 0 0 1 2 2 0 0 0 1 1 0 2 1 1 2 2 1 1 2 2 2 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 1 1 1 1 2 0 0 2 1 1 1 2 1 1 1 1 2 1 1 1 1 1 1 2 2 1 2 2 1 2 1 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 0 2 2 0 1 1 1 1 1 2 1 1 0 2 1 2 1 1 1 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 2 2 1 1 1 1 2 2 1 2 1 1 1 1 0 2 1 2 2 2 1 1 1 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 1 1 1 1 2 2 1 1 1 1 2 2 1 1 2 2 1 2 2 1 1 2 1 1 0 1 1 1 2 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 0 2 2 1 1 2 1 1 2 2 1 1 2 2 1 2 1 2 1 2 1 2 1 2 2 1 2 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 0 1 1 1 1 2 2 1 2 2 1 2 1 0 2 1 1 1 1 1 2 1 1 2 1 1 1 0 1 1 1 1 1 1 0 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 1 1 2 2 0 0 1 0 2 0 1 2 1 0 1 1 2 1 2 2 0 0 2 1 1 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[5]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 1 1 1 2 0 1 2 1 1 0 0 1 1 1 1 1 1 1 2 0 1 2 1 1 1 1 1 1 1 2 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 0 0 0 0 0 2 1 1 1 1 1 0 1 1 2 2 0 1 1 0 1 1 1 2 2 2 2 2 1 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 2 0 2 0 2 2 1 1 1 1 1 1 1 2 2 2 2 1 2 1 1 2 1 1 1 1 2 2 2 1 2 2 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 2 1 1 1 1 2 1 2 2 2 0 1 1 2 1 0 2 0 0 1 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[6]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 2 2 1 1 1 1 1 2 2 2 1 2 2 1 1 1 0 0 1 2 1 0 1 2 1 1 1 1 2 0 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 2 2 1 1 2 2 0 0 1 1 1 1 1 1 1 0 1 1 1 1 0 2 1 2 1 1 2 2 1 1 2 0 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 2 1 1 1 1 0 0 1 1 2 2 2 2 1 1 2 1 1 0 0 1 2 1 2 2 0 2 2 1 1 2 1 1 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 1 0 1 2 2 2 2 2 2 1 2 1 2 2 2 1 0 0 1 2 0 2 1 1 0 1 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[7]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 2 0 2 2 0 1 2 2 2 0 2 2 2 0 2 1 1 1 1 1 1 1 2 1 1 1 2 2 1 2 0 1 1 2 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 2 1 2 1 2 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 2 1 1 2 2 2 1 1 2 1 2 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 2 1 1 2 1 2 1 1 2 2 1 1 1 2 1 1 2 1 2 1 2 0 0 1 2 1 2 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 0 1 2 1 1 2 1 1 1 1 1 1 2 2 2 1 1 2 1 2 1 1 0 0 0 1 2 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[8]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 2 2 1 2 2 1 1 2 2 1 0 1 1 2 2 1 1 2 0 0 2 1 1 1 2 1 1 2 1 1 0 0 1 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 2 1 1 1 2 1 0 2 0 0 1 2 2 1 2 1 1 1 1 2 2 2 0 1 2 0 1 1 2 1 1 1 1 2 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 1 1 2 1 2 2 1 1 2 2 1 2 2 2 1 1 2 2 1 1 2 1 2 2 2 2 1 0 2 2 1 1 1 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 1 1 0 0 1 1 1 0 1 1 2 2 2 0 1 1 2 2 0 0 1 2 1 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[9]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 2 1 2 2 2 1 1 1 2 0 0 1 2 1 1 2 1 1 1 1 1 1 1 1 1 0 0 2 1 1 1 2 1 2 2 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 0 1 1 2 1 1 1 2 2 2 1 1 2 2 2 0 0 1 1 1 1 2 1 1 1 2 0 2 2 2 2 1 2 1 1 0 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 1 1 2 1 2 2 1 1 2 2 1 1 1 2 2 2 2 1 1 1 2 2 1 1 1 1 2 0 2 2 2 2 1 1 2 1 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 2 1 2 1 1 2 1 1 1 1 2 1 0 1 0 1 1 1 2 0 2 1 0 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $SP[[10]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 1 1 1 0 1 1 2 2 2 1 2 0 1 1 2 2 2 1 2 2 1 1 0 0 1 2 2 1 1 1 2 1 2 2 1 1 0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [38] 1 1 1 1 1 2 1 1 2 1 1 0 0 1 1 2 1 2 1 1 1 1 2 1 2 2 1 1 1 0 1 1 1 0 0 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [75] 2 1 1 0 1 2 1 1 1 1 1 2 1 1 1 2 2 1 2 1 1 1 2 2 1 2 1 2 2 2 2 2 1 2 2 2 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [112] 2 2 1 1 0 1 1 1 1 1 1 1 1 2 2 1 1 2 1 1 1 1 1 1 1 1 2 1 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -145,7 +761,7 @@ for a group of waitlisted transplant candidates. For <code>uk</code> algorithm m
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Bruno Lima, Filipe Reis, TxOR.</p>
+  <p></p><p>Developed by Bruno Lima, Filipe Reis.</p>
 </div>
 
 <div class="pkgdown-footer-right">

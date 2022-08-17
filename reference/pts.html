@@ -77,6 +77,11 @@ Ordering of waitlisted candidates for a given donor according to PT's algorithm.
 <span>  points.50 <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  points.dialysis <span class="op">=</span> <span class="fl">0.1</span>,</span>
 <span>  points.age <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  itemA <span class="op">=</span> <span class="fl">12</span>,</span>
+<span>  itemB <span class="op">=</span> <span class="fl">8</span>,</span>
+<span>  itemC <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  itemD <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  itemE <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  n <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>  check.validity <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -133,6 +138,26 @@ a group of waitlisted transplant candidates.</p></dd>
 <dd><p>A numerical value for the points to age difference</p></dd>
 
 
+<dt>itemA</dt>
+<dd><p>Points for HLA fullmatch (no mm for HLA-A, B and DR)</p></dd>
+
+
+<dt>itemB</dt>
+<dd><p>Points without mm for HLA-B and DR</p></dd>
+
+
+<dt>itemC</dt>
+<dd><p>Points with 1 mm for HLA-B and DR</p></dd>
+
+
+<dt>itemD</dt>
+<dd><p>Points with 1 mm for HLA-B and 1 mm for DR</p></dd>
+
+
+<dt>itemE</dt>
+<dd><p>Points for remaining possibilities</p></dd>
+
+
 <dt>n</dt>
 <dd><p>A positive integer to slice the first candidates.</p></dd>
 
@@ -154,13 +179,15 @@ a group of waitlisted transplant candidates.</p></dd>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">pts</span><span class="op">(</span>iso <span class="op">=</span> <span class="cn">TRUE</span>, dABO <span class="op">=</span> <span class="st">"A"</span>,</span></span>
 <span class="r-in"><span>dA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>,<span class="st">"2"</span><span class="op">)</span>, dB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"15"</span>,<span class="st">"44"</span><span class="op">)</span>, dDR <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>,<span class="st">"4"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>donor.age <span class="op">=</span> <span class="fl">65</span>,  data <span class="op">=</span> <span class="va">candidates</span>,</span></span>
-<span class="r-in"><span>df.abs <span class="op">=</span> <span class="va">cabs</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-in"><span>df.abs <span class="op">=</span> <span class="va">cabs</span>,</span></span>
+<span class="r-in"><span>itemA <span class="op">=</span> <span class="fl">12</span>, itemB <span class="op">=</span> <span class="fl">8</span>, itemC <span class="op">=</span> <span class="fl">4</span>, itemD <span class="op">=</span> <span class="fl">2</span>, itemE <span class="op">=</span> <span class="fl">1</span>,</span></span>
+<span class="r-in"><span>n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     ID bg A1 A2 B1 B2 DR1 DR2 mmA mmB mmDR mmHLA age donor_age dialysis cPRA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 442  A  3 25  7 15  13   4   2   1    1     4  68        65       98    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:   1  A  2 24 15 44   1   4   1   0    0     1  53        65       59    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       HI ptsPT SP ptsHLA ptsPRA ptsage ptsdial</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1: FALSE  15.8  1      2      0      4     9.8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: FALSE  13.9  3      8      0      0     5.9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1: 129  A  2 24 40 45  14  10   1   2    2     5  59        65       75   90</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: 442  A  3 25  7 15  13   4   2   1    1     4  68        65       98    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       HI ptsPT SP ptsHLA ptsPRA ptsage ptsdial urgent</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:  TRUE  20.5  3      1      8      4     7.5      0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: FALSE  15.8  1      2      0      4     9.8      0</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -168,7 +195,7 @@ a group of waitlisted transplant candidates.</p></dd>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Bruno Lima, Filipe Reis, TxOR.</p>
+  <p></p><p>Developed by Bruno Lima, Filipe Reis.</p>
 </div>
 
 <div class="pkgdown-footer-right">
