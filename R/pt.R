@@ -148,7 +148,7 @@ pts <- function(iso = TRUE
                 , check.validity = TRUE){
 
   if(check.validity){
-    candidate_dataframe_check(candidates)
+    candidate_dataframe_check(data)
   }
 
   if(points.80 < env$pt.points.minimum || points.80 > env$pt.points.maximum){

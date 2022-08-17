@@ -41,7 +41,7 @@ lima <- function(iso = TRUE
                   , check.validity = TRUE){
 
   if(check.validity){
-    candidate_dataframe_check(candidates)
+    candidate_dataframe_check(data)
   }
 
   age_checker(donor.age)
@@ -58,7 +58,7 @@ lima <- function(iso = TRUE
             , q2 = q2
             , q3 = q3
             , cPRA1 = cPRA1
-            , cPRA2 = cPRA2) |> 
+            , cPRA2 = cPRA2) |>
     as.data.frame()
 
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)
