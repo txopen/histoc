@@ -128,4 +128,10 @@ result[!is.na(ID),][ ,
                                     mmHLA_B = mmB,
                                     mmHLA_DR = mmDR)$prob5y,
                      by = 'ID'][]
+##############
+et_mmp()
+et_mmHLA()
+et_dialysis()
 
+test <- c(T,F,F)
+test[order(-test)]

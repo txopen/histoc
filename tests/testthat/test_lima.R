@@ -27,10 +27,6 @@ test_that("Test lima algorithm", {
         urgent = c(0, 0, 0, 0, 0, 0)
     )
 
-#     ID bg A1 A2 B1 B2 DR1 DR2 mmA mmB mmDR mmHLA age donor_age dialysis cPRA    HI     cp SP
-# 1: 112  O  2 29 44 44   4  12   1   1    1     3  58        60      104    0 FALSE Orange  2
-# 2: 487  O  2 33 15 27  11   7   1   1    2     4  55        60      103    0 FALSE Orange  2
-
     results <- data.frame(
         ID = c('1', '2'),
         bg = c('O', 'O'),
@@ -50,7 +46,7 @@ test_that("Test lima algorithm", {
         cPRA = c(86, 86),
         HI = c(TRUE, TRUE),
         cp = factor( list(2, 2), levels = 1:4, labels = c('Red', 'Orange', 'Yellow', 'Green') ),
-        SP = c(2, 2)
+        SP = c(0, 0)
     )
 
     expect_equal(

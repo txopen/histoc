@@ -122,6 +122,11 @@ pts_HLA <- function(itemA = 12
 #' @param points.50 A numerical value (`r env$pt.points.minimum` - `r env$pt.points.maximum`) for the points to a cPRA >= 50
 #' @param points.dialysis punctuation for each month on dialysis
 #' @param points.age A numerical value for the points to age difference
+#' @param itemA Points for HLA fullmatch (no mm for HLA-A, B and DR)
+#' @param itemB Points without mm for HLA-B and DR
+#' @param itemC Points with 1 mm for HLA-B and DR
+#' @param itemD Points with 1 mm for HLA-B and 1 mm for DR
+#' @param itemE Points for remaining possibilities
 #' @param n A positive integer to slice the first candidates.
 #' @param check.validity Logical to decide whether to validate input.
 #' @return An ordered data frame with column, \code{ptsPT},
@@ -130,7 +135,9 @@ pts_HLA <- function(itemA = 12
 #' pts(iso = TRUE, dABO = "A",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 #' donor.age = 65,  data = candidates,
-#' df.abs = cabs, n = 2)
+#' df.abs = cabs,
+#' itemA = 12, itemB = 8, itemC = 4, itemD = 2, itemE = 1,
+#' n = 2)
 #' @export
 pts <- function(iso = TRUE
                 , dABO = "O"
@@ -144,11 +151,16 @@ pts <- function(iso = TRUE
                 , points.50 = 4
                 , points.dialysis = 0.1
                 , points.age = 4
+                , itemA = 12
+                , itemB = 8
+                , itemC = 4
+                , itemD = 2
+                , itemE = 1
                 , n = 2
                 , check.validity = TRUE){
 
   if(check.validity){
-    candidate_dataframe_check(candidates)
+    candidate_dataframe_check(data)
   }
 
   if(points.80 < env$pt.points.minimum || points.80 > env$pt.points.maximum){
@@ -165,9 +177,6 @@ pts <- function(iso = TRUE
   }
 
   n <- max(1, n)
-
-  data <- cp(data = data) |>
-    as.data.frame()
 
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)
 
@@ -207,7 +216,8 @@ pts <- function(iso = TRUE
   )]
 
   data[, `:=`(
-      ptsHLA = pts_HLA(mm.A = mmA, mm.B = mmB, mm.DR = mmDR),
+      ptsHLA = pts_HLA(itemA = itemA, itemB = itemB, itemC = itemC, itemD = itemD, itemE = itemE
+                       , mm.A = mmA, mm.B = mmB, mm.DR = mmDR),
       ptsPRA = pts_PRA(cPRA = cPRA, points.80 = points.80, points.50 = points.50), # Isto pode ser feito antes do for loop de candidato vs dador
       ptsage = pts_age(donor.age = donor.age, candidate.age = age, age.difference.points = points.age),
       ptsdial = points.dialysis * dialysis # Isto pode ser feito antes do for loop de candidato vs dador
@@ -219,7 +229,7 @@ pts <- function(iso = TRUE
 
   return(
     data[compBlood == TRUE & (xm == 'NEG' | is.na(xm)),]
-    [order(HI, -ptsPT)]
+    [order(-urgent, -HI, -ptsPT)]
     [1:n]
     [!is.na(ID),]
     [, .(ID,
@@ -244,7 +254,8 @@ pts <- function(iso = TRUE
          ptsHLA,
          ptsPRA,
          ptsage,
-         ptsdial)
+         ptsdial,
+         urgent)
     ]
   )
 }

@@ -15,7 +15,7 @@
 #' @return A list with the number of elements equal to the number of rows on donors' data frame.
 #' Each element have a data frame with selected candidates by donor.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' donor_recipient_pairs(df.donors = donors,
 #' df.candidates = candidates,
 #' df.abs = cabs,
@@ -96,7 +96,7 @@ donor_recipient_pairs <- function(df.donors = donors,
 #' @param ... all the parameters used on the function algorithm
 #' @return Overall statistics obtained from all runs.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' several(iteration.number = 10,
 #' df.donors = donors,
 #' df.candidates = candidates,

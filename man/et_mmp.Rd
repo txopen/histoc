@@ -30,6 +30,9 @@ group of waitlisted transplant candidates.}
 
 \item{check.validity}{Logical to decide whether to validate input.}
 }
+\value{
+A data table with columns for HLA allele frequencies and Mismatch Probability \code{MMP} (color priority),
+}
 \description{
 Mismatch Probability (MMP) is a calculation of the probability of
 receiving a kidney offer with
