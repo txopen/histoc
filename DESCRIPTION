@@ -7,7 +7,7 @@ Authors@R: c(
     person("Filipe", "Reis", ,"filipepintodosreis@gmail.com", role = "aut",
             comment = c(ORCID = "0000-0002-8186-3910"))
             )
-Description: Provides functions to assess matches on organ transplantation. Histocompatibility analysis performed on kidney transplantation, allowing to simulate different kidney transplant allocation systems <doi:https://doi.org/10.1016/j.trim.2022.101578>.
+Description: Provides functions to assess matches on organ transplantation. Histocompatibility analysis performed on kidney transplantation, allowing to simulate different kidney transplant allocation systems <doi:10.1016/j.trim.2022.101578>.
 License: MIT + file LICENSE
 BugReports: https://github.com/txopen/histoc/issues
 Encoding: UTF-8
