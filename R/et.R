@@ -13,6 +13,7 @@
 #' @param hlaDR A data frame with HLA-DR allele frequencies.
 #' @param abo.freq A data frame with ABO blood group frequencies.
 #' @param check.validity Logical to decide whether to validate input.
+#' @return A data table with columns for HLA allele frequencies and Mismatch Probability \code{MMP} (color priority),
 #' @examples
 #' et_mmp(data = candidates,
 #' hlaA = hlaApt, hlaB = hlaBpt, hlaDR = hlaDRpt,
@@ -102,6 +103,11 @@ et_mmp <- function(data = candidates,
 #' @param mm4 A numeric value with points for 4 HLA mm on ETKAS points table.
 #' @param mm5 A numeric value with points for 5 HLA mm on ETKAS points table.
 #' @param mm6 A numeric value with points for 6 HLA mm on ETKAS points table.
+#' @return `mmA` number of HLA-A mismatches between \code{dA} and \code{cA};
+#' `mmB` number of HLA-B mismatches between \code{dB} and \code{cB};
+#' `mmDR` number of HLA-DR mismatches between \code{dA}DR and \code{cDR};
+#' `mmHLA` as the sum of `mmA` + `mmB` + `mmDR`,
+#' and `ptsHLA` corresponding to the punctuaction given as argument for number of `mmHLA`.
 #' @examples
 #' et_mmHLA(dA = c("01","02"), dB = c("03","05"), dDR = c("04","06"),
 #' cA = c("01","02"), cB = c("03","05"), cDR = c("04","06"),
@@ -154,6 +160,7 @@ et_mmHLA <- function(dA = c("01","02"), dB = c("03","05"), dDR = c("04","06"),
 #' (between `r env$dialysis.minimum` and `r env$dialysis.maximum`)
 #' @param month A numeric value with the punctuation for each month
 #' (between `r env$month.points.minimum` and `r env$month.points.maximum`)
+#' @return A numerical value for pre-defined points for each month on dialysis.
 #' @examples
 #' et_dialysis(dialysis = 100, month = 2.78)
 #' @export
@@ -256,8 +263,8 @@ et <- function(iso = TRUE
   data <- data[, .(ID, bg, A1, A2, B1, B2, DR1, DR2,
                   age, dialysis, cPRA, urgent, MMP)]
 
-  data[, ID := as.character(ID)] 
-  xm[, ID := as.character(ID)] 
+  data[, ID := as.character(ID)]
+  xm[, ID := as.character(ID)]
 
   data <- merge(data, xm, by = 'ID', all.x = TRUE)
 
