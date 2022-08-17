@@ -47,6 +47,13 @@ et_mmHLA(
 
 \item{mm6}{A numeric value with points for 6 HLA mm on ETKAS points table.}
 }
+\value{
+\code{mmA} number of HLA-A mismatches between \code{dA} and \code{cA};
+\code{mmB} number of HLA-B mismatches between \code{dB} and \code{cB};
+\code{mmDR} number of HLA-DR mismatches between \code{dA}DR and \code{cDR};
+\code{mmHLA} as the sum of \code{mmA} + \code{mmB} + \code{mmDR},
+and \code{ptsHLA} corresponding to the punctuaction given as argument for number of \code{mmHLA}.
+}
 \description{
 Computes HLA mismatches (mm) and the respective punctuation within ET
 Kidney allocation system

@@ -47,7 +47,7 @@ Generic function that runs the matchability between all combinations of donors a
 Runs an arbitrary number of times (\code{iteration.number}) to provide statistics.
 }
 \examples{
-\dontrun{
+\donttest{
 several(iteration.number = 10,
 df.donors = donors,
 df.candidates = candidates,

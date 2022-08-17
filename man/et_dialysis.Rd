@@ -13,6 +13,9 @@ et_dialysis(dialysis = 0, month = 2.78)
 \item{month}{A numeric value with the punctuation for each month
 (between 0 and 10)}
 }
+\value{
+A numerical value for pre-defined points for each month on dialysis.
+}
 \description{
 Punctuation given for each month on dialysis, within ET
 Kidney allocation system

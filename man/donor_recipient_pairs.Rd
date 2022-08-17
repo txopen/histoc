@@ -41,7 +41,7 @@ Ordering of waitlisted candidates for a each donor in a pool of donors and
 according to any algorithm.
 }
 \examples{
-\dontrun{
+\donttest{
 donor_recipient_pairs(df.donors = donors,
 df.candidates = candidates,
 df.abs = cabs,
