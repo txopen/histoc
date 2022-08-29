@@ -55,7 +55,16 @@ tier_checker <- function(input_string){
 #' @noRd
 rri_checker <- function(input_string){
   if(!input_string %in% env$valid.rris){
-    stop("Invalid rris. Accepted values: ", env$valid.rris)
+    stop("Invalid RRI Accepted values: ", env$valid.rris)
+  }
+}
+
+#' Validates that the RRI is within the correct range of values
+#' @param input_string A character from `r env$valid.rris`
+#' @noRd
+dri_checker <- function(input_string){
+  if(!input_string %in% env$valid.dris){
+    stop("Invalid DRI Accepted values: ", env$valid.dris)
   }
 }
 
@@ -85,8 +94,8 @@ cPRA_checker <- function(input_number){
   }
 }
 
-#' Validates the Candid file.
-#' Makes sure the header matches the header that a candid file should have.
+#' Validates the Candidates' file.
+#' Makes sure the header matches the header that a candidates' file should have.
 #' For each line, call blood group and age checks.
 #' @param candidate.dataframe a dataframe
 #' @return A logical value T/F
@@ -134,8 +143,8 @@ candidate_dataframe_check <- function(candidate.dataframe){
   return(TRUE)
 }
 
-#' Validates the CandidUK file.
-#' Makes sure the header matches the header that a candid file should have.
+#' Validates the UK Candidates' file.
+#' Makes sure the header matches the header that a candidates' file should have.
 #' For each line, call blood group and age checks.
 #' @param candidate.dataframe candidate's dataframe
 #' @return A logical value T/F
@@ -187,3 +196,93 @@ uk_candidate_dataframe_check <- function(candidate.dataframe){
 
   return(TRUE)
 }
+
+#' Validates the Donors' file.
+#' Makes sure the header matches the header that a donors' file should have.
+#' For each line, call blood group and age checks.
+#' @param candidate.dataframe a dataframe
+#' @return A logical value T/F
+#' @noRd
+donors_dataframe_check <- function(donors.dataframe){
+  donors.fields <- c(
+    'ID',
+    'bg',
+    'A1',
+    'A2',
+    'B1',
+    'B2',
+    'DR1',
+    'DR2',
+    'age')
+
+  for (i in 1:length(donors.fields)){
+    if(!donors.fields[i] %in% colnames(donors.dataframe)){
+      stop('Column ', donors.fields[i], ' is not present in the file.')
+    }
+  }
+
+  if(length(donors.fields) != length(colnames(donors.dataframe))){
+    stop('There are unexpected columns in the file. Expected: ', donors.fields, ' ', collapse = ", ")
+  }
+
+  donors.datatable <- data.table::setDT(rlang::duplicate(donors.dataframe), key = 'ID')
+  duplication.location <- anyDuplicated(donors.datatable)
+
+  if(duplication.location != 0){
+    stop(paste('Duplicated ID in line', duplication.location))
+  }
+
+  for (i in 1:nrow(donors.dataframe)){
+    blood_group_checker(donors.dataframe$bg[i])
+    age_checker(donors.dataframe$age[i])
+  }
+
+  return(TRUE)
+}
+
+#' Validates the UK Donors' file.
+#' Makes sure the header matches the header that a donors' file should have.
+#' For each line, call blood group, age and DRI checks .
+#' @param candidate.dataframe candidate's dataframe
+#' @return A logical value T/F
+#' @noRd
+uk_donors_dataframe_check <- function(donors.dataframe){
+  donors_uk_columns <- c(
+    'ID',
+    'bg',
+    'A1',
+    'A2',
+    'B1',
+    'B2',
+    'DR1',
+    'DR2',
+    'age',
+    'DRI')
+
+  for (i in 1:length(donors_uk_columns)){
+    if(!donors_uk_columns[i] %in% colnames(donors.dataframe)){
+      stop(paste('Column', donors_uk_columns[i], 'is not present in the file.'))
+    }
+  }
+
+  if(length(donors_uk_columns) != length(colnames(donors.dataframe))){
+    stop('There are unexpected columns in the file. Expected:\n', paste(donors_uk_columns, collapse = ", "))
+  }
+
+  donors.datatable <- data.table::setDT(rlang::duplicate(donors.dataframe), key = 'ID')
+  duplication.location <- anyDuplicated(donors.datatable)
+
+  if(duplication.location != 0){
+    stop(paste('Duplicated ID in line', duplication.location))
+  }
+
+  for (i in 1:nrow(donors.dataframe)){
+    blood_group_checker(donors.dataframe$bg[i])
+    age_checker(donors.dataframe$age[i])
+    dri_checker(donors.dataframe$DRI[i])
+
+  }
+
+  return(TRUE)
+}
+
