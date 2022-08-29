@@ -279,7 +279,7 @@ uk_donors_dataframe_check <- function(donors.dataframe){
   for (i in 1:nrow(donors.dataframe)){
     blood_group_checker(donors.dataframe$bg[i])
     age_checker(donors.dataframe$age[i])
-    rri_checker(donors.dataframe$DRI[i])
+    dri_checker(donors.dataframe$DRI[i])
 
   }
 
