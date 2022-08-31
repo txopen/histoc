@@ -343,13 +343,13 @@ read_aa <- function(file.path){
 #' Creates a data.table with the same information.
 #' @return The distance between the two hla sequences as a number.
 #' @examples
-#' calculate_distance(hla1 = "A*02:653", 
+#' calculate_evolutionary_distance(hla1 = "A*02:653", 
 #'  hla2 = "A*02:654",
 #'  sequence = "./inst/database/ABC_prot.fa", 
 #'  distance = "./inst/database/grantham_matrix.txt"
 #' ')
 #' @export
-calculate_distance <- function(hla1, hla2, sequence.file.path, distance.file.path){
+calculate_evolutionary_distance <- function(hla1, hla2, sequence.file.path, distance.file.path){
   sequence <- read_fasta(sequence.file.path)
   distance <- read_aa(distance.file.path)
   
