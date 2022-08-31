@@ -286,58 +286,67 @@ uk_donors_dataframe_check <- function(donors.dataframe){
   return(TRUE)
 }
 
-library("data.table")
-library("seqinr")
-
-#' TODO
-#' @param infile TODO
-#' @return TODO
+#' Confirms that a file exists. Stops if it does not.
+#' @param file.path Path of the file to be checked.
+#' @return No return.
 #' @noRd
-check_file <- function(infile){
-  if(!file.exists(infile)){
-    stop(cat(infile, "does not exist.\n"))
+check_file <- function(file.path){
+  if(!file.exists(file.path)){
+    stop(cat(file.path, "does not exist.\n"))
   }
 }
 
-#' TODO
-#' @param infile TODO
-#' @return TODO
+#' Reads a fasta file containing nucleic acid sequences. 
+#' Ensures that the file exists and that the sequences all have the same length.
+#' @param file.path Path of the fasta file.
+#' @return A named list where the key is the sequence identifier and the value is the sequence itself.
 #' @noRd
-read_fasta <- function(infile){
-  check_file(infile)
-  fasta.named.list <- read.fasta(infile) # find better name for variable
+read_fasta <- function(file.path){
+  check_file(file.path)
+  nucleic.acid.sequences <- seqinr::read.fasta(file.path)
+
   element.size <- -1
 
-  for(element in fasta.named.list){
+  for(sequence in nucleic.acid.sequences){
     if(element.size == -1){
-      element.size <- length(element)
+      element.size <- length(sequence)
     }
     else{
-      if(element.size != length(element)){
+      if(element.size != length(sequence  )){
         stop("The length of input sequences in the fasta file is different.")
       }
     }
   }
 
-  return(fasta.named.list)
+  return(nucleic.acid.sequences)
 }
 
-#' TODO
-#' @param infile TODO
-#' @return TODO
+#' Imports a nucleic acid distance matrix from a txt file into a data.table.
+#' Ensures that the file exists.
+#' @param file.path Nucleic acid distance matrix file.
+#' @return Returns a data.table object with the matrix.
 #' @noRd
-read_aa <- function(infile){
-  check_file(infile)
-  dt <- read.csv(file = infile, sep="\t")
-  setDT(dt)
+read_aa <- function(file.path){
+  check_file(file.path)
+  dt <- read.csv(file = file.path, sep="\t")
+  data.table::setDT(dt)
 
   return(dt)
 }
 
-#' TODO
-#' @param infile TODO
-#' @return TODO
-#' @noRd
+#' Given two hla sequences, calculate the HLA evolutionary distances between them.
+#' @param hla1 First sequence identifier.
+#' @param hla2 Second sequence identifier.
+#' @param sequence Labeled list with the identifier-sequence pairs.
+#' @param distance data.table with the nucleic acid distances.
+#' @return The distance between the two hla sequences as a number.
+#' @examples
+#' calculate_distance(hla1 = TRUE, 
+#'  hla2 = "A",
+#'  sequence = c("1","2"), 
+#'  distance = c("15","44")
+#' ')
+#' @export
 calculate_distance <- function(hla1, hla2, sequence, distance){
   seq_hla1 <- sequence[hla1]
   seq_hla2 <- sequence[hla2]
