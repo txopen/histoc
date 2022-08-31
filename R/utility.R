@@ -337,20 +337,25 @@ read_aa <- function(file.path){
 #' Given two hla sequences, calculate the HLA evolutionary distances between them.
 #' @param hla1 First sequence identifier.
 #' @param hla2 Second sequence identifier.
-#' @param sequence Labeled list with the identifier-sequence pairs.
-#' @param distance data.table with the nucleic acid distances.
+#' @param sequence.file.path Path of a fasta file containing nucleic acid sequences. 
+#' Creates a labeled list with the identifier-sequence pairs.
+#' @param distance.file.path Path of a txt matrix with the nucleic acid distances.
+#' Creates a data.table with the same information.
 #' @return The distance between the two hla sequences as a number.
 #' @examples
-#' calculate_distance(hla1 = TRUE, 
-#'  hla2 = "A",
-#'  sequence = c("1","2"), 
-#'  distance = c("15","44")
+#' calculate_distance(hla1 = "A*02:653", 
+#'  hla2 = "A*02:654",
+#'  sequence = "./inst/database/ABC_prot.fa", 
+#'  distance = "./inst/database/grantham_matrix.txt"
 #' ')
 #' @export
-calculate_distance <- function(hla1, hla2, sequence, distance){
+calculate_distance <- function(hla1, hla2, sequence.file.path, distance.file.path){
+  sequence <- read_fasta(sequence.file.path)
+  distance <- read_aa(distance.file.path)
+  
   seq_hla1 <- sequence[hla1]
   seq_hla2 <- sequence[hla2]
-
+  
   if(is.null(seq_hla1[[1]])){
     stop(cat(hla1, "does not exist in sequence."))
   }
