@@ -7,7 +7,36 @@ devtools::check()
 
 usethis::use_pipe()
 
-usethis::use_data(hlaDRpt, overwrite = TRUE)
+## data para HED ##
+seqs <- seqinr::read.fasta(file.choose())
+
+dst2 <- read.delim(file.choose())
+dst <- dst2[,-1]
+rownames(dst) <- dst2[,1]
+
+class(dst)
+dim(dst)
+
+dst <- as.matrix(dst)
+
+cHED(hla1 = "A*01:01", hla2 = "A*01:02")
+
+
+tribble(~A1, ~A2, ~B1, ~B2, ~C1, ~C2,
+        'A*01:01','A*01:02','B*07:02','B*07:02','C*01:03','C*01:02',
+        'A*01:01','A*01:02','B*07:02','B*07:03','C*01:03','C*01:02') %>%
+  rowwise() %>%
+  mutate(hedA = cHED(A1,A2),
+         hedB = cHED(B1,B2),
+         hedC = cHED(C1,C2),
+         hed_classeI = sum(across(starts_with('hed'))/3)
+  )
+
+cHED('B*07:02','B*07:03')
+
+names(seqs)[str_detect(names(seqs), '^B')]
+
+usethis::use_data(dst, overwrite = TRUE)
 
 usethis::use_gpl_license(version = 3, include_future = TRUE)
 
