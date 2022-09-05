@@ -347,7 +347,7 @@ read_aa <- function(file.path){
 #'  hla2 = "A*02:654",
 #'  sequence = "./inst/database/ABC_prot.fa", 
 #'  distance = "./inst/database/grantham_matrix.txt"
-#' ')
+#' )
 #' @export
 calculate_evolutionary_distance <- function(hla1, hla2, sequence.file.path, distance.file.path){
   sequence <- read_fasta(sequence.file.path)
