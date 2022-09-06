@@ -1,7 +1,7 @@
 #' calculated HLA Evolutionary Divergence (HED) score.
 #'
-#' @description givem two HLA classe I alleles calculates HLA Evolutionary Divergence, i.e,
-#' divergenced between allele sequences using Grantham distance metric
+#' @description Given two HLA classe I alleles, calculates HLA Evolutionary Divergence, i.e,
+#' divergenced between allele sequences using Grantham distance metric.
 #' @param hla1 first HLA allele.
 #' @param hla2 second HLA allele.
 #' @return A numerical values corresponding to the divergence between alleles.

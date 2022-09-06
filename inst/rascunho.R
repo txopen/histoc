@@ -8,7 +8,7 @@ devtools::check()
 usethis::use_pipe()
 
 ## data para HED ##
-seqs <- seqinr::read.fasta(file.choose())
+seqsA <- seqinr::read.fasta(file.choose())
 
 dst2 <- read.delim(file.choose())
 dst <- dst2[,-1]
@@ -21,6 +21,19 @@ dst <- as.matrix(dst)
 
 cHED(hla1 = "A*01:01", hla2 = "A*01:02")
 
+seqsA$`HLA:HLA03882` %>% seqinr::getAnnot() %>% class()
+
+map(seqsA, ~seqinr::getAnnot(.x)) %>% unlist() %>% as.data.frame() %>% head() %>%
+  separate(col = '.', into = paste0('c',1:4), sep = ' ')
+
+seqinr::getAnnot(seqsA) %>% stringr::word(., 2)
+
+names(seqsA) <- names(seqinr::getAnnot(seqsA) %>% stringr::word(., 2))
+
+
+
+
+seqsA[3]
 
 tribble(~A1, ~A2, ~B1, ~B2, ~C1, ~C2,
         'A*01:01','A*01:02','B*07:02','B*07:02','C*01:03','C*01:02',
@@ -158,9 +171,8 @@ result[!is.na(ID),][ ,
                                     mmHLA_DR = mmDR)$prob5y,
                      by = 'ID'][]
 ##############
-et_mmp()
-et_mmHLA()
-et_dialysis()
+names(seqs)[str_detect(names(seqs), '^C\\*0')]
 
-test <- c(T,F,F)
-test[order(-test)]
+
+cHED('A*11:14',	'A*01:14')
+
