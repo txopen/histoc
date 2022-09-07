@@ -24,6 +24,7 @@ reference:
   - mmHLA
   - txscore
   - xmatch
+  - cHED
 - title: Utilities
   desc: |
     Auxiliar functions for allocation algorithms
@@ -68,6 +69,8 @@ reference:
   - cabs
   - starts_with("hla")
   - ABOpt
+  - seqs
+  - dst
 - title: package
   contents: histoc
 

@@ -1,3 +1,7 @@
+# histoc 0.2.1
+
+* added function cHED() for calculated HLA Evolutionary Divergence.
+
 # histoc 0.2.0
 
 * Using native pipe (`|>`).

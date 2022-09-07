@@ -204,3 +204,33 @@
 #' }
 #' @source \url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}
 "hlaDRet"
+
+#' HLA-A, -B, -C amino-acid sequences in FASTA format.
+#'
+#' The protein sequence of exons 2 and 3 of each allele of HLA classe I genotype;
+#' these sequences correspond to the peptide-binding domains.
+#'
+#' @format list in FASTA format representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes:
+#' \describe{
+#'   \item{X*}{HLA-X allele}
+#'   \item{name}{allele name}
+#'   \item{Annot}{annotation}
+#'   \item{class}{SeqFastadna}
+#'   ...
+#' }
+#' @source \url{https://www.ebi.ac.uk/ipd/imgt/hla/}
+"seqs"
+
+#' Grantham distance metric.
+#'
+#' The Grantham score attempts to predict the distance between two amino acids, in an evolutionary sense.
+#' A lower Grantham score reflects less evolutionary distance.
+#' A higher Grantham score reflects a greater evolutionary distance.
+#'
+#' @format a 20x20 matrix
+#' \describe{
+#'   \item{rows}{amino acid}
+#'   \item{columns}{amino acid}
+#' }
+#' @source \url{https://www.science.org/doi/10.1126/science.185.4154.862}
+"dst"
