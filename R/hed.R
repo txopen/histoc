@@ -1,6 +1,6 @@
 #' calculated HLA Evolutionary Divergence (HED) score.
 #'
-#' @description Given two HLA classe I alleles, calculates HLA Evolutionary Divergence, i.e,
+#' @description Given two HLA alleles (classe I or II), calculates HLA Evolutionary Divergence, i.e,
 #' divergenced between allele sequences using Grantham distance metric.
 #' @param hla1 first HLA allele.
 #' @param hla2 second HLA allele.
@@ -11,8 +11,13 @@
 #' @export
 cHED <- function(hla1, hla2){
 
-  seq_hla1 <- seqs[hla1]
-  seq_hla2 <- seqs[hla2]
+  if(startsWith('hla1','D') && startsWith('hla2','D')){
+    seq_hla1 <- seqs2[hla1]
+    seq_hla2 <- seqs2[hla2]
+  } else {
+    seq_hla1 <- seqs[hla1]
+    seq_hla2 <- seqs[hla2]
+    }
 
   if(is.null(seq_hla1[[1]])){
     stop(cat(hla1, "does not exist in sequence."))

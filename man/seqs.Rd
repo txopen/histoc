@@ -13,15 +13,31 @@ list in FASTA format representing either nucleotide sequences or amino acid (pro
 \item{class}{SeqFastadna}
 ...
 }
+
+list in FASTA format representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes:
+\describe{
+\item{X*}{HLA-X allele}
+\item{name}{allele name}
+\item{Annot}{annotation}
+\item{class}{SeqFastadna}
+...
+}
 }
 \source{
+\url{https://www.ebi.ac.uk/ipd/imgt/hla/}
+
 \url{https://www.ebi.ac.uk/ipd/imgt/hla/}
 }
 \usage{
 seqs
+
+seqs
 }
 \description{
 The protein sequence of exons 2 and 3 of each allele of HLA classe I genotype;
+these sequences correspond to the peptide-binding domains.
+
+The protein sequence of exon 2 of each allele of HLA classe II genotype;
 these sequences correspond to the peptide-binding domains.
 }
 \keyword{datasets}

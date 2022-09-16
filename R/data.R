@@ -221,6 +221,22 @@
 #' @source \url{https://www.ebi.ac.uk/ipd/imgt/hla/}
 "seqs"
 
+#' HLA-DRB1, -DQB1, -DPB1 amino-acid sequences in FASTA format.
+#'
+#' The protein sequence of exon 2 of each allele of HLA classe II genotype;
+#' these sequences correspond to the peptide-binding domains.
+#'
+#' @format list in FASTA format representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes:
+#' \describe{
+#'   \item{X*}{HLA-X allele}
+#'   \item{name}{allele name}
+#'   \item{Annot}{annotation}
+#'   \item{class}{SeqFastadna}
+#'   ...
+#' }
+#' @source \url{https://www.ebi.ac.uk/ipd/imgt/hla/}
+"seqs"
+
 #' Grantham distance metric.
 #'
 #' The Grantham score attempts to predict the distance between two amino acids, in an evolutionary sense.
