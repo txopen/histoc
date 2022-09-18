@@ -15,7 +15,7 @@ cHED(hla1, hla2)
 A numerical values corresponding to the divergence between alleles.
 }
 \description{
-Given two HLA classe I alleles, calculates HLA Evolutionary Divergence, i.e,
+Given two HLA alleles (classe I or II), calculates HLA Evolutionary Divergence, i.e,
 divergenced between allele sequences using Grantham distance metric.
 }
 \examples{

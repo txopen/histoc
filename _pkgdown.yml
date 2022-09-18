@@ -70,6 +70,7 @@ reference:
   - starts_with("hla")
   - ABOpt
   - seqs
+  - seqs2
   - dst
 - title: package
   contents: histoc

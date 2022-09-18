@@ -8,48 +8,27 @@ devtools::check()
 usethis::use_pipe()
 
 ## data para HED ##
-seqsA <- seqinr::read.fasta(file.choose())
+seqs2 <- seqinr::read.fasta(file.choose())
 
-dst2 <- read.delim(file.choose())
-dst <- dst2[,-1]
-rownames(dst) <- dst2[,1]
+seqs <- histoc::seqs
 
-class(dst)
-dim(dst)
-
-dst <- as.matrix(dst)
+dst <- histoc::dst
 
 cHED(hla1 = "A*01:01", hla2 = "A*01:02")
 
-seqsA$`HLA:HLA03882` %>% seqinr::getAnnot() %>% class()
+cHED(hla1 ='DRB10405', hla2 ='DRB10701')
 
-map(seqsA, ~seqinr::getAnnot(.x)) %>% unlist() %>% as.data.frame() %>% head() %>%
-  separate(col = '.', into = paste0('c',1:4), sep = ' ')
+cHED('C*07:01','C*16:01')
 
-seqinr::getAnnot(seqsA) %>% stringr::word(., 2)
-
-names(seqsA) <- names(seqinr::getAnnot(seqsA) %>% stringr::word(., 2))
+startsWith('DRB10405','D') &
+startsWith('DRB10701','D')
 
 
+library(tidyverse)
 
+names(seqs2)[str_detect(names(seqs2), '^D')]
 
-seqsA[3]
-
-tribble(~A1, ~A2, ~B1, ~B2, ~C1, ~C2,
-        'A*01:01','A*01:02','B*07:02','B*07:02','C*01:03','C*01:02',
-        'A*01:01','A*01:02','B*07:02','B*07:03','C*01:03','C*01:02') %>%
-  rowwise() %>%
-  mutate(hedA = cHED(A1,A2),
-         hedB = cHED(B1,B2),
-         hedC = cHED(C1,C2),
-         hed_classeI = sum(across(starts_with('hed'))/3)
-  )
-
-cHED('B*07:02','B*07:03')
-
-names(seqs)[str_detect(names(seqs), '^B')]
-
-usethis::use_data(dst, overwrite = TRUE)
+usethis::use_data(seqs2, overwrite = TRUE)
 
 usethis::use_gpl_license(version = 3, include_future = TRUE)
 

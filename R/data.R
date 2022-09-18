@@ -208,6 +208,22 @@
 #' HLA-A, -B, -C amino-acid sequences in FASTA format.
 #'
 #' The protein sequence of exons 2 and 3 of each allele of HLA classe I genotype;
+#' these sequences correspond to the peptide-binding domains. Availabble from: https://www.ebi.ac.uk/ipd/imgt/hla/
+#'
+#' @format list in FASTA format representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes:
+#' \describe{
+#'   \item{X*}{HLA-X allele}
+#'   \item{name}{allele name}
+#'   \item{Annot}{annotation}
+#'   \item{class}{SeqFastadna}
+#'   ...
+#' }
+#' @source \url{https://github.com/sunhuaibo/HLA-HED/blob/main/database/ABC_prot.fa}
+"seqs"
+
+#' HLA-DRB1, -DQB1, -DPB1 amino-acid sequences in FASTA format.
+#'
+#' The protein sequence of exon 2 of each allele of HLA classe II genotype;
 #' these sequences correspond to the peptide-binding domains.
 #'
 #' @format list in FASTA format representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes:
@@ -218,8 +234,8 @@
 #'   \item{class}{SeqFastadna}
 #'   ...
 #' }
-#' @source \url{https://www.ebi.ac.uk/ipd/imgt/hla/}
-"seqs"
+#' @source \url{https://sourceforge.net/projects/granthamdist/files/HLA_ClassII_CWDonly.fas/download}
+"seqs2"
 
 #' Grantham distance metric.
 #'
