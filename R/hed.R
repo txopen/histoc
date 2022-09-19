@@ -11,7 +11,7 @@
 #' @export
 cHED <- function(hla1, hla2){
 
-  if(startsWith('hla1','D') && startsWith('hla2','D')){
+  if(startsWith(hla1,'D') & startsWith(hla2,'D')){
     seq_hla1 <- seqs2[hla1]
     seq_hla2 <- seqs2[hla2]
   } else {
@@ -20,11 +20,11 @@ cHED <- function(hla1, hla2){
     }
 
   if(is.null(seq_hla1[[1]])){
-    stop(cat(hla1, "does not exist in sequence."))
+    stop(cat("allele does not exist in sequence."))
   }
 
   if(is.null(seq_hla2[[1]])){
-    stop(cat(hla2, "does not exist in sequence."))
+    stop(cat("allele does not exist in sequence."))
   }
 
   seq_len = length(seq_hla1[[1]])

@@ -1,4 +1,4 @@
-test_that("Test HLA Evolutionary Divergence (HED)", {
+test_that("Test HLA Evolutionary Divergence (HED) class I", {
 
   df <- tribble(~allele1, ~allele2, ~hed,
                 'A*01:01','A*03:01',5.745856353591161,
@@ -25,5 +25,32 @@ test_that("Test HLA Evolutionary Divergence (HED)", {
 
   expect_error(
     cHED('A*01:01x','A*03:01x')
+  )
+})
+
+test_that("Test HLA Evolutionary Divergence (HED) class II", {
+
+  df <- tribble(~allele1, ~allele2, ~hed,
+                'DRB10701',	'DRB11302',	17.168539325842698,
+                'DRB11104','DRB11501',10.764044943820224,
+                'DRB10803','DRB11602',10.348314606741573,
+                'DRB10701','DRB11404',15.561797752808989,
+                'DRB11104','DRB11454',7.50561797752809,
+                'DRB10101','DRB11301',14.50561797752809,
+                'DRB10803','DRB11301',7.98876404494382,
+                'DQB10501','DQB10603',7.101123595505618,
+                'DQB10301','DQB10603',10.741573033707866
+                )
+
+
+  for (i in 1:nrow(df)){
+    expect_equal(
+      cHED(hla1 = df$allele1[i],hla2 = df$allele2[i]),
+      df$hed[i]
+    )
+  }
+
+  expect_error(
+    cHED('DRB1*01:01x','DRB1*03:01x')
   )
 })
