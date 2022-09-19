@@ -12,6 +12,10 @@
 cHED <- function(hla1, hla2){
 
   if(startsWith(hla1,'D') & startsWith(hla2,'D')){
+
+    hla1 <- stringr::str_replace_all(hla1, c("\\*" = "", ":" = ""))
+    hla2 <- stringr::str_replace_all(hla2, c("\\*" = "", ":" = ""))
+
     seq_hla1 <- seqs2[hla1]
     seq_hla2 <- seqs2[hla2]
   } else {
