@@ -221,7 +221,7 @@
 #' @source \url{https://github.com/sunhuaibo/HLA-HED/blob/main/database/ABC_prot.fa}
 "seqs"
 
-#' HLA-DRB1, -DQB1, -DPB1 amino-acid sequences in FASTA format.
+#' HLA-DRB1, -DQB1 amino-acid sequences in FASTA format.
 #'
 #' The protein sequence of exon 2 of each allele of HLA classe II genotype;
 #' these sequences correspond to the peptide-binding domains.

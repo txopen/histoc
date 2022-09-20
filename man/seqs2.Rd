@@ -3,7 +3,7 @@
 \docType{data}
 \name{seqs2}
 \alias{seqs2}
-\title{HLA-DRB1, -DQB1, -DPB1 amino-acid sequences in FASTA format.}
+\title{HLA-DRB1, -DQB1 amino-acid sequences in FASTA format.}
 \format{
 list in FASTA format representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes:
 \describe{
