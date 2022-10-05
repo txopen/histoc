@@ -1,6 +1,15 @@
 url: https://txopen.github.io/histoc/
 template:
   bootstrap: 5
+authors:
+  Bruno Lima:
+    href: https://www.linkedin.com/in/oficinadebioestatistica/
+  Filipe Reis:
+    href: https://www.linkedin.com/in/filipepintoreis
+  TxOR:
+    href: "https://txor.netlify.app/"
+    html: "<img src='https://static.wixstatic.com/media/3e838e_d25efb43bd2e4f8597ad3bf7c180c880~mv2.jpg/v1/fill/w_92,h_35,al_c,lg_1,q_80,enc_auto/3e838e_d25efb43bd2e4f8597ad3bf7c180c880~mv2.jpg' height=24>"
+
 navbar:
   structure:
     left:
