@@ -8,7 +8,7 @@
 A data frame with 500 rows and 15 variables:
 \describe{
 \item{ID}{Candidates' identifier}
-\item{bg}{Candidates' blood group:   O, A, B, AB}
+\item{bg}{Candidates' blood group: O, A, B, AB `}
 \item{A1}{HLA-A allele 1}
 \item{A2}{HLA-A allele 2}
 \item{B1}{HLA-B allele 1}
