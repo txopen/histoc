@@ -6,7 +6,9 @@ tags:
 - kidney
 - allocation
 date: "24 July 2022"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
 authors:
 - name: Bruno A Lima
   orcid: 0000-0001-9090-4457
@@ -46,6 +48,10 @@ Results are presented as {data.table} [@data.table] objects due to its high comp
 To get started a vignette describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each of the algorithms.
 
 By default 2 candidates are selected for each donor, although we can define the number of candidates to be selected.
+
+New kidney allocation systems should be assessed using simulations that, to the greatest extent possible, can predict findings and outcomes. {histoc} is designed mainly for researchers working on organ transplantation to aid decision making based on data, regarding the definition of allocation policies.  
+
+While the R package {transplantr} [@transplantr] make available a set of functions for audit and clinical research in transplantation, the package presented here enables the simulation of various sets of rules by adjusting relevant allocation parameters. Moreover, {histoc}, in addition to being open source, requires less data to run when compared to the  Kidney-Pancreas Simulated Allocation Model (KPSAM) software [@srtr] from the Scientific Registry of Transplant Recipients, and as a result, it may be used as a first method to create hypotheses that can then be tested on KPSAM.
 
 ## Kidney Allocation Systems
 
@@ -115,6 +121,10 @@ Also a new column for the estimated 5-year event (mortality or graft failure) pr
 ## Input data
 
 Input data used on this package's functions, regarding either candidates or donors information, when provided by the user must have the exact same format as the example data available. Furthermore, [{simK}](https://github.com/txopen/simK) [@simK] package allows to generate synthetic data both for candidates and donors that can be used with {histoc}.  
+
+## Bug reports and contributions
+
+Reports on any bug encountered or any request for a new feature, are welcomed with a minimal reproducible example of your R code through the link package website [report a bug](https://github.com/txopen/histoc/issues), available at the package website [@histoc]
 
 # Funding
 
