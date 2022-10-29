@@ -1,0 +1,414 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{histoc: Histocompatibility analysis performed by kidney
+allocation systems}
+\author{}
+\date{\vspace{-2.5em}24 July 2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={histoc: Histocompatibility analysis performed by kidney allocation systems},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\hypertarget{summary}{%
+\section{Summary}\label{summary}}
+
+The distribution of a scarce commodity such as deceased donor's kidneys
+for transplantation should be as equitably as possible. Different
+countries try to implement kidney allocation systems (KAS) in
+transplantation that balance principles of justice and utility in the
+distribution of such scarce resource
+(\protect\hyperlink{ref-Lima:2020}{Lima and Alves 2020}). That is, a KAS
+should optimize the transplant clinical outcome (principle of utility)
+while giving a reasonable opportunity to all wait list candidates to be
+transplanted (principle of justice)
+(\protect\hyperlink{ref-Geddes:2005}{Geddes et al. 2005}).
+
+The selection of a donor-recipient pair in kidney transplantation is
+based on histocompatibility tests that can eliminate specific transplant
+candidates from opting for a kidney from a given deceased donor. These
+histocompatibility tests are used in several KAS and can be specific to
+each of them.
+
+The goal of this package is to aid the evaluation and assessment of KAS
+in transplantation.
+
+\hypertarget{statement-of-need}{%
+\section{Statement of need}\label{statement-of-need}}
+
+\{histoc\} (\protect\hyperlink{ref-histoc}{Lima and Reis 2022}) is an R
+(\protect\hyperlink{ref-R}{R Core Team 2021}) package that assembles
+tools for histocompatibility testing in the context of kidney
+transplantation. The package's main functions allow simulating several
+KAS on the distribution of deceased donors' grafts for transplantation.
+Moreover, it is possible to redefine arguments for each one of the KAS
+as a way to test different approaches.
+
+Currently, it is possible to simulate allocation rules implemented in
+Portugal (PT model), in countries within Eurotransplant (ET model)
+(\protect\hyperlink{ref-ET}{EuroTransplant 2020}), in the United Kingdom
+(UK model) (\protect\hyperlink{ref-UK}{Blood and Transplant 2017}), and
+a system suggested by \protect\hyperlink{ref-Lima:2013}{Lima, Mendes,
+and Alves} (\protect\hyperlink{ref-Lima:2013}{2013}) (Lima's model).
+
+Each one of these models have as arguments a data frame with transplant
+candidates' clinical and demographic characteristics, a data frame with
+candidates' HLA antibodies and potential donor's information.
+
+For all the models a virtual crossmatch between the donor and transplant
+candidates is performed (\texttt{xmatch()}). And, only those candidates
+with a negative crossmatch and ABO compatible can opt to a donor's
+kidney.
+
+Results are presented as \{data.table\}
+(\protect\hyperlink{ref-data.table}{Dowle and Srinivasan 2021}) objects
+due to its high computation performance.
+
+To get started a vignette describes
+\href{https://txopen.github.io/histoc/articles/how_to.html}{how to use}
+each of the algorithms.
+
+By default 2 candidates are selected for each donor, although we can
+define the number of candidates to be selected.
+
+New kidney allocation systems should be assessed using simulations that,
+to the greatest extent possible, can predict findings and outcomes.
+\{histoc\} is designed mainly for researchers working on organ
+transplantation to aid decision making based on data, regarding the
+definition of allocation policies.
+
+While the R package \{transplantr\}
+(\protect\hyperlink{ref-transplantr}{Asher 2020}) make available a set
+of functions for audit and clinical research in transplantation, the
+package presented here enables the simulation of various sets of rules
+while altering the relevant allocation parameters. Moreover, this
+package, in addition to being open source, requires less data to run
+when compared to the Kidney-Pancreas Simulated Allocation Model (KPSAM)
+software (\protect\hyperlink{ref-srtr}{Transplant Recipients 2015}) from
+the Scientific Registry of Transplant Recipients, and as a result, it
+may be used as a first method to create hypotheses that can then be
+tested on KPSAM.
+
+\hypertarget{kidney-allocation-systems}{%
+\subsection{Kidney Allocation Systems}\label{kidney-allocation-systems}}
+
+\hypertarget{portuguese-model}{%
+\subsubsection{Portuguese Model}\label{portuguese-model}}
+
+Portuguese rules on allocation of kidneys from deceased donor
+(\textbf{PT model}) are based on a scoring system that takes in
+consideration:\\
+1. HLA mismatches between donor and transplant candidate; 1. Level of
+immunization of the candidate; 1. Time on dialysis; 1. Age difference
+between donor and transplant candidate (\texttt{pts()}).
+
+Total scores for donor-recipient pairs are given by the column
+\texttt{ptsPT}. Also, hipersensitized candidates (\texttt{hiper()}) (
+calculated Panel Reactive Antibody \texttt{cPRA} \textgreater{} 85\%)
+\texttt{HI} are prioritized and after that all candidates are ordered by
+their corresponding score.
+
+\hypertarget{euro-transplant-model}{%
+\subsubsection{Euro Transplant Model}\label{euro-transplant-model}}
+
+A simplified version of EuroTransplant Kidney Allocation System
+(\textbf{ETKAS}) (\protect\hyperlink{ref-ET}{EuroTransplant 2020}) can
+be simulated through \texttt{et()}. This applies to first time kidney
+only candidates with more than 18 years old and that haven't donated one
+of their own kidneys.
+
+In this simulation for each donor, transplant candidates as sorted as :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Senior Program (65+ years of old candidates when the donor has 65+
+  years) \texttt{SP};
+\item
+  Acceptable Mismatch Program (candidates with a cPRA \textgreater{}
+  85\% and without HLA antibodies against HLA's donor) \texttt{AM};
+\item
+  000 HLA mismatches (candidates without HLA mismatches with the donor)
+  \texttt{mmHLA};
+\item
+  ETKAS points \texttt{pointsET}.
+\end{enumerate}
+
+Final points for each eligible candidate are obtained from the sum of
+HLA points (\texttt{et\_mmHLA()}), dialysis (\texttt{et\_dialysis()})
+points and MMP points (\texttt{et\_mmp()}).
+
+\hypertarget{united-kingdom-model}{%
+\subsubsection{United Kingdom Model}\label{united-kingdom-model}}
+
+United Kingdom (\textbf{UK model}) deceased donor kidney allocation for
+transplantation (\protect\hyperlink{ref-UK}{Blood and Transplant 2017})
+(\texttt{uk()}) is firstly based on the definition of two ranked Tiers
+of candidates eligible for the donor (\texttt{Tier}):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tier A -- patients with match score = 10 or \texttt{cPRA} = 100\% or
+  time on \texttt{dialysis} \textgreater{} 7 years;
+\item
+  Tier B -- all other eligible patients.
+\end{enumerate}
+
+Within Tier A, transplant candidates are ordered by matchability and
+time on dialysis. Transplant candidates within Tier B are prioritized
+according to a point-based system computed with 7 elements:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Matchability (\texttt{matchability})
+\item
+  Time on dialysis (\texttt{dialysis})
+\item
+  Donor-recipient risk index combinations (\texttt{ric()})
+\item
+  HLA match and age combined (\texttt{age} and \texttt{mmHLA})
+\item
+  Donor-recipient age difference (\texttt{age} and \texttt{donor\_age})
+\item
+  Total HLA mismatch (\texttt{mmHLa})
+\item
+  Blood group match (\texttt{abo\_uk()})
+\end{enumerate}
+
+This function simulates the allocation of kidneys to a candidates'
+waiting list for kidney-only transplants and do not take in
+consideration geographical criteria.
+
+\hypertarget{limas-model}{%
+\subsubsection{Lima's Model}\label{limas-model}}
+
+And lastly, within \textbf{Lima's model}, a color prioritization
+(\texttt{cp()}) of all waiting list transplant candidates is
+established.
+
+Transplant candidates are classified according to their clinical urgency
+(red color), and regarding their time on \texttt{dialysis} and cPRA
+value \texttt{cPRA}. With an orange color are marked those patients with
+a \texttt{cPRA} \textgreater{} 85\% or with a time on \texttt{dialysis}
+higher than waiting time 3rd quartile. As yellow are classified the
+patients with a \texttt{cPRA} \textgreater{} 50\% or with a time on
+\texttt{dialysis} higher than waiting time median. And, as green are
+classified all the rest.
+
+Within each color group candidates are ordered by \texttt{mmHLA}
+(ascendant) and time on \texttt{dialisys} (descendant).
+
+Also, candidates are allocated to donors within the same age group (old
+to old program) (\texttt{SP}), mimicking EuroTransplant senior program
+(\texttt{sp()}).
+
+\hypertarget{candidates-selection-for-a-pool-of-donors}{%
+\subsection{Candidates' selection for a pool of
+donors}\label{candidates-selection-for-a-pool-of-donors}}
+
+We can also simulate the selection of wait list candidates for a pool of
+donors, according to a given model (or algorithm). The function
+\texttt{donor\_recipient\_pairs()} allow us to compute all possible
+donor-recipient pairs according to any of the previously described
+kidney allocation algorithms.
+
+An example where we use a pool of 70 donors (data frame available from
+the package) to select from a wait list of 500 transplant candidates
+(data frame also available from the package) is described by
+\href{https://txopen.github.io/histoc/articles/cand_select.html}{candidates'
+selection} vignette.
+
+Also a new column for the estimated 5-year event (mortality or graft
+failure) probability as described by
+\protect\hyperlink{ref-Molnar:2018}{Molnar et al.}
+(\protect\hyperlink{ref-Molnar:2018}{2018}){]} and available from the
+application \href{https://balima.shinyapps.io/scoreTx/}{TxScore}, with
+the function \texttt{txscore()}, can be computed.
+
+\hypertarget{input-data}{%
+\subsection{Input data}\label{input-data}}
+
+Input data used on this package's functions, regarding either candidates
+or donors information, when provided by the user must have the exact
+same format as the example data available. Furthermore,
+\href{https://github.com/txopen/simK}{\{simK\}}
+(\protect\hyperlink{ref-simK}{Lima 2022}) package allows to generate
+synthetic data both for candidates and donors that can be used with
+\{histoc\}.
+
+\hypertarget{bug-reports-and-contributions}{%
+\subsection{Bug reports and
+contributions}\label{bug-reports-and-contributions}}
+
+Reports on any bug encountered or any request for a new feature, are
+welcomed with a minimal reproducible example of your R code through the
+link package website
+\href{https://github.com/txopen/histoc/issues}{report a bug}, available
+at the package website (\protect\hyperlink{ref-histoc}{Lima and Reis
+2022})
+
+\hypertarget{funding}{%
+\section{Funding}\label{funding}}
+
+This project received the ``Antonio Morais Sarmento'' research grant
+from the Portuguese Society of Transplantation. This funding had no role
+in: study design; software development; the writing of the report;
+neither in the decision to submit the article for publication.
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-transplantr}{}}%
+Asher, J. 2020. {``Transplantr: Audit and Research Functions for
+Transplantation.''} \url{https://transplantr.txtools.net/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-UK}{}}%
+Blood, National Health Service, and Transplant. 2017. {``{UK Transplant
+Registry, Organ Donation and Transplantation}.''}
+\url{http://odt.nhs.uk/uk-transplant-registry/data/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-data.table}{}}%
+Dowle, M., and A. Srinivasan. 2021. {``Data.table: Extension of
+`Data.frame`.''} \url{https://CRAN.R-project.org/package=data.table}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ET}{}}%
+EuroTransplant. 2020. {``{ETKAS and ESP}.''}
+\url{https://www.eurotransplant.org/allocation/eurotransplant-manual/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Geddes:2005}{}}%
+Geddes, C., R. Rodger, C. Smith, and A. Ganai. 2005. {``{Allocation of
+deceased donor kidneys for transplantation: Opinions of patients with
+CKD}.''} \emph{American Journal of Kidney Diseases} 46 (5): 949--56.
+\url{https://doi.org/10.1053/j.ajkd.2005.07.031}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-simK}{}}%
+Lima, B. 2022. {``simK: Synthetic Data on Kidney Transplantation.''}
+Transplant Open Registry. \url{https://txopen.github.io/simK/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lima:2020}{}}%
+Lima, B., and H. Alves. 2020. {``{Access to kidney transplantation: a
+bioethical perspective}.''} \emph{Portuguese Journal of Nephrology \&
+Hypertension} 34 (2): 76--78.
+\url{https://doi.org/10.32932/pjnh.2020.07.070}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Lima:2013}{}}%
+Lima, B., M. Mendes, and H. Alves. 2013. {``{Kidney Transplant
+allocation in Portugal}.''} \emph{Portuguese Journal of Nephrology \&
+Hypertension} 27 (4): 313--16.
+\url{http://www.bbg01.com/cdn/clientes/spnefro/pjnh/46/artigo_14.pdf}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-histoc}{}}%
+Lima, B., and F. Reis. 2022. \emph{Histoc: Histocompatibility Functions
+for Organ Transplantation}. Transplant Open Registry.
+\url{https://txopen.github.io/histoc/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Molnar:2018}{}}%
+Molnar, M., D. Nguyen, Y. Chen, V. Ravel, E. Streja, M. Krishnan, C.
+Kovesdy, and K. Kalantar-zadeh. 2018. {``{Predictive Score for
+Posttransplantation Outcomes}.''} \emph{Transplantation} 101 (6):
+1353--64. \url{https://doi.org/10.1097/TP.0000000000001326}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R}{}}%
+R Core Team. 2021. {``R: A Language and Environment for Statistical
+Computing.''} Vienna, Austria: R Foundation for Statistical Computing.
+\url{https://www.R-project.org/}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-srtr}{}}%
+Transplant Recipients, Scientific Registry of. 2015. {``Kidney-Pancreas
+Simulated Allocation Model (KPSAM).''}
+\url{https://srtr.org/requesting-srtr-data/simulated-allocation-models/}.
+
+\end{CSLReferences}
+
+\end{document}
