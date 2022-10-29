@@ -47,7 +47,7 @@ uk(
 )
 }
 \arguments{
-\item{DRI}{Donor RisK Index group (D1, D2, D3, D4)}
+\item{DRI}{Donor Risk Index group (D1, D2, D3, D4)}
 
 \item{dA}{A two elements character vector donor's HLA-A typing.}
 

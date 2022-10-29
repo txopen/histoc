@@ -21,7 +21,7 @@ list in FASTA format representing either nucleotide sequences or amino acid (pro
 seqs
 }
 \description{
-The protein sequence of exons 2 and 3 of each allele of HLA classe I genotype;
-these sequences correspond to the peptide-binding domains. Availabble from: https://www.ebi.ac.uk/ipd/imgt/hla/
+The protein sequence of exons 2 and 3 of each allele of HLA class I genotype;
+these sequences correspond to the peptide-binding domains. Available from: https://www.ebi.ac.uk/ipd/imgt/hla/
 }
 \keyword{datasets}
