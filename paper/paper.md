@@ -45,7 +45,7 @@ For all the models a virtual crossmatch between the donor and transplant candida
 
 Results are presented as {data.table} [@data.table] objects due to its high computation performance.
 
-To get started a vignette describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each of the algorithms.
+To get started, it is available a vignette that describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each one of the algorithms.
 
 New kidney allocation systems should be assessed using simulations that, to the greatest extent possible, can predict outcomes. {histoc} is designed mainly for researchers working on organ transplantation, assisting with data-driven decision making for the establishment of allocation policies.
 
