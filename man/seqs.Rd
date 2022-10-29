@@ -5,7 +5,7 @@
 \alias{seqs}
 \title{HLA-A, -B, -C amino-acid sequences in FASTA format.}
 \format{
-list in FASTA format representing either nucleotide sequences or amino acid (protein) sequences, in which nucleotides or amino acids are represented using single-letter codes:
+list in FASTA format representing either nucleotide sequences or amino-acid (protein) sequences, in which nucleotides or amino-acids are represented using single-letter codes:
 \describe{
 \item{X*}{HLA-X allele}
 \item{name}{allele name}

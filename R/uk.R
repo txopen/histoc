@@ -196,7 +196,7 @@ abo_uk <- function(dABO = "A",
 #' @description Applies UK algorithm on deceased donor's Kidney allocation for transplantation.
 #' Ordering of waitlisted candidates for a given donor according
 #' to UK transplant algorithm.
-#' @param DRI Donor RisK Index group (`r env$valid.dris`)
+#' @param DRI Donor Risk Index group (`r env$valid.dris`)
 #' @param dABO A character value with ABO blood group (`r env$valid.blood.groups`).
 #' @param dA A two elements character vector donor's HLA-A typing.
 #' @param dB A two elements character vector donor's HLA-B typing.

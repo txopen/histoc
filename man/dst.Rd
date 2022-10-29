@@ -7,8 +7,8 @@
 \format{
 a 20x20 matrix
 \describe{
-\item{rows}{amino acid}
-\item{columns}{amino acid}
+\item{rows}{amino-acid}
+\item{columns}{amino-acid}
 }
 }
 \source{
@@ -18,7 +18,7 @@ a 20x20 matrix
 dst
 }
 \description{
-The Grantham score attempts to predict the distance between two amino acids, in an evolutionary sense.
+The Grantham score attempts to predict the distance between two amino-acids, in an evolutionary sense.
 A lower Grantham score reflects less evolutionary distance.
 A higher Grantham score reflects a greater evolutionary distance.
 }
