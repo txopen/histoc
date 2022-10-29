@@ -39,7 +39,7 @@ The goal of this package is to aid the evaluation and assessment of KAS in trans
 
 Currently, it is possible to simulate allocation rules implemented in Portugal (PT model), in countries within Eurotransplant (ET model) [@ET], in the United Kingdom (UK model) [@UK], and a system suggested by @Lima:2013 (Lima’s model).
 
-Each one of these models have as arguments a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and potential donor's information.
+Each one of these models have as arguments a data frame with transplant candidates’ clinical and demographic characteristics, a data frame with candidates’ HLA antibodies and potential donor's information. By default 2 candidates are selected for each donor, although we can define the number of candidates to be selected.
 
 For all the models a virtual crossmatch between the donor and transplant candidates is performed (`xmatch()`). And, only those candidates with a negative crossmatch and ABO compatible can opt to a donor’s kidney.
 
@@ -47,11 +47,9 @@ Results are presented as {data.table} [@data.table] objects due to its high comp
 
 To get started a vignette describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each of the algorithms.
 
-By default 2 candidates are selected for each donor, although we can define the number of candidates to be selected.
+New kidney allocation systems should be assessed using simulations that, to the greatest extent possible, can predict outcomes. {histoc} is designed mainly for researchers working on organ transplantation, assisting with data-driven decision making for the establishment of allocation policies.
 
-New kidney allocation systems should be assessed using simulations that, to the greatest extent possible, can predict findings and outcomes. {histoc} is designed mainly for researchers working on organ transplantation to aid decision making based on data, regarding the definition of allocation policies.  
-
-While the R package {transplantr} [@transplantr] make available a set of functions for audit and clinical research in transplantation, the package presented here enables the simulation of various sets of rules by adjusting relevant allocation parameters. Moreover, {histoc}, in addition to being open source, requires less data to run when compared to the  Kidney-Pancreas Simulated Allocation Model (KPSAM) software [@srtr] from the Scientific Registry of Transplant Recipients, and as a result, it may be used as a first method to create hypotheses that can then be tested on KPSAM.
+While the R package {transplantr} [@transplantr] make available a set of functions for audit and clinical research in transplantation, the package presented here enables the simulation of various sets of rules by adjusting relevant allocation parameters. Additionally, the Kidney-Pancreas Simulated Allocation Model (KPSAM) [@srtr] is a proprietary software that the Scientific Registry of Transplant Recipients makes available to support studies on alternative allocations policies in transplantation. In contrast, {histoc}, coupled with being open source, needs less data to run in comparison to KPSAM software. Likewise, it can be used as a preliminary technique for developing new hypotheses that can then be tested on KPSAM.
 
 ## Kidney Allocation Systems
 
@@ -124,7 +122,7 @@ Input data used on this package's functions, regarding either candidates or dono
 
 ## Bug reports and contributions
 
-Reports on any bug encountered or any request for a new feature, are welcomed with a minimal reproducible example of your R code through the link package website [report a bug](https://github.com/txopen/histoc/issues), available at the package website [@histoc]
+Reports on any bug encountered or any request for a new feature, are welcomed with a minimal reproducible example of your R code through the link package website [report a bug](https://github.com/txopen/histoc/issues), available at the package website [@histoc].
 
 # Funding
 
