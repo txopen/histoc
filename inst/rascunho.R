@@ -107,8 +107,10 @@ s5
 
 ###############################
 
-cHED(hla1 = 'DRB10701', hla2 = 'DRB11302')
+# release to CRAN
 
-cHED('DRB11104','RB11501')
+devtools::spell_check()
 
-names(seqs2)
+devtools::build()
+
+devtools::release()

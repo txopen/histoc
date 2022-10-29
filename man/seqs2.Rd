@@ -21,7 +21,7 @@ list in FASTA format representing either nucleotide sequences or amino acid (pro
 seqs2
 }
 \description{
-The protein sequence of exon 2 of each allele of HLA classe II genotype;
+The protein sequence of exon 2 of each allele of HLA class II genotype;
 these sequences correspond to the peptide-binding domains.
 }
 \keyword{datasets}
