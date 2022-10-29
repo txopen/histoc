@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   cand_select: cand_select.html
   how_to: how_to.html
-last_built: 2022-10-29T16:00Z
+last_built: 2022-10-29T16:51Z
 urls:
   reference: https://txopen.github.io/histoc/reference
   article: https://txopen.github.io/histoc/articles
