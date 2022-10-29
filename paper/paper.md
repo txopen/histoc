@@ -6,9 +6,7 @@ tags:
 - kidney
 - allocation
 date: "24 July 2022"
-output:
-  html_document:
-    df_print: paged
+output: pdf_document
 authors:
 - name: Bruno A Lima
   orcid: 0000-0001-9090-4457
