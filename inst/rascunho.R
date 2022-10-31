@@ -111,6 +111,8 @@ s5
 
 devtools::spell_check()
 
+devtools::check_rhub()
+
 devtools::build()
 
 devtools::release()

@@ -25,7 +25,7 @@ affiliations:
 
 # Summary
 
-The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitably as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource [@Lima:2020]. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) [@Geddes:2005].
+The distribution of a scarce commodity such as deceased donor’s kidneys for transplantation should be as equitable as possible. Different countries try to implement kidney allocation systems (KAS) in transplantation that balance principles of justice and utility in the distribution of such scarce resource [@Lima:2020]. That is, a KAS should optimize the transplant clinical outcome (principle of utility) while giving a reasonable opportunity to all wait list candidates to be transplanted (principle of justice) [@Geddes:2005].
 
 The selection of a donor-recipient pair in kidney transplantation is based on histocompatibility tests that can eliminate specific transplant candidates from opting for a kidney from a given deceased donor. These histocompatibility tests are used in several KAS and can be specific to each of them.
 
@@ -43,23 +43,24 @@ For all the models a virtual crossmatch between the donor and transplant candida
 
 Results are presented as {data.table} [@data.table] objects due to its high computation performance.
 
-To get started, it is available a vignette that describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each one of the algorithms.
+To get started, a vignette is available that describes [how to use](https://txopen.github.io/histoc/articles/how_to.html) each one of the algorithms.
 
 New kidney allocation systems should be assessed using simulations that, to the greatest extent possible, can predict outcomes. {histoc} is designed mainly for researchers working on organ transplantation, assisting with data-driven decision making for the establishment of allocation policies.
 
-While the R package {transplantr} [@transplantr] make available a set of functions for audit and clinical research in transplantation, the package presented here enables the simulation of various sets of rules by adjusting relevant allocation parameters. Additionally, the Kidney-Pancreas Simulated Allocation Model (KPSAM) [@srtr] is a proprietary software that the Scientific Registry of Transplant Recipients makes available to support studies on alternative allocations policies in transplantation. In contrast, {histoc}, coupled with being open source, needs less data to run in comparison to KPSAM software. Likewise, it can be used as a preliminary technique for developing new hypotheses that can then be tested on KPSAM.
+While the R package {transplantr} [@transplantr] makes available a set of functions for audit and clinical research in transplantation, the package presented here enables the simulation of various sets of rules by adjusting relevant allocation parameters. Additionally, the Kidney-Pancreas Simulated Allocation Model (KPSAM) [@srtr] is a proprietary software that the Scientific Registry of Transplant Recipients makes available to support studies on alternative allocations policies in transplantation. In contrast, {histoc}, coupled with being open source, needs less data to run in comparison to KPSAM software. Likewise, it can be used as a preliminary technique for developing new hypotheses that can then be tested on KPSAM.
 
 ## Kidney Allocation Systems
 
 ### Portuguese Model
 
 Portuguese rules on allocation of kidneys from deceased donor (**PT model**) are based on a scoring system that takes in consideration:  
+
 1. HLA mismatches between donor and transplant candidate; 
 1. Level of immunization of the candidate; 
 1. Time on dialysis;
 1. Age difference between donor and transplant candidate (`pts()`). 
 
-Total scores for donor-recipient pairs are given by the column `ptsPT`. Also, hipersensitized candidates (`hiper()`) ( calculated Panel Reactive Antibody `cPRA` > 85%) `HI` are prioritized and after that
+Total scores for donor-recipient pairs are given by the column `ptsPT`. Also, hypersensitized candidates (`hiper()`) ( calculated Panel Reactive Antibody `cPRA` > 85%) `HI` are prioritized and after that
 all candidates are ordered by their corresponding score.
 
 ### Euro Transplant Model
@@ -100,7 +101,7 @@ And lastly, within **Lima's model**, a color prioritization (`cp()`) of all wait
 
 Transplant candidates are classified according to their clinical urgency (red color), and regarding their time on `dialysis` and cPRA value `cPRA`. With an orange color are marked those patients with a `cPRA` > 85% or with a time on `dialysis` higher than waiting time 3rd quartile. As yellow are classified the patients with a `cPRA` > 50% or with a time on `dialysis` higher than waiting time median. And, as green are classified all the rest.
 
-Within each color group candidates are ordered by `mmHLA` (ascendant) and time on `dialisys` (descendant).
+Within each color group candidates are ordered by `mmHLA` (ascendant) and time on `dialysis` (descendant).
 
 Also, candidates are allocated to donors within the same age group (old to old program) (`SP`), mimicking EuroTransplant senior program (`sp()`).
 
@@ -112,7 +113,7 @@ The function `donor_recipient_pairs()` allow us to compute all possible donor-re
 An example where we use a pool of 70 donors (data frame available from the package) to select from a wait list of 500 transplant candidates (data frame also available from the package) is described by [candidates' selection](https://txopen.github.io/histoc/articles/cand_select.html) vignette.
 
 
-Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by @Molnar:2018] and available from the application [TxScore](https://balima.shinyapps.io/scoreTx/), with the function `txscore()`, can be computed.
+Also a new column for the estimated 5-year event (mortality or graft failure) probability as described by @Molnar:2018 and available from the application [TxScore](https://balima.shinyapps.io/scoreTx/), with the function `txscore()`, can be computed.
 
 ## Input data
 
