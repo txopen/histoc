@@ -1,5 +1,5 @@
-test_that(" Mismatch Probability (MMP) from ETKAS", {
-})
+# test_that(" Mismatch Probability (MMP) from ETKAS", {
+# })
 
 test_that("mmHLA points from ET's algorithm", {
 

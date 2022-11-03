@@ -114,3 +114,6 @@ devtools::spell_check()
 devtools::build()
 
 devtools::release()
+
+
+testthat::test_local()
