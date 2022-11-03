@@ -116,3 +116,6 @@ devtools::check_rhub()
 devtools::build()
 
 devtools::release()
+
+
+testthat::test_local()

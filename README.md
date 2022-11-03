@@ -33,9 +33,13 @@ transplant allocation systems.
 ### Development version
 
 The development version can be installed from GitHub. Alongside the
-latest features you might also get a couple of bugs:exclamation:  
-Be sure to report anything you find
-[here](https://github.com/txopen/histoc/issues).
+latest features you might also get a couple of bugs:exclamation:
 
     # install from GitHub
     devtools::install_github("txopen/histoc")
+
+## Bug reports and contributions
+
+Reports on any bug encountered or any request for a new feature, are
+welcomed with a minimal reproducible example of your R code through the
+link: [report a bug](https://github.com/txopen/histoc/issues).
