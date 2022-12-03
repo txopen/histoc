@@ -21,7 +21,7 @@ authors:
 bibliography: paper.bib
 link-citations: yes
 affiliations:
-- name: Oficina de Bioestatistica, Portugal
+- name: Oficina de Bioestatistica, Ermesinde, Portugal
   index: 1
 ---
 
