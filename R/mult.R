@@ -162,17 +162,17 @@ several <- function(iteration.number = 10,
     all.statistics <- append(all.statistics, list(current.iteration.statistics))
   }
 
-  mean_age <- all.statistics |> purrr::map(., ~mean(.x$age)) |> unlist()
-  mean_dialysis <- all.statistics |> purrr::map(., ~mean(.x$dialysis)) |> unlist()
-  mean_cPRA <- all.statistics |> purrr::map(., ~mean(.x$cPRA)) |> unlist()
-  freq_mmHLA <- all.statistics |> purrr::map(., ~table(.x$mmHLA))
-  freq_mmA <- all.statistics |> purrr::map(., ~table(.x$mmA))
-  freq_mmB <- all.statistics |> purrr::map(., ~table(.x$mmB))
-  freq_mmDR <- all.statistics |> purrr::map(., ~table(.x$mmDR))
-  freq_ABO <- all.statistics |> purrr::map(., ~table(.x$bg))
-  freq_HI <- all.statistics |> purrr::map(., ~table(.x$HI))
-  freq_color <- all.statistics |> purrr::map(., ~table(.x$cp))
-  freq_SP <- all.statistics |> purrr::map(., ~table(.x$SP))
+  mean_age <- purrr::map(all.statistics, ~mean(.x$age)) |> unlist()
+  mean_dialysis <- purrr::map(all.statistics, ~mean(.x$dialysis)) |> unlist()
+  mean_cPRA <- purrr::map(all.statistics, ~mean(.x$cPRA)) |> unlist()
+  freq_mmHLA <- purrr::map(all.statistics, ~table(.x$mmHLA))
+  freq_mmA <- purrr::map(all.statistics, ~table(.x$mmA))
+  freq_mmB <- purrr::map(all.statistics, ~table(.x$mmB))
+  freq_mmDR <- purrr::map(all.statistics, ~table(.x$mmDR))
+  freq_ABO <- purrr::map(all.statistics, ~table(.x$bg))
+  freq_HI <- purrr::map(all.statistics, ~table(.x$HI))
+  freq_color <- purrr::map(all.statistics, ~table(.x$cp))
+  freq_SP <- purrr::map(all.statistics, ~table(.x$SP))
 
   return(list(age = mean_age,
               dialysis = mean_dialysis,
