@@ -52,7 +52,9 @@ lima <- function(iso = TRUE
     stop("q2 and q3 should be bigger or equal to ", env$q.minimum, " an smaller or equal to ", env$q.maximum)
   }
 
-  n <- max(1, n)
+  if(!is.numeric(n) | n < 0){stop('n must be an positive number!')}
+  n <- floor(n)
+  if(n == 0) n <- nrow(data)
 
   data <- cp(data = data
             , q2 = q2

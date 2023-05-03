@@ -119,3 +119,6 @@ devtools::release()
 
 
 testthat::test_local()
+
+
+lima(n = 0)

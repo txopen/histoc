@@ -35,7 +35,11 @@ donor_recipient_pairs <- function(df.donors = donors,
     stop("'n' is not a valid numeric value!")
   }
 
-  if(!identical(algorithm, uk) && !identical(algorithm, lima) && !identical(algorithm, pts) && !identical(algorithm, et)){
+  if(!identical(algorithm, uk) &&
+     !identical(algorithm, lima) &&
+     !identical(algorithm, pts) &&
+     !identical(algorithm, et) &&
+     !identical(algorithm, eqm)){
     stop("The algorithm doesn't exist.")
   }
 
@@ -63,6 +67,8 @@ donor_recipient_pairs <- function(df.donors = donors,
     ) |>
     dplyr::select(dABO, dA, dB, dDR, donor.age)
 
+  if(!is.numeric(n) | n < 0){stop('n must be an positive number!')}
+  n <- floor(n)
   if(n == 0) n <- nrow(df.candidates)
 
   lst <- purrr::pmap(df.donors,

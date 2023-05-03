@@ -249,9 +249,10 @@ et <- function(iso = TRUE
 
   blood_group_checker(dABO)
   age_checker(donor.age)
-  dialysis_checker(donor.age)
 
-  n <- max(1, n)
+  if(!is.numeric(n) | n < 0){stop('n must be an positive number!')}
+  n <- floor(n)
+  if(n == 0) n <- nrow(data)
 
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)
   data.table::setDT(xm, key = 'ID')
