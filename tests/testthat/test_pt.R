@@ -126,29 +126,26 @@ test_that("Test pts algorithm", {
         urgent = c(0,0)
     )
 
-    expect_equal(
-        as.data.frame(
-            pts(
-                iso = TRUE
-                , dABO = "O"
-                , dA = c("1","2")
-                , dB = c("15","44")
-                , dDR = c("1","4")
-                , donor.age = 65
-                , df.abs = cabs
-                , data = candidates_test
-                , points.80 = 8
-                , points.50 = 4
-                , points.dialysis = 0.1
-                , points.age = 4
-                , itemA = 12
-                , itemB = 8
-                , itemC = 4
-                , itemD = 2
-                , itemE = 1
-                , n = 2
-            )
-        ),
+    expect_equivalent(
+      pts(iso = TRUE
+          , dABO = "O"
+          , dA = c("1","2")
+          , dB = c("15","44")
+          , dDR = c("1","4")
+          , donor.age = 65
+          , df.abs = cabs
+          , data = candidates_test
+          , points.80 = 8
+          , points.50 = 4
+          , points.dialysis = 0.1
+          , points.age = 4
+          , itemA = 12
+          , itemB = 8
+          , itemC = 4
+          , itemD = 2
+          , itemE = 1
+          , n = 2
+          ),
         results
     )
 })

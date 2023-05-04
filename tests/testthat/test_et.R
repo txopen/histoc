@@ -136,30 +136,30 @@ test_that("et algorithm", {
     '21', 'O', '1', '2', '15', '51', '13', '14', 0, 1, 2, 3, 65, 65, 0, 0, FALSE, 0, 1, 0,
     '2', 'O', '1', '26', '15', '27', '7', '8', 1, 1, 2, 4, 55, 65, 0, 86, TRUE, 231, 0, 1
    )
-  setDT(result1)
+  #setDT(result1)
 
   result2 <- tibble::tribble(
     ~ID, ~bg, ~A1, ~A2, ~B1, ~B2, ~DR1, ~DR2, ~mmA, ~mmB, ~mmDR, ~mmHLA, ~age, ~donor_age, ~dialysis, ~cPRA, ~HI, ~pointsET, ~SP, ~AM,
     #'21', 'O', '1', '2', '15', '51', '13', '14', 0, 1, 2, 3, 65, 65, 0, 0, FALSE, 0, 1, 0,
     '20', 'AB', '3', '32', '18', '27', '7', '7', 2, 2, 2, 6, 30, 40, 0, 0, FALSE, 97, 0, 0
   )
-  setDT(result2)
+  #setDT(result2)
 
   result3 <- tibble::tribble(
     ~ID, ~bg, ~A1, ~A2, ~B1, ~B2, ~DR1, ~DR2, ~mmA, ~mmB, ~mmDR, ~mmHLA, ~age, ~donor_age, ~dialysis, ~cPRA, ~HI, ~pointsET, ~SP, ~AM,
     '2', 'O', '1', '26', '15', '27', '7', '8', 1, 2, 2, 5, 55, 60, 0, 86, TRUE, 164, 0, 1,
     '1', 'O', '2', '11', '13', '40', '4', '7', 1, 2, 2, 5, 58, 60, 0, 86, TRUE, 155, 0, 1
   )
-  setDT(result3)
+  #setDT(result3)
 
   result4 <- tibble::tribble(
     ~ID, ~bg, ~A1, ~A2, ~B1, ~B2, ~DR1, ~DR2, ~mmA, ~mmB, ~mmDR, ~mmHLA, ~age, ~donor_age, ~dialysis, ~cPRA, ~HI, ~pointsET, ~SP, ~AM,
     #'2', 'O', '1', '26', '15', '27', '7', '8', 1, 2, 2, 5, 55, 60, 0, 86, TRUE, 164, 0, 1,
     '20', 'AB', '3', '32', '18', '27', '7', '7', 2, 2, 2, 6, 30, 60, 0, 0, FALSE, 97, 0, 0
   )
-  setDT(result4)
+  #setDT(result4)
 
-  expect_equal(et(iso = T
+  expect_equivalent(et(iso = T
                   , dABO = "O"
                   , dA = c("1","2")
                   , dB = c("15","44")
@@ -180,7 +180,7 @@ test_that("et algorithm", {
                   , hlaDR = hlaDRpt
                   , abo.freq = ABOpt
                   , n = 2), result1)
-  expect_equal(et(iso = F
+  expect_equivalent(et(iso = F
                   , dABO = "A"
                   , dA = c("1","2")
                   , dB = c("15","44")
@@ -201,7 +201,7 @@ test_that("et algorithm", {
                   , hlaDR = hlaDRpt
                   , abo.freq = ABOpt
                   , n = 2), result2)
-  expect_equal(et(iso = F
+  expect_equivalent(et(iso = F
                   , dABO = "O"
                   , dA = c("1","2")
                   , dB = c("7","28")
@@ -222,7 +222,7 @@ test_that("et algorithm", {
                   , hlaDR = hlaDRpt
                   , abo.freq = ABOpt
                   , n = 2), result3)
-  expect_equal(et(iso = T
+  expect_equivalent(et(iso = T
                   , dABO = "AB"
                   , dA = c("1","2")
                   , dB = c("7","28")

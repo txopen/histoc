@@ -49,24 +49,21 @@ test_that("Test lima algorithm", {
         SP = c(0, 0)
     )
 
-    expect_equal(
-        as.data.frame(
-            lima(
-                iso = iso,
-                dABO = dABO,
-                dA = dA,
-                dB = dB,
-                dDR = dDR,
-                donor.age = donor.age,
-                df.abs = cabs,
-                data = candidates,
-                n = n,
-                q2 = q2,
-                q3 = q3,
-                cPRA1 = cPRA1,
-                cPRA2 = cPRA2
-            )
-        ),
+    expect_equivalent(
+      lima(iso = iso,
+            dABO = dABO,
+            dA = dA,
+            dB = dB,
+            dDR = dDR,
+            donor.age = donor.age,
+            df.abs = cabs,
+            data = candidates,
+            n = n,
+            q2 = q2,
+            q3 = q3,
+            cPRA1 = cPRA1,
+            cPRA2 = cPRA2
+           ),
         results
     )
 

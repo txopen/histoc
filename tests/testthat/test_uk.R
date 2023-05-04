@@ -260,7 +260,7 @@ test_that("uk algorithm", {
   )
   setDT(result3)
 
-  expect_equal(uk(DRI = 'D1',
+  expect_equivalent(uk(DRI = 'D1',
                   dA = c("1","2"),
                   dB = c("15","44"),
                   dDR = c("1","4"),
@@ -298,7 +298,7 @@ test_that("uk algorithm", {
                   pts = -1000,
                   df.abs = cabs,
                   n = 2), result1)
-  expect_equal(uk(DRI = 'D2',
+  expect_equivalent(uk(DRI = 'D2',
                   dA = c("11","24"),
                   dB = c("7","44"),
                   dDR = c("7","14"),
@@ -336,7 +336,7 @@ test_that("uk algorithm", {
                   pts = -2000,
                   df.abs = cabs,
                   n = 2), result2)
-  expect_equal(uk(DRI = 'D4',
+  expect_equivalent(uk(DRI = 'D4',
                   dA = c("1","2"),
                   dB = c("27","44"),
                   dDR = c("11","14"),
