@@ -46,27 +46,25 @@ test_that("Test lima algorithm", {
         cPRA = c(86, 86),
         HI = c(TRUE, TRUE),
         cp = factor( list(2, 2), levels = 1:4, labels = c('Red', 'Orange', 'Yellow', 'Green') ),
-        SP = c(0, 0)
+        SP = c(0, 0),
+        urgent = c(0, 0)
     )
 
-    expect_equal(
-        as.data.frame(
-            lima(
-                iso = iso,
-                dABO = dABO,
-                dA = dA,
-                dB = dB,
-                dDR = dDR,
-                donor.age = donor.age,
-                df.abs = cabs,
-                data = candidates,
-                n = n,
-                q2 = q2,
-                q3 = q3,
-                cPRA1 = cPRA1,
-                cPRA2 = cPRA2
-            )
-        ),
+    expect_equal(ignore_attr = TRUE,
+      lima(iso = iso,
+            dABO = dABO,
+            dA = dA,
+            dB = dB,
+            dDR = dDR,
+            donor.age = donor.age,
+            df.abs = cabs,
+            data = candidates,
+            n = n,
+            q2 = q2,
+            q3 = q3,
+            cPRA1 = cPRA1,
+            cPRA2 = cPRA2
+           ),
         results
     )
 
@@ -75,7 +73,7 @@ test_that("Test lima algorithm", {
     expect_error(lima(q2 = env$q.maximum+1),
                  'q2.*')
     expect_error(lima(q3 = env$q.minimum-1),
-                 'q2.*')
+                 'q3.*')
     expect_error(lima(q3 = env$q.maximum+1),
-                 'q2.*')
+                 'q3.*')
 })

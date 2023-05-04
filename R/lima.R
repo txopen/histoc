@@ -22,10 +22,12 @@
 #' @return An ordered data frame with a column \code{cp} (color priority),
 #' \code{SP}, \code{HI} and \code{mmHLA}.
 #' @examples
+#' \dontrun{
 #' lima(iso = TRUE, dABO = "O",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 #' donor.age = 60, df.abs = cabs,
 #' data = candidates, n = 2, check.validity = TRUE)
+#' }
 #' @export
 lima <- function(iso = TRUE
                   , dABO = "O"
@@ -52,7 +54,9 @@ lima <- function(iso = TRUE
     stop("q2 and q3 should be bigger or equal to ", env$q.minimum, " an smaller or equal to ", env$q.maximum)
   }
 
-  n <- max(1, n)
+  if(!is.numeric(n) | n < 0){stop('n must be an positive number!')}
+  n <- floor(n)
+  if(n == 0) n <- nrow(data)
 
   data <- cp(data = data
             , q2 = q2
@@ -124,7 +128,8 @@ lima <- function(iso = TRUE
          cPRA,
          HI,
          cp,
-         SP)
+         SP,
+         urgent)
     ]
   )
 }

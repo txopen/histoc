@@ -208,6 +208,7 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' @return An ordered data frame with columns \code{cPRA}, \code{HI},
 #' \code{pointsET}, \code{SP}, \code{AM}, \code{mmHLA}, ...
 #' @examples
+#' \dontrun{
 #' et(iso = TRUE, dABO = "A",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 #' donor.age = 65,
@@ -219,6 +220,7 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' abo.freq = ABOpt,
 #' n = 2,
 #' check.validity = TRUE)
+#' }
 #' @export
 et <- function(iso = TRUE
              , dABO = "A"
@@ -249,9 +251,10 @@ et <- function(iso = TRUE
 
   blood_group_checker(dABO)
   age_checker(donor.age)
-  dialysis_checker(donor.age)
 
-  n <- max(1, n)
+  if(!is.numeric(n) | n < 0){stop('n must be an positive number!')}
+  n <- floor(n)
+  if(n == 0) n <- nrow(data)
 
   xm <- xmatch(dA = dA, dB = dB, dDR = dDR, df.abs = df.abs)
   data.table::setDT(xm, key = 'ID')

@@ -142,6 +142,7 @@ Ordering of waitlisted candidates for a given donor according
 to UK transplant algorithm.
 }
 \examples{
+\dontrun{
 uk(DRI = 'D1', dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 dABO = "O", donor.age = 65, data = candidates.uk,
 D1R1 = 1000, D1R2 = 700, D1R3 = 350, D1R4 = 0,
@@ -154,4 +155,5 @@ m = 40, nn = 4.5, o = 4.7,
 mm1 = -100, mm23 = -150, mm46 = -250,
 pts = -1000,
 df.abs = cabs, n = 2, check.validity = TRUE)
+}
 }

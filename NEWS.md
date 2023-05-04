@@ -1,3 +1,9 @@
+# histoc 0.3.0
+
+* added functions eqm() and uj_matx() for the computation of Equity Matrix algorithm.
+* output of several() reformulated
+* added 'ugent' to output of lima()
+
 # histoc 0.2.1
 
 * added function cHED() for calculated HLA Evolutionary Divergence.

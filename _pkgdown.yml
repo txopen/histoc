@@ -69,6 +69,12 @@ reference:
   - abo_uk
   - b_blood_penalization
   - ric
+- title: Equity Matrix algorithm
+  desc: |
+    Used to compute candidates selection according to Equity Matrix algorithm
+  contents:
+  - eqm
+  - uj_matx
 - title: Data
   desc: |
     data frames availables from the pacakge
