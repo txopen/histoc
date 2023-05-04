@@ -85,6 +85,7 @@ Applies EuroTransplant algorithm on deceased donor's Kidney allocation for trans
 Ordering of waitlisted candidates for a given donor according to ETKAS algorithm.
 }
 \examples{
+\dontrun{
 et(iso = TRUE, dABO = "A",
 dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 donor.age = 65,
@@ -96,4 +97,5 @@ hlaA = hlaApt, hlaB = hlaBpt, hlaDR = hlaDRpt,
 abo.freq = ABOpt,
 n = 2,
 check.validity = TRUE)
+}
 }

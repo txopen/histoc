@@ -159,7 +159,8 @@ test_that("et algorithm", {
   )
   #setDT(result4)
 
-  expect_equivalent(et(iso = T
+  expect_equal(ignore_attr = TRUE,
+               et(iso = T
                   , dABO = "O"
                   , dA = c("1","2")
                   , dB = c("15","44")
@@ -180,7 +181,8 @@ test_that("et algorithm", {
                   , hlaDR = hlaDRpt
                   , abo.freq = ABOpt
                   , n = 2), result1)
-  expect_equivalent(et(iso = F
+  expect_equal(ignore_attr = TRUE,
+               et(iso = F
                   , dABO = "A"
                   , dA = c("1","2")
                   , dB = c("15","44")
@@ -201,7 +203,8 @@ test_that("et algorithm", {
                   , hlaDR = hlaDRpt
                   , abo.freq = ABOpt
                   , n = 2), result2)
-  expect_equivalent(et(iso = F
+  expect_equal(ignore_attr = TRUE,
+               et(iso = F
                   , dABO = "O"
                   , dA = c("1","2")
                   , dB = c("7","28")
@@ -222,7 +225,8 @@ test_that("et algorithm", {
                   , hlaDR = hlaDRpt
                   , abo.freq = ABOpt
                   , n = 2), result3)
-  expect_equivalent(et(iso = T
+  expect_equal(ignore_attr = TRUE,
+               et(iso = T
                   , dABO = "AB"
                   , dA = c("1","2")
                   , dB = c("7","28")

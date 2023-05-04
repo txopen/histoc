@@ -245,6 +245,7 @@ abo_uk <- function(dABO = "A",
 #' @return An ordered data frame with a column \code{matchability},
 #' \code{Tier}, \code{pointsUK}, ...
 #' @examples
+#' \dontrun{
 #' uk(DRI = 'D1', dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 #' dABO = "O", donor.age = 65, data = candidates.uk,
 #' D1R1 = 1000, D1R2 = 700, D1R3 = 350, D1R4 = 0,
@@ -257,6 +258,7 @@ abo_uk <- function(dABO = "A",
 #' mm1 = -100, mm23 = -150, mm46 = -250,
 #' pts = -1000,
 #' df.abs = cabs, n = 2, check.validity = TRUE)
+#' }
 #' @export
 uk <- function(DRI = 'D1',
               dA = c("1","2"),

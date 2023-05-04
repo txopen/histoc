@@ -52,6 +52,8 @@ donor_recipient_pairs <- function(df.donors = donors,
     }
   }
 
+  dnrs_id <- df.donors$ID
+
   df.donors <- df.donors |>
     dplyr::mutate(dABO = bg,
                   dA = purrr::map2(.x = A1,
@@ -78,7 +80,7 @@ donor_recipient_pairs <- function(df.donors = donors,
                      n = n,
                      ...)
 
-  names(lst) <- df.donors$ID
+  names(lst) <- dnrs_id
 
   return(lst)
 }
@@ -168,28 +170,49 @@ several <- function(iteration.number = 10,
     all.statistics <- append(all.statistics, list(current.iteration.statistics))
   }
 
-  mean_age <- purrr::map(all.statistics, ~mean(.x$age)) |> unlist()
-  mean_dialysis <- purrr::map(all.statistics, ~mean(.x$dialysis)) |> unlist()
-  mean_cPRA <- purrr::map(all.statistics, ~mean(.x$cPRA)) |> unlist()
-  freq_mmHLA <- purrr::map(all.statistics, ~table(.x$mmHLA))
-  freq_mmA <- purrr::map(all.statistics, ~table(.x$mmA))
-  freq_mmB <- purrr::map(all.statistics, ~table(.x$mmB))
-  freq_mmDR <- purrr::map(all.statistics, ~table(.x$mmDR))
-  freq_ABO <- purrr::map(all.statistics, ~table(.x$bg))
-  freq_HI <- purrr::map(all.statistics, ~table(.x$HI))
-  freq_color <- purrr::map(all.statistics, ~table(.x$cp))
-  freq_SP <- purrr::map(all.statistics, ~table(.x$SP))
+  # mean_age <- purrr::map(all.statistics, ~mean(.x$age)) |> unlist()
+  # mean_dialysis <- purrr::map(all.statistics, ~mean(.x$dialysis)) |> unlist()
+  # mean_cPRA <- purrr::map(all.statistics, ~mean(.x$cPRA)) |> unlist()
+  # freq_mmHLA <- purrr::map(all.statistics, ~table(.x$mmHLA))
+  # freq_mmA <- purrr::map(all.statistics, ~table(.x$mmA))
+  # freq_mmB <- purrr::map(all.statistics, ~table(.x$mmB))
+  # freq_mmDR <- purrr::map(all.statistics, ~table(.x$mmDR))
+  # freq_ABO <- purrr::map(all.statistics, ~table(.x$bg))
+  # freq_HI <- purrr::map(all.statistics, ~table(.x$HI))
+  # freq_color <- purrr::map(all.statistics, ~table(.x$cp))
+  # freq_SP <- purrr::map(all.statistics, ~table(.x$SP))
+  #
+  # return(list(age = mean_age,
+  #             dialysis = mean_dialysis,
+  #             cPRA = mean_cPRA,
+  #             mmHLA = freq_mmHLA,
+  #             mmA = freq_mmA,
+  #             mmB = freq_mmB,
+  #             mmDR = freq_mmDR,
+  #             ABO = freq_ABO,
+  #             HI = freq_HI,
+  #             color = freq_color,
+  #             SP = freq_SP)
+  #       )
 
-  return(list(age = mean_age,
-              dialysis = mean_dialysis,
-              cPRA = mean_cPRA,
-              mmHLA = freq_mmHLA,
-              mmA = freq_mmA,
-              mmB = freq_mmB,
-              mmDR = freq_mmDR,
-              ABO = freq_ABO,
-              HI = freq_HI,
-              color = freq_color,
-              SP = freq_SP)
-        )
+  # results by iteration
+  dplyr::bind_rows(all.statistics, .id = 'it') |>
+    dplyr::group_by(it) |>
+    tidyr::nest() |>
+    dplyr::ungroup() |>
+    dplyr::mutate(age_avg = purrr::map_dbl(data, ~mean(.x$age)),
+                  mmHLA_avg = purrr::map_dbl(data, ~mean(.x$mmHLA)),
+                 mmHLA0_n = purrr::map_dbl(data, ~sum(.x$mmHLA == 0)),
+                 mmHLA1_n = purrr::map_dbl(data, ~sum(.x$mmHLA == 1)),
+                 mmHLA2_n = purrr::map_dbl(data, ~sum(.x$mmHLA == 2)),
+                 mmHLA3_n = purrr::map_dbl(data, ~sum(.x$mmHLA == 3)),
+                 mmHLA4_n = purrr::map_dbl(data, ~sum(.x$mmHLA == 4)),
+                 mmHLA5_n = purrr::map_dbl(data, ~sum(.x$mmHLA == 5)),
+                 mmHLA6_n = purrr::map_dbl(data, ~sum(.x$mmHLA == 6)),
+                 dialysis_avg = purrr::map_dbl(data, ~mean(.x$dialysis)),
+                 cPRA_avg = purrr::map_dbl(data, ~mean(.x$cPRA)),
+                 HI_n = purrr::map_dbl(data, ~sum(.x$HI)),
+                 SP_n = purrr::map_dbl(data, ~sum(.x$SP))
+    )
+
 }

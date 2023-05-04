@@ -208,6 +208,7 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' @return An ordered data frame with columns \code{cPRA}, \code{HI},
 #' \code{pointsET}, \code{SP}, \code{AM}, \code{mmHLA}, ...
 #' @examples
+#' \dontrun{
 #' et(iso = TRUE, dABO = "A",
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4"),
 #' donor.age = 65,
@@ -219,6 +220,7 @@ et_dialysis <- function(dialysis = 0, month = 2.78){
 #' abo.freq = ABOpt,
 #' n = 2,
 #' check.validity = TRUE)
+#' }
 #' @export
 et <- function(iso = TRUE
              , dABO = "A"

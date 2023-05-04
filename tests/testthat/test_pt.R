@@ -126,7 +126,7 @@ test_that("Test pts algorithm", {
         urgent = c(0,0)
     )
 
-    expect_equivalent(
+    expect_equal(ignore_attr = TRUE,
       pts(iso = TRUE
           , dABO = "O"
           , dA = c("1","2")

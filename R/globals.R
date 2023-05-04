@@ -22,5 +22,6 @@ utils::globalVariables(c("valid_blood_groups", "valid_blood_groups",
                          "donors","dABO","dA","dB","dDR","donor.age",
                          "algorithm", "recipient.dialysis", "donors.uk", "check.validity",
                          "seqs","dst", "seqs2",
+                         "ptsEQM","co","ro","it","data",
                          "max.val","ratio.util","ratio.just","uj.matx"
                          ))

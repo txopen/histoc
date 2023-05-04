@@ -104,6 +104,22 @@ s5 <- sticker(imgurl,
              ,filename="inst/figures/hex.jpg")
 
 s5
+donors$nrow <- 1:nrow(donors)
+donor_recipient_pairs(df.donors = donors,
+                      df.candidates = candidates,
+                      df.abs = cabs,
+                      algorithm = lima,
+                      n = 0,
+                      check.validity = TRUE)
+
+several(iteration.number = 10,
+        df.donors = donors,
+        df.candidates = candidates,
+        df.abs = cabs,
+        algorithm = eqm,
+        n = 0,
+        seed.number = 123,
+        check.validity = TRUE)
 
 ###############################
 

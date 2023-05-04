@@ -1,6 +1,6 @@
 Package: histoc
 Title: Histocompatibility Functions for Organ Transplantation
-Version: 0.2.1
+Version: 0.3.0
 Authors@R: c(
     person("Bruno", "Lima", , "balima78@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-9090-4457")),
