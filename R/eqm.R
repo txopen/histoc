@@ -2,7 +2,7 @@
 #'
 #' @description Creates a matrix with scores for utility and justice criteria on organ transplantation
 #' @param max.val A numerical value corresponding o the matrix maximum value.
-#' @param ratio.util A numerical value between 0 and 0.5 corresponding to the decreasing rate for the utility criterion (by column)
+#' @param ratio.util A numerical value between 0 and 0.5 corresponding to the decreasing rate for the utility criterion (by row)
 #' @param ratio.just A numerical value between 0 and 0.5 corresponding to the decreasing rate for the justice criterion (by column)
 #' @return A 6 by 6 matrix with at line 1 row 1 has the maximum value and at line 6, row 6 has it's minimum.
 #' @export
@@ -12,16 +12,14 @@ uj_matx <- function(max.val = 100,
                     ratio.util = 0.1,
                     ratio.just = 0.1){
 
-  if(!(ratio.just > 0 & ratio.just < 0.5 &
-       ratio.util > 0 & ratio.util < 0.5)
+  if(!(ratio.just > 0 & ratio.just <= 0.5 &
+       ratio.util > 0 & ratio.util <= 0.5)
   ){stop('ratio values are not between 0 and 0.5!')}
 
   if(!(max.val > 0)){stop('max.val is not greater than 0!')}
 
   matx <- matrix(nrow = 6,
                  ncol = 6)
-  # rownames(matx) <- c('a','b','c','d','e','f')
-  # colnames(matx) <- c('a','b','c','d','e','f')
 
   util.val <- max.val * ratio.util
   just.val <- max.val * ratio.just
@@ -43,8 +41,6 @@ uj_matx <- function(max.val = 100,
   if( is.na(sum(matx)) | is.nan(sum(matx)) ){stop("The matrix have non valid numbers!")}
 
   matx0 <- matrix(0, ncol = 6, nrow = 6)
-  # rownames(matx0) <- c('a','b','c','d','e','f')
-  # colnames(matx0) <- c('a','b','c','d','e','f')
   if(identical(matx,matx0) ){stop("All matrix values are zeros!")}
 
   return(matx)
@@ -72,7 +68,7 @@ uj_matx <- function(max.val = 100,
 #' @export
 #' @examples
 #' \dontrun{
-#' eqm <- function(iso = TRUE, dABO = "O" ,
+#' eqm(iso = TRUE, dABO = "O" ,
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4") ,
 #' donor.age = 60 , df.abs = cabs , data = candidates ,
 #' n = 2 , q2 = 60 , q3 = 80 , uj.matx = uj_matx(),
@@ -163,7 +159,7 @@ eqm <- function(iso = TRUE
                                       dialysis <= q2 & cPRA > 50 , 5,
                                       dialysis <= q2 & cPRA <= 50 , 6)
   ),
-  by = 'ID'][, ptsEQM := uj_matx()[co,ro],
+  by = 'ID'][, ptsEQM := uj.matx[ro,co],
              by = 'ID'][, AM := ifelse(SP == 0 & HI, 1, 0)]
 
 

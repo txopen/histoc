@@ -57,7 +57,7 @@ Ordering of wait listed candidates for a given donor and according to an utility
 }
 \examples{
 \dontrun{
-eqm <- function(iso = TRUE, dABO = "O" ,
+eqm(iso = TRUE, dABO = "O" ,
 dA = c("1","2"), dB = c("15","44"), dDR = c("1","4") ,
 donor.age = 60 , df.abs = cabs , data = candidates ,
 n = 2 , q2 = 60 , q3 = 80 , uj.matx = uj_matx(),
