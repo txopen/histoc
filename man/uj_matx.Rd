@@ -9,7 +9,7 @@ uj_matx(max.val = 100, ratio.util = 0.1, ratio.just = 0.1)
 \arguments{
 \item{max.val}{A numerical value corresponding o the matrix maximum value.}
 
-\item{ratio.util}{A numerical value between 0 and 0.5 corresponding to the decreasing rate for the utility criterion (by column)}
+\item{ratio.util}{A numerical value between 0 and 0.5 corresponding to the decreasing rate for the utility criterion (by row)}
 
 \item{ratio.just}{A numerical value between 0 and 0.5 corresponding to the decreasing rate for the justice criterion (by column)}
 }

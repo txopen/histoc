@@ -37,8 +37,8 @@ test_that("test eqm", {
   cPRA1 = 50
   cPRA2 = 85
 
-  candidates <- data.frame(
-    ID = c('K1', 'K2', 'K3', 'K4', 'K5', 'K6'),
+  candidates1 <- data.frame(
+    ID = c('1', '2', '3', '4', '5', '6'),
     bg = c('O', 'O', 'A', 'B', 'AB', 'O'),
     A1 = c('2', '2', '2', '2', '2', '2'),
     A2 = c('29', '33', '33', '33', '33', '33'),
@@ -52,8 +52,23 @@ test_that("test eqm", {
     urgent = c(0, 0, 0, 0, 0, 0)
   )
 
-  results <- data.frame(
-    ID = c('K6', 'K1', 'K2'),
+  candidates2 <- data.frame(
+    ID = c('1', '2', '3', '4', '5', '6'),
+    bg = c('O', 'O', 'A', 'B', 'AB', 'O'),
+    A1 = c('2', '1', '23', '24', '3', '1'),
+    A2 = c('11', '26', '33', '66', '32', '2'),
+    B1 = c('13', '15', '8', '35', '18', '15'),
+    B2 = c('40', '27', '58', '57', '27', '51'),
+    DR1 = c('4', '7', '8', '11', '7', '13'),
+    DR2 = c('7', '8', '11', '13', '7', '14'),
+    age = c(58, 55, 50, 65, 65, 65),
+    dialysis = c(0, 0, 65, 0, 0, 101),
+    cPRA = c(86, 86, 0, 51, 49, 0),
+    urgent = c(0, 0, 0, 0, 0, 0)
+  )
+
+  results1 <- data.frame(
+    ID = c('6', '1', '2'),
     bg = c('O', 'O', 'O'),
     A1 = c('2', '2', '2'),
     A2 = c('33', '29', '33'),
@@ -76,23 +91,62 @@ test_that("test eqm", {
     urgent = c(0,0,0)
   )
 
-  library(histoc)
+  results2 <- data.frame(
+    ID = c('6', '1', '2'),
+    bg = c('O', 'O', 'O'),
+    A1 = c('1', '2', '1'),
+    A2 = c('2', '11', '26'),
+    B1 = c('15', '13', '15'),
+    B2 = c('51', '40', '27'),
+    DR1 = c('13', '4', '7'),
+    DR2 = c('14', '7', '8'),
+    mmA = c(0, 1, 1),
+    mmB = c(1, 2, 1),
+    mmDR = c(2, 1, 2),
+    mmHLA = c(3, 4, 4),
+    age = c(65, 58, 55),
+    donor_age = c(60, 60, 60),
+    dialysis = c(101, 0, 0),
+    cPRA = c(0, 86, 86),
+    HI = c(FALSE, TRUE, TRUE),
+    ptsEQM = c(40, 10, 10),
+    SP = c(0,0,0),
+    AM = c(0,1,1),
+    urgent = c(0,0,0)
+  )
 
   expect_equal(ignore_attr = TRUE,
-    eqm(iso = iso,
-        dABO = dABO,
-        dA = dA,
-        dB = dB,
-        dDR = dDR,
-        donor.age = donor.age,
-        df.abs = cabs,
-        data = candidates,
-        n = 6,
-        q2 = q2,
-        q3 = q3,
-        uj.matx = uj_matx(max.val = 100, ratio.util = 0.1, ratio.just = 0.1)
-    ),
-    results
+               eqm(iso = iso,
+                  dABO = dABO,
+                  dA = dA,
+                  dB = dB,
+                  dDR = dDR,
+                  donor.age = donor.age,
+                  df.abs = cabs,
+                  data = candidates1,
+                  n = 6,
+                  q2 = q2,
+                  q3 = q3,
+                  uj.matx = uj_matx(max.val = 100, ratio.util = 0.1, ratio.just = 0.1)
+              ),
+              results1
+              )
+
+  expect_equal(ignore_attr = TRUE,
+               eqm(iso = iso,
+                   dABO = dABO,
+                   dA = dA,
+                   dB = dB,
+                   dDR = dDR,
+                   donor.age = donor.age,
+                   df.abs = cabs,
+                   data = candidates2,
+                   n = 6,
+                   q2 = q2,
+                   q3 = q3,
+                   uj.matx = uj_matx(max.val = 100, ratio.util = 0.5, ratio.just = 0.1)
+               ),
+               results2
   )
 
 })
