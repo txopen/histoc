@@ -62,7 +62,10 @@ uj_matx <- function(max.val = 100,
 #' @param n A positive integer to slice the first candidates.
 #' @param q2 A numerical value for the median of candidates' waiting list (`r env$q.minimum` - `r env$q.maximum`).
 #' @param q3 A numerical value for the third quartile of candidates' waiting list (`r env$q.minimum` - `r env$q.maximum`).
-#' @param uj.matx A 6 by 6 matrix obtained from \code{uj_matx()}
+#' @param uj.matx A 6 by 6 matrix obtained from \code{uj_matx()}.
+#' @param SP A logical value, when `TRUE` donors with 65+ years old are allocated prioritize to 65+ candidates,similarly do the Senior Program.
+#' @param AM A logical value, when `TRUE` hipersensitized candidates are prioritize, similarly to the Acceptable mismatch program.
+#' @param mm000 A logical value, when `TRUE` candidates with 0 HLA mismatchs with the donor are prioritize.
 #' @param check.validity Logical to decide whether to validate input arguments.
 #' @return An ordered data frame with a column \code{ptsEQM} (points from utility-justice matrix), \code{SP}, \code{HI} and \code{mmHLA}.
 #' @export
@@ -72,6 +75,7 @@ uj_matx <- function(max.val = 100,
 #' dA = c("1","2"), dB = c("15","44"), dDR = c("1","4") ,
 #' donor.age = 60 , df.abs = cabs , data = candidates ,
 #' n = 2 , q2 = 60 , q3 = 80 , uj.matx = uj_matx(),
+#' SP = FALSE, AM = FALSE, mm000 = FALSE,
 #' check.validity = FALSE)
 #' }
 eqm <- function(iso = TRUE
@@ -84,6 +88,9 @@ eqm <- function(iso = TRUE
                 , q2 = 60
                 , q3 = 80
                 , uj.matx = uj_matx()
+                , SP = FALSE
+                , AM = FALSE
+                , mm000 = FALSE
                 , check.validity = FALSE){
 
   if(check.validity){
@@ -160,35 +167,53 @@ eqm <- function(iso = TRUE
                                       dialysis <= q2 & cPRA <= 50 , 6)
   ),
   by = 'ID'][, ptsEQM := uj.matx[ro,co],
-             by = 'ID'][, AM := ifelse(SP == 0 & HI, 1, 0)]
+             by = 'ID'][, `:=` (AM = ifelse(SP == 0 & HI, 1, 0),
+                                mm000 = ifelse(mmHLA == 0, 1, 0)),
+                        by = 'ID']
 
+  data <- data[compBlood == TRUE & (xm == 'NEG' | is.na(xm)),][]
 
-  return(
-    data[compBlood == TRUE & (xm == 'NEG' | is.na(xm)),]
-    [order(-urgent, -ptsEQM, mmHLA, -dialysis)]
-    [1:n]
-    [!is.na(ID),][,
-                  .(ID,
-                    bg,
-                    A1,
-                    A2,
-                    B1,
-                    B2,
-                    DR1,
-                    DR2,
-                    mmA,
-                    mmB,
-                    mmDR,
-                    mmHLA,
-                    age,
-                    donor_age,
-                    dialysis,
-                    cPRA,
-                    HI,
-                    ptsEQM,
-                    SP,
-                    AM,
-                    urgent)]
-  )
+  if(!SP & !AM & !mm000){#
+    data <- data[order(-urgent, -ptsEQM, mmHLA, -dialysis)][]
+  } else if(SP & !AM & !mm000){#
+    data <- data[order(-urgent, -SP, -ptsEQM, mmHLA, -dialysis)][]
+  } else if(SP & AM & !mm000){#
+    data <- data[order(-urgent, -SP, -AM, -ptsEQM, mmHLA, -dialysis)][]
+  } else if(SP & AM & mm000){#
+    data <- data[order(-urgent, -SP, -AM, -mm000, -ptsEQM, mmHLA, -dialysis)][]
+  } else if(!SP & AM & !mm000){#
+    data <- data[order(-urgent, -AM, -ptsEQM, mmHLA, -dialysis)][]
+  } else if(!SP & AM & mm000){#
+    data <- data[order(-urgent, -SP, -AM, -mm000, -ptsEQM, mmHLA, -dialysis)][]
+  } else if(!SP & !AM & mm000){#
+    data <- data[order(-urgent, -mm000, -ptsEQM, mmHLA, -dialysis)][]
+  } else if(SP & !AM & mm000){#
+    data <- data[order(-urgent, -SP, -mm000, -ptsEQM, mmHLA, -dialysis)][]
+  }
+
+  return(data[1:n,][
+      !is.na(ID),][,
+                   .(ID,
+                     bg,
+                     A1,
+                     A2,
+                     B1,
+                     B2,
+                     DR1,
+                     DR2,
+                     mmA,
+                     mmB,
+                     mmDR,
+                     mmHLA,
+                     age,
+                     donor_age,
+                     dialysis,
+                     cPRA,
+                     HI,
+                     ptsEQM,
+                     SP,
+                     AM,
+                     urgent)]
+      )
 
 }

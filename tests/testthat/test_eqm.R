@@ -115,6 +115,54 @@ test_that("test eqm", {
     urgent = c(0,0,0)
   )
 
+  results3 <- data.frame(
+    ID = c('1', '2', '6'),
+    bg = c('O', 'O', 'O'),
+    A1 = c('2', '2', '2'),
+    A2 = c('29', '33', '33'),
+    B1 = c('44', '15', '15'),
+    B2 = c('44', '27', '27'),
+    DR1 = c('4', '11', '11'),
+    DR2 = c('12', '7', '7'),
+    mmA = c(1, 1, 1),
+    mmB = c(1, 1, 1),
+    mmDR = c(1, 2, 2),
+    mmHLA = c(3, 4, 4),
+    age = c(58, 55, 65),
+    donor_age = c(60, 60, 60),
+    dialysis = c(0, 0, 101),
+    cPRA = c(86, 86, 51),
+    HI = c(TRUE, TRUE, FALSE),
+    ptsEQM = c(50, 50, 90),
+    SP = c(0,0,0),
+    AM = c(1,1,0),
+    urgent = c(0,0,0)
+  )
+
+  results4 <- data.frame(
+    ID = c('6', '1', '2'),
+    bg = c('O', 'O', 'O'),
+    A1 = c('2', '2', '2'),
+    A2 = c('33', '29', '33'),
+    B1 = c('15', '44', '15'),
+    B2 = c('27', '44', '27'),
+    DR1 = c('11', '4', '11'),
+    DR2 = c('7', '12', '7'),
+    mmA = c(1, 1, 1),
+    mmB = c(1, 1, 1),
+    mmDR = c(2, 1, 2),
+    mmHLA = c(4, 3, 4),
+    age = c(65, 58, 55),
+    donor_age = c(70, 70, 70),
+    dialysis = c(101, 0, 0),
+    cPRA = c(51, 86, 86),
+    HI = c(FALSE, TRUE, TRUE),
+    ptsEQM = c(50, -140, -140),
+    SP = c(1,0,0),
+    AM = c(0,1,1),
+    urgent = c(0,0,0)
+  )
+
   expect_equal(ignore_attr = TRUE,
                eqm(iso = iso,
                   dABO = dABO,
@@ -127,7 +175,8 @@ test_that("test eqm", {
                   n = 6,
                   q2 = q2,
                   q3 = q3,
-                  uj.matx = uj_matx(max.val = 100, ratio.util = 0.1, ratio.just = 0.1)
+                  uj.matx = uj_matx(max.val = 100, ratio.util = 0.1, ratio.just = 0.1),
+                  SP = FALSE, AM = FALSE, mm000 = FALSE
               ),
               results1
               )
@@ -144,9 +193,46 @@ test_that("test eqm", {
                    n = 6,
                    q2 = q2,
                    q3 = q3,
-                   uj.matx = uj_matx(max.val = 100, ratio.util = 0.5, ratio.just = 0.1)
+                   uj.matx = uj_matx(max.val = 100, ratio.util = 0.5, ratio.just = 0.1),
+                   SP = FALSE, AM = FALSE, mm000 = FALSE
                ),
                results2
   )
+
+  expect_equal(ignore_attr = TRUE,
+               eqm(iso = iso,
+                   dABO = dABO,
+                   dA = dA,
+                   dB = dB,
+                   dDR = dDR,
+                   donor.age = donor.age,
+                   df.abs = cabs,
+                   data = candidates1,
+                   n = 6,
+                   q2 = q2,
+                   q3 = q3,
+                   uj.matx = uj_matx(max.val = 100, ratio.util = 0.1, ratio.just = 0.1),
+                   SP = TRUE, AM = TRUE, mm000 = TRUE
+               ),
+               results3
+               )
+
+  expect_equal(ignore_attr = TRUE,
+               eqm(iso = iso,
+                   dABO = dABO,
+                   dA = dA,
+                   dB = dB,
+                   dDR = dDR,
+                   donor.age = 70,
+                   df.abs = cabs,
+                   data = candidates1,
+                   n = 6,
+                   q2 = q2,
+                   q3 = q3,
+                   uj.matx = uj_matx(max.val = 100, ratio.util = 0.5, ratio.just = 0.1),
+                   SP = TRUE, AM = FALSE, mm000 = FALSE
+               ),
+               results4
+               )
 
 })
