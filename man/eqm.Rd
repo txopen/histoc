@@ -17,6 +17,9 @@ eqm(
   q2 = 60,
   q3 = 80,
   uj.matx = uj_matx(),
+  SP = FALSE,
+  AM = FALSE,
+  mm000 = FALSE,
   check.validity = FALSE
 )
 }
@@ -44,7 +47,13 @@ for a group of waitlisted transplant candidates.}
 
 \item{q3}{A numerical value for the third quartile of candidates' waiting list (0 - 120).}
 
-\item{uj.matx}{A 6 by 6 matrix obtained from \code{uj_matx()}}
+\item{uj.matx}{A 6 by 6 matrix obtained from \code{uj_matx()}.}
+
+\item{SP}{A logical value, when \code{TRUE} donors with 65+ years old are allocated prioritize to 65+ candidates,similarly do the Senior Program.}
+
+\item{AM}{A logical value, when \code{TRUE} hipersensitized candidates are prioritize, similarly to the Acceptable mismatch program.}
+
+\item{mm000}{A logical value, when \code{TRUE} candidates with 0 HLA mismatchs with the donor are prioritize.}
 
 \item{check.validity}{Logical to decide whether to validate input arguments.}
 }
@@ -61,6 +70,7 @@ eqm(iso = TRUE, dABO = "O" ,
 dA = c("1","2"), dB = c("15","44"), dDR = c("1","4") ,
 donor.age = 60 , df.abs = cabs , data = candidates ,
 n = 2 , q2 = 60 , q3 = 80 , uj.matx = uj_matx(),
+SP = FALSE, AM = FALSE, mm000 = FALSE,
 check.validity = FALSE)
 }
 }
