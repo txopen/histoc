@@ -184,7 +184,7 @@ eqm <- function(iso = TRUE
   } else if(!SP & AM & !mm000){#
     data <- data[order(-urgent, -AM, -ptsEQM, mmHLA, -dialysis)][]
   } else if(!SP & AM & mm000){#
-    data <- data[order(-urgent, -SP, -AM, -mm000, -ptsEQM, mmHLA, -dialysis)][]
+    data <- data[order(-urgent, -AM, -mm000, -ptsEQM, mmHLA, -dialysis)][]
   } else if(!SP & !AM & mm000){#
     data <- data[order(-urgent, -mm000, -ptsEQM, mmHLA, -dialysis)][]
   } else if(SP & !AM & mm000){#
